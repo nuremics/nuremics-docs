@@ -1,0 +1,40 @@
+site_name: NUREMICS®
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Handbook:
+    - Overview: handbook/index.md
+    - Theory: handbook/theory.md
+    - Practice: handbook/practice.md
+  - Labs:
+    - Apps:
+      - General:
+        - DEMO_APP: labs/Apps/General/DEMO_APP.md
+    - Procs:
+      - General:
+        - PolygonGeometryProc: labs/Procs/General/PolygonGeometryProc.md
+        - ProjectileModelProc: labs/Procs/General/ProjectileModelProc.md
+        - TrajectoryAnalysisProc: labs/Procs/General/TrajectoryAnalysisProc.md
+
+theme:
+  name: material
+  logo: images/logo.png
+  favicon: images/logo.png
+  palette:
+    scheme: default  # ou 'slate' pour un fond sombre
+    primary: teal     # couleur principale (menu, boutons)
+    accent: amber     # couleur secondaire (liens, survols)
+  font:
+    text: Jost       # police du texte
+    code: Roboto Mono  # police du code
+
+extra_css:
+  - css/extra.css  # si tu veux encore plus personnaliser avec du CSS
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
