@@ -225,30 +225,29 @@ APP_NAME = "DEMO_APP"
 We then import the `Application` class from the **NUREMICS** framework, which serves as the container and manager to define a workflow composed of multiple **Procs**.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from nuremics import Application
+
+APP_NAME = "DEMO_APP"
 ```
 
 We now import the two **Procs**, `PolygonGeometryProc` and `ProjectileModelProc`, that we previously implemented. These will be the building blocks to assemble into our final **App**.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
 
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+APP_NAME = "DEMO_APP"
 ```
 
 The source code of the **App** then adopts the structure of a standard Python script, which can both be executed directly or imported as a module. This is achieved by defining a `main()` function and guarding it with the typical `if __name__ == "__main__":` statement.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main():
     # Application logic here
@@ -264,12 +263,12 @@ In the `main()` function, we add two input arguments that the end-user must spec
 - `studies`: a list of study names that the end-user wants to perform with the **App**.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from pathlib import Path
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main(
     working_dir: Path = None,
@@ -308,12 +307,12 @@ Let's first define the key `"process"` of each dictionary, which specifies the *
 This dictionary-based structure offers flexibility to easily add more parameters or options later by simply adding new keys to each dictionary in the workflow.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from pathlib import Path
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main(
     working_dir: Path = None,
@@ -368,12 +367,12 @@ We now create an `Application` object `app`, which acts as the core engine of ou
 Once the `Application` object is created, calling `app()` launches the workflow execution of all the defined **Procs** for each study.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from pathlib import Path
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main(
     working_dir: Path = None,
@@ -527,12 +526,12 @@ If any **input parameters** are missing, they are explicitly listed, and the dev
 The **input parameters** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"user_params"` and/or `"hard_params"` keys in its corresponding dictionary entry inside the `workflow` list.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from pathlib import Path
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main(
     working_dir: Path = None,
@@ -611,12 +610,12 @@ title_file -----||----- Not defined (X)
 The **input paths** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"user_paths"` and/or `"required_paths"` keys in its corresponding dictionary entry inside the workflow list.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from pathlib import Path
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main(
     working_dir: Path = None,
@@ -703,12 +702,12 @@ The **output paths** of the **Proc** `PolygonGeometryProc` can be properly mappe
 In the same way, we also complete the mapping for the **Proc** `ProjectileModelProc` by providing all required entries: `"user_params"` and/or `"hard_params"`, `"user_paths"` and/or `"required_paths"`, `"output_paths"`.
 
 ```python
-APP_NAME = "DEMO_APP"
-
 from pathlib import Path
 from nuremics import Application
-from procs.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.ProjectileModelProc.item import ProjectileModelProc
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
 
 def main(
     working_dir: Path = None,

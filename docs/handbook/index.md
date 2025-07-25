@@ -1,5 +1,14 @@
 # Overview
 
+<div style="text-align: center; margin-bottom: 2em;">
+  <iframe width="640" height="360"
+          src="https://www.youtube.com/embed/HyUkWXGqEIM?autoplay=1&loop=1&playlist=HyUkWXGqEIM&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen>
+  </iframe>
+</div>
+
 The software architecture of **NUREMICS** is illustrated in the diagram below. It follows the layered structure recommended by the **IEC 62304** standard, distinguishing between _software systems_, _software items_, and _software units_. This representation provides a clear, high-level view of how the different software components of the project are organized, and how they interact within a structured yet flexible development framework. It also highlights the relationship between the core framework (`nuremics`) and its domain-specific applications (`nuremics-labs`), emphasizing the modular and extensible nature of the overall architecture.
 
 In the context of **NUREMICS**:

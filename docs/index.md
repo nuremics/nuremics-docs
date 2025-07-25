@@ -6,6 +6,20 @@
   <img src="images/banner.jpg"
        style="margin-bottom: 0.5rem; display: block;">
 </a>
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.12+-ffcd3b?style=flat&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/attrs-24.1.0+-000000?style=flat" />
+  <img src="https://img.shields.io/badge/Pandas-2.2.2+-0b0153?style=flat&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/NumPy-2.0.1+-4dabcf?style=flat&logo=numpy&logoColor=white" />
+  <img src="https://img.shields.io/badge/termcolor-3.0.1+-0dbc5a?style=flat" />
+  <img src="https://img.shields.io/badge/GitPython-3.1.44+-f05030?style=flat&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/pytest-8.4.0+-009fe3?style=flat&logo=pytest&logoColor=white" />
+  <a href="https://nuremics.github.io/coverage"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/Coverage-84%25-magenta?style=flat"/>
+  </a>
+</p>
 
 **NUREMICS is an open-source Python framework for developing software-grade scientific workflows.**
 
@@ -14,6 +28,17 @@
 🧪 Parametric exploration — configuration over code.<br>
 💾 Full traceability — everything written to disk.<br>
 🛠️ Industrial mindset — R&D speed, software rigor.
+
+---
+
+<div style="text-align: center; margin-top: 2em;">
+  <iframe width="640" height="360"
+          src="https://www.youtube.com/embed/GbbZldfJHy0?autoplay=1&loop=1&playlist=GbbZldfJHy0&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen>
+  </iframe>
+</div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
   <a href="getting-started"
@@ -38,12 +63,12 @@
 
 The **NUREMICS** project is organized into two complementary repositories:
 
-- **`nuremics`**: This repository is the core Python library, installable via `pip install`. It provides the foundational components to create modular and extensible software workflows.
+- [**`nuremics`**](https://github.com/nuremics/nuremics): This repository is the core Python library. It provides the foundational components to create modular and extensible software workflows.
 
-- **`nuremics-labs`**:
-This repository contains examples of end-user applications built using the **NUREMICS** framework. It is intended to be **forked** by developers to initiate their own `nuremics-labs` project and build custom applications tailored to their specific use cases.
+- [**`nuremics-labs`**](https://github.com/nuremics/nuremics-labs):
+This repository contains examples of end-user applications built using the **NUREMICS** framework. It is intended to be **forked** by developers to initiate their own `nuremics-labs` project and build custom scientific applications tailored to their specific use cases.
 
-Developers are encouraged to treat `nuremics` as the core engine, and to use `nuremics-labs` as a starting point for developing and maintaining their own scientific software built on top of the **NUREMICS** framework.
+Developers are thus encouraged to treat `nuremics` as the core engine, and to use `nuremics-labs` as a starting point for developing and maintaining their own scientific software applications built on top of the **NUREMICS** framework.
 
 ## Project Philosophy
 
@@ -56,24 +81,3 @@ In regulated industries where scientific results directly support product develo
 In this landscape, **NUREMICS** emerges as a unifying framework designed to address these challenges: it provides a rigorous development structure that empowers scientists, engineers, and researchers to deliver high-quality scientific outcomes, and take their research to the next level. By enabling the safe integration of tools from the Python ecosystem, **NUREMICS** supports the engineering of domain-specific software tailored for scientific exploration and reproducibility, while upholding the discipline and maintainability required in high-stakes industrial environments.
 
 Inspired by **IEC 62304**, a standard originally developed for the engineering of medical device software, **NUREMICS** promotes structured, layered software development through clearly defined architectural components: systems, items, and units. This organization fosters clarity, modularity, and maintainability, while remaining well-suited to the iterative, exploratory nature of scientific development in Python. Although **NUREMICS** does not aim for full compliance with **IEC 62304**, it selectively incorporates its most relevant principles, striking a pragmatic balance between engineering rigor and the agility required in fast-paced research environments.
-
-
-
-
-<!-- # Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files. -->

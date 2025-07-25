@@ -1,8 +1,14 @@
+<p align="left">
+  <img src="https://img.shields.io/badge/Pandas-2.2.2+-0b0153?style=flat&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/NumPy-2.0.1+-4dabcf?style=flat&logo=numpy&logoColor=white" />
+  <img src="https://img.shields.io/badge/matplotlib-3.10.3+-11557c" />
+</p>
+
 ## Process
 
 Generate and plot a regular 2D polygon shape.<br>
 A/ **`generate_polygon_shape`:** Generate the 2D coordinates of a regular polygon.<br>
-B/ **`plot_polygon_shape`:** Plot the shape with a title read from an external file.
+B/ **`plot_polygon_shape`:** Plot a closed 2D polygon from a set of points.
 
 ```mermaid
 erDiagram
@@ -30,7 +36,7 @@ erDiagram
 
 ## Input Parameter(s)
 
-- **`radius`:** Radius of the polygon.
+- **`radius`:** Radius (m) of the circumscribed circle of the polygon.
 - **`n_sides`:** Number of sides of the polygon.
 
 ## Input Path(s)

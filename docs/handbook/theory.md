@@ -28,7 +28,7 @@ erDiagram
   }
 ```
 
-As mentioned in the [Handbook Overview](../), the algorithmic box of the **Proc** is a class composed of functions (**Op**) called sequentially within its `__call__` method.
+As mentioned in the [Handbook Overview](index.md), the algorithmic box of the **Proc** is a class composed of functions (**Op**) called sequentially within its `__call__` method.
 
 ```mermaid
 erDiagram

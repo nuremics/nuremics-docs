@@ -1,14 +1,24 @@
+<p align="left">
+  <img src="https://img.shields.io/badge/Pandas-2.2.2+-0b0153?style=flat&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/NumPy-2.0.1+-4dabcf?style=flat&logo=numpy&logoColor=white" />
+  <img src="https://img.shields.io/badge/matplotlib-3.10.3+-11557c" />
+  <img src="https://img.shields.io/badge/pygame-2.6.1+-08df1c" />
+  <img src="https://img.shields.io/badge/pymunk-7.0.1+-3398da" />
+  <img src="https://img.shields.io/badge/XlsxWriter-3.2.3+-207346" />
+  <img src="https://img.shields.io/badge/openpyxl-3.1.5+-010043" />
+</p>
+
 ## Workflow
 
 1. **[`PolygonGeometryProc`](../../Procs/General/PolygonGeometryProc.md):** Generate and plot a regular 2D polygon shape.<br>
   A/ **`generate_polygon_shape`:** Generate the 2D coordinates of a regular polygon.<br>
-  B/ **`plot_polygon_shape`:** Plot the shape with a title read from an external file.
-2. **[`ProjectileModelProc`](../../Procs/General/ProjectileModelProc.md):** Simulate a projectile trajectory and compare it with the analytical solution.<br>
-  A/ **`simulate_projectile_motion`:** Run the physical simulation of a projectile.<br>
-  B/ **`calculate_analytical_trajectory`:** Compute the theoretical trajectory using analytical equations.<br>
-  C/ **`compare_model_vs_analytical_trajectories`:** Plot and save the comparison between simulated (model) and theoretical trajectories.
-3. **[`TrajectoryAnalysisProc`](../../Procs/General/TrajectoryAnalysisProc.md):** Compare simulated (model) and theoretical trajectories of a projectile across all experiments.<br>
-  A/ **`plot_overall_model_vs_theory`:** Generate overall comparative plot of simulated (model) and theoritical trajectories.
+  B/ **`plot_polygon_shape`:** Plot a closed 2D polygon from a set of points.
+2. **[`ProjectileModelProc`](../../Procs/General/ProjectileModelProc.md):** Simulate the motion of a projectile and compare its trajectory with the analytical solution.<br>
+  A/ **`simulate_projectile_motion`:** Simulate the motion of a 2D rigid body under gravity projected with an initial velocity.<br>
+  B/ **`calculate_analytical_trajectory`:** Calculate the theoretical trajectory of a projectile using analytical equations.<br>
+  C/ **`compare_model_vs_analytical_trajectories`:** Plot and save the comparison between simulated (model) and theoretical projectile trajectories.
+3. **[`TrajectoryAnalysisProc`](../../Procs/General/TrajectoryAnalysisProc.md):** Perform overall comparisons between simulated (model) and theoretical trajectories.<br>
+  A/ **`plot_overall_model_vs_theory`:** Generate overall comparative plots of simulated (model) and theoritical trajectories.
 
 ```mermaid
 flowchart RL
@@ -248,13 +258,13 @@ flowchart LR
 #### Parameters
 
 - **`nb_sides`:** Number of sides of the polygon.
-- **`gravity`:** Acceleration due to gravity (can be positive or negative).
-- **`mass`:** Mass of the projectile.
+- **`gravity`:** Gravitational acceleration (m/s²).
+- **`mass`:** Mass of the body (kg).
 
 #### Paths
 
 - **`plot_title.txt`:** File containing the plot title of the 2D polygon shape.
-- **`velocity.json`:** File containing the velocity initial conditions (v0, angle).
+- **`velocity.json`:** File containing the velocity initial conditions {v0 (m/s); angle (°)}.
 - **`configs/`** <br>
   **`solver_config.json`:** File containing the parameters for solver configuration. <br>
   **`display_config.json`:** File containing the parameters for display configuration.
@@ -266,7 +276,7 @@ flowchart LR
 - **`comparison/`** <br>
   **`results.xlsx`:** File containing simulated (model) and theoritical trajectories. <br>
   **`model_vs_theory.png`:** Image comparing both trajectories.
-- **`overall_comparisons.png`:** Image comparing both trajectories across all experiments.
+- **`overall_comparisons.png`:** Image containing overall comparative plots.
 
 ---
 

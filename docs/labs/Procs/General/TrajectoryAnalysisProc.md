@@ -1,7 +1,13 @@
+<p align="left">
+  <img src="https://img.shields.io/badge/Pandas-2.2.2+-0b0153?style=flat&logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/matplotlib-3.10.3+-11557c" />
+  <img src="https://img.shields.io/badge/openpyxl-3.1.5+-010043" />
+</p>
+
 ## Process
 
-Compare simulated (model) and theoretical trajectories of a projectile across all experiments.<br>
-A/ **`plot_overall_model_vs_theory`:** Generate overall comparative plot of simulated (model) and theoritical trajectories.
+Perform overall comparisons between simulated (model) and theoretical trajectories.<br>
+A/ **`plot_overall_model_vs_theory`:** Generate overall comparative plots of simulated (model) and theoritical trajectories.
 
 ```mermaid
 erDiagram
@@ -23,11 +29,11 @@ erDiagram
 ## Input Analysis
 
 - **`comp_folder/`**<br>
-  **`results.xlsx`:** File containing simulated (model) and theoritical trajectories.
+  **`results.xlsx`:** File containing both trajectories.
 
 ## Output Path(s)
 
-- **`fig_file`:** Image comparing both trajectories across all experiments.
+- **`fig_file`:** Image containing overall comparative plots.
 
 ---
 
