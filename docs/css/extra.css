@@ -20,6 +20,12 @@ a.md-button.md-button--primary:hover {
   font-weight: normal;
 }
 
+@media screen and (max-width: 960px) {
+  .md-dialog__inner {
+    background-color: #6eb7ff !important;  /* Couleur de fond personnalisée */
+  }
+}
+
 /* Étend la largeur max de la zone centrale */
 .md-grid {
     max-width: 1400px;  /* ajuste selon ce que tu veux */
