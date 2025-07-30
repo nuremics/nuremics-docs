@@ -10,12 +10,12 @@ nav:
   - Labs:
     - Apps:
       - General:
-        - DEMO_APP: labs/Apps/General/DEMO_APP.md
+        - DEMO_APP: Labs/Apps/General/DEMO_APP.md
     - Procs:
       - General:
-        - PolygonGeometryProc: labs/Procs/General/PolygonGeometryProc.md
-        - ProjectileModelProc: labs/Procs/General/ProjectileModelProc.md
-        - TrajectoryAnalysisProc: labs/Procs/General/TrajectoryAnalysisProc.md
+        - PolygonGeometryProc: Labs/Procs/General/PolygonGeometryProc.md
+        - ProjectileModelProc: Labs/Procs/General/ProjectileModelProc.md
+        - TrajectoryAnalysisProc: Labs/Procs/General/TrajectoryAnalysisProc.md
 
 theme:
   name: material

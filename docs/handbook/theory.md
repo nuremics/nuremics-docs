@@ -28,7 +28,7 @@ erDiagram
   }
 ```
 
-As mentioned in the [Handbook Overview](index.md), the algorithmic box of the **Proc** is a class composed of functions (**Op**) called sequentially within its `__call__` method.
+As mentioned in the [Handbook Overview](index.md){:target="_blank"}, the algorithmic box of the **Proc** is a class composed of functions (**Op**) called sequentially within its `__call__` method.
 
 ```mermaid
 erDiagram
@@ -593,7 +593,9 @@ Explore NUREMICS in:
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../practice" class="md-button md-button--primary">
+  <a href="../practice/" class="md-button md-button--primary">
     Practice
   </a>
 </div>
+
+---

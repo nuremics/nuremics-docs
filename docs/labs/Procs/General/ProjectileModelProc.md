@@ -62,7 +62,12 @@ erDiagram
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="" class="md-button md-button--primary">
+  <a href="https://github.com/nuremics/nuremics-labs/tree/main/src/labs/procs/general/ProjectileModelProc"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="md-button md-button--primary">
     View source code
   </a>
 </div>
+
+---

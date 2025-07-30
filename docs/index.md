@@ -41,11 +41,11 @@
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="getting-started"
+  <a href="getting-started/"
      class="md-button md-button--primary">
     Getting Started
   </a>
-  <a href="handbook"
+  <a href="handbook/"
      class="md-button md-button--primary">
     Handbook
   </a>
@@ -63,9 +63,9 @@
 
 The **NUREMICS** project is organized into two complementary repositories:
 
-- [**`nuremics`**](https://github.com/nuremics/nuremics): This repository is the core Python library. It provides the foundational components to create modular and extensible software workflows.
+- [**`nuremics`**](https://github.com/nuremics/nuremics){:target="_blank"}: This repository is the core Python library. It provides the foundational components to create modular and extensible software workflows.
 
-- [**`nuremics-labs`**](https://github.com/nuremics/nuremics-labs):
+- [**`nuremics-labs`**](https://github.com/nuremics/nuremics-labs){:target="_blank"}:
 This repository contains examples of end-user applications built using the **NUREMICS** framework. It is intended to be **forked** by developers to initiate their own `nuremics-labs` project and build custom scientific applications tailored to their specific use cases.
 
 Developers are thus encouraged to treat `nuremics` as the core engine, and to use `nuremics-labs` as a starting point for developing and maintaining their own scientific software applications built on top of the **NUREMICS** framework.
