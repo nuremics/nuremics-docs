@@ -20,11 +20,12 @@ a.md-button.md-button--primary:hover {
   font-weight: normal;
 }
 
-@media screen and (max-width: 960px) {
-  /* Fond du menu hamburger qui s'ouvre sur mobile */
-  .md-nav__menu {
-    background-color: #6eb7ff !important;
-  }
+@media screen and (max-width: 76.2344em) {
+    .md-nav--primary .md-nav__title[for=__drawer] {
+        background-color: #6eb7ff !important;  /* ta couleur de fond */
+        color: #ffffff !important;             /* ta couleur de texte */
+        font-weight: 700;
+    }
 }
 
 /* Étend la largeur max de la zone centrale */
