@@ -9,6 +9,17 @@ a.md-button.md-button--primary:hover {
   background-color: #00ffcf;  /* couleur au survol */
 }
 
+/* Changer la couleur du lien actif dans la navigation de gauche */
+.md-nav__item--active > .md-nav__link {
+  color: #6eb7ff !important;
+  font-weight: normal;
+}
+
+.md-nav__link--active {
+  color: #6eb7ff !important;  /* ta couleur personnalisée */
+  font-weight: normal;
+}
+
 /* Étend la largeur max de la zone centrale */
 .md-grid {
     max-width: 1400px;  /* ajuste selon ce que tu veux */
