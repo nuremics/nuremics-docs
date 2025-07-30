@@ -21,8 +21,9 @@ a.md-button.md-button--primary:hover {
 }
 
 @media screen and (max-width: 960px) {
-  .md-dialog__inner {
-    background-color: #6eb7ff !important;  /* Couleur de fond personnalisée */
+  /* Fond du menu hamburger qui s'ouvre sur mobile */
+  .md-nav__menu {
+    background-color: #6eb7ff !important;
   }
 }
 
