@@ -1,436 +1,15 @@
 # Practice
 
-## Create App
+## Use App
 
-This section walks you through the process of building a custom **NUREMICS** application from scratch. You'll start by implementing your own [**Procs**](theory.md#proc), which encapsulate domain-specific logic and computational tasks. Then, you’ll learn how to assemble these building blocks into a fully operational [**App**](theory.md#app), ready to run studies and generate structured results.
+This section walks you through the usage of a **NUREMICS App** from the end-user's perspective. We will demonstrate how to interact with a ready-to-use **App**, including how to design studies, define experiments, provide inputs, run the **App**, and retrieve the expected outputs.
 
-Whether you're developing a quick prototype or a full-scale scientific workflow, this guide will help you translate your ideas into modular, reusable, traceable and scalable software components.
+---
 
-### Implement Procs
-
-We start by defining the core building blocks of the **App** to be created: the **Procs**. Each **Proc** is a reusable item that encapsulates a specific piece of logic executed within the overall workflow. Internally, this logic can be further decomposed into elementary operations (**Ops**), implemented as individual functions (units) within the **Proc** itself.
-
-To implement our first **Proc**, we begin by importing the `Process` base class from **NUREMICS**, which all custom **Procs** must inherit from. To make this inheritance simple and structured, we also import the `attrs` library, which helps define clean, data-driven Python classes.
-
-```python
-import attrs
-from nuremics import Process
-```
-
-We then declare our first **Proc** as a Python class named `PolygonGeometryProc`, inheriting from the `Process` base class. This marks it as a modular item of computation which can be executed within a **NUREMICS** workflow.
-
-```python
-import attrs
-from nuremics import Process
-
-@attrs.define
-class PolygonGeometryProc(Process):
-```
-
-We now declare the input data required by our `PolygonGeometryProc`, grouped into two categories: **Parameters** and **Paths**. Each input is defined using `attrs.field()` and marked with `metadata={"input": True}`.
-
-This metadata is essential: it tells the **NUREMICS** framework that these attributes are expected as input data, ensuring they are properly tracked and managed throughout the workflow.
-
-```python
-import attrs
-from pathlib import Path
-from nuremics import Process
-
-@attrs.define
-class PolygonGeometryProc(Process):
-
-    # Parameters
-    radius: float = attrs.field(init=False, metadata={"input": True})
-    n_sides: int = attrs.field(init=False, metadata={"input": True})
-  
-    # Paths
-    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
-```
-
-In addition to the previously declared input data, a **Proc** can also define internal variables: attributes used during the execution of its internal logic but not provided as input data.
-
-These internal variables, like `df_points` in our example below, are declared without the `metadata={"input": True}` tag, signaling to the **NUREMICS** framework that they are not exposed to the workflow and will be set or computed within the **Proc** itself.
-
-```python
-import attrs
-import pandas as pd
-from pathlib import Path
-from nuremics import Process
-
-@attrs.define
-class PolygonGeometryProc(Process):
-
-    # Parameters
-    radius: float = attrs.field(init=False, metadata={"input": True})
-    n_sides: int = attrs.field(init=False, metadata={"input": True})
-  
-    # Paths
-    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
-
-    # Internal
-    df_points: pd.DataFrame = attrs.field(init=False)
-```
-
-The operations executed by the **Proc** are finally implemented as elementary functions (**Ops**), which are then sequentially called within the `__call__()` method to define the overall logic of the **Proc**.
-
-```python
-import attrs
-import pandas as pd
-from pathlib import Path
-from nuremics import Process
-
-@attrs.define
-class PolygonGeometryProc(Process):
-
-    # Parameters
-    radius: float = attrs.field(init=False, metadata={"input": True})
-    n_sides: int = attrs.field(init=False, metadata={"input": True})
-  
-    # Paths
-    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
-
-    # Internal
-    df_points: pd.DataFrame = attrs.field(init=False)
-
-    def __call__(self):
-        super().__call__()
-
-        self.generate_polygon_shape()
-        self.plot_polygon_shape()
-    
-    def generate_polygon_shape(self):
-        # </> your code </>
-
-    def plot_polygon_shape(self):
-        # </> your code </>
-```
-
-Note that the **Proc** should at some point produce output data, typically in the form of files or folders generated during the execution of its **Ops**. To make these output data trackable by the **NUREMICS** framework, each must be registered in the `self.output_paths` dictionary using a label that is unique to the **Proc** (e.g., `"coords_file"`, `"fig_file"`).
-
-Using the dictionary syntax `self.output_paths["coords_file"]` effectively declares an output variable named `coords_file`, which will later be instantiated by assigning it a specific file or folder name when integrating the **Proc** into a broader application workflow.
-
-```python
-import attrs
-import pandas as pd
-from pathlib import Path
-from nuremics import Process
-
-@attrs.define
-class PolygonGeometryProc(Process):
-
-    # Parameters
-    radius: float = attrs.field(init=False, metadata={"input": True})
-    n_sides: int = attrs.field(init=False, metadata={"input": True})
-  
-    # Paths
-    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
-
-    # Internal
-    df_points: pd.DataFrame = attrs.field(init=False)
-
-    def __call__(self):
-        super().__call__()
-
-        self.generate_polygon_shape()
-        self.plot_polygon_shape()
-    
-    def generate_polygon_shape(self):
-        # </> your code </>
-        file = self.output_paths["coords_file"]
-        # </> Write file </>
-
-    def plot_polygon_shape(self):
-        # </> your code </>
-        file = self.output_paths["fig_file"]
-        # </> Write file </>
-```
-
-Even though **Procs** are not intended to be executed independently by end-users, they are still designed with the possibility to run _out of the box_. This allows developers to easily execute them during the development phase or when implementing dedicated unit tests for a specific **Proc**.
-
-In such cases, it is important to set `set_inputs=True` when instantiating the **Proc**, to explicitly inform the **NUREMICS** framework that the input data are being provided manually, outside of any workflow context.
-
-```python
-import attrs
-import pandas as pd
-from pathlib import Path
-from nuremics import Process
-
-@attrs.define
-class PolygonGeometryProc(Process):
-
-    # Parameters
-    radius: float = attrs.field(init=False, metadata={"input": True})
-    n_sides: int = attrs.field(init=False, metadata={"input": True})
-  
-    # Paths
-    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
-
-    # Internal
-    df_points: pd.DataFrame = attrs.field(init=False)
-
-    def __call__(self):
-        super().__call__()
-
-        self.generate_polygon_shape()
-        self.plot_polygon_shape()
-    
-    def generate_polygon_shape(self):
-        # </> your code </>
-        file = self.output_paths["coords_file"]
-        # </> Write file </>
-
-    def plot_polygon_shape(self):
-        # </> your code </>
-        file = self.output_paths["fig_file"]
-        # </> Write file </>
-
-if __name__ == "__main__":
-    
-    # Define working directory
-    working_dir = ...
-
-    # Go to working directory
-    os.chdir(working_dir)
-
-    # Create dictionary containing input data
-    dict_inputs = {
-        "radius": ...,
-        "n_sides": ...,
-        "title_file": ...,
-    }
-    
-    # Create process
-    process = PolygonGeometryProc(
-        dict_inputs=dict_inputs,
-        set_inputs=True,
-    )
-    process.output_paths["coords_file"] = "points_coordinates.csv"
-    process.output_paths["fig_file"] = "polygon_shape.png"
-
-    # Run process
-    process()
-    process.finalize()
-```
-
-### Assemble Procs into App
-
-Most of the development effort has already been carried out when implementing the individual **Procs**. The next step consists in assembling them into a coherent **App**, where each **Proc** is instantiated, connected, and orchestrated to form a complete, executable workflow.
-
-We start by defining the name of our **App**.
-
-```python
-APP_NAME = "DEMO_APP"
-```
-
-We then import the `Application` class from the **NUREMICS** framework, which serves as the container and manager to define a workflow composed of multiple **Procs**.
-
-```python
-from nuremics import Application
-
-APP_NAME = "DEMO_APP"
-```
-
-We now import the two **Procs**, `PolygonGeometryProc` and `ProjectileModelProc`, that we previously implemented. These will be the building blocks to assemble into our final **App**.
-
-```python
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
-
-APP_NAME = "DEMO_APP"
-```
-
-The source code of the **App** then adopts the structure of a standard Python script, which can both be executed directly or imported as a module. This is achieved by defining a `main()` function and guarding it with the typical `if __name__ == "__main__":` statement.
-
-```python
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
-
-APP_NAME = "DEMO_APP"
-
-def main():
-    # Application logic here
-
-if __name__ == "__main__":
-    main()
-```
-
-In the `main()` function, we add two input arguments that the end-user must specify when launching the **App** inside the `if __name__ == "__main__":` block:
-
-- `working_dir`: the working directory from which the **App** will be executed.
-
-- `studies`: a list of study names that the end-user wants to perform with the **App**.
-
-```python
-from pathlib import Path
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
-
-APP_NAME = "DEMO_APP"
-
-def main(
-    working_dir: Path = None,
-    studies: list = ["Default"],
-):
-    # Application logic here
-
-if __name__ == "__main__":
-
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
-```
-
-Inside the `main()` function, we define a list called `workflow` which contains the sequence of **Procs** to be executed, in the order specified. This list is made up of dictionaries, where each dictionary describes the characteristics of a particular **Proc**.
-
-Let's first define the key `"process"` of each dictionary, which specifies the **Proc** class (previously imported, e.g., `PolygonGeometryProc` and `ProjectileModelProc`) to instantiate and execute within the **App** workflow.
-
-This dictionary-based structure offers flexibility to easily add more parameters or options later by simply adding new keys to each dictionary in the workflow.
-
-```python
-from pathlib import Path
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
-
-APP_NAME = "DEMO_APP"
-
-def main(
-    working_dir: Path = None,
-    studies: list = ["Default"],
-):
-    # --------------- #
-    # Define workflow #
-    # --------------- #
-    workflow = [
-        {
-            "process": PolygonGeometryProc,
-        },
-        {
-            "process": ProjectileModelProc,
-        },
-    ]
-
-if __name__ == "__main__":
-
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
-```
-
-We now create an `Application` object `app`, which acts as the core engine of our **App**. This object is instantiated using the previously defined inputs:
-
-- `app_name`: the name of the **App**.
-
-- `working_dir`: the root directory from which the **App** is executed.
-
-- `workflow`: the ordered list of **Procs** to run.
-
-- `studies`: the list of studies the end-user wishes to perform.
-
-Once the `Application` object is created, calling `app()` launches the workflow execution of all the defined **Procs** for each study.
-
-```python
-from pathlib import Path
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
-
-APP_NAME = "DEMO_APP"
-
-def main(
-    working_dir: Path = None,
-    studies: list = ["Default"],
-):
-    # --------------- #
-    # Define workflow #
-    # --------------- #
-    workflow = [
-        {
-            "process": PolygonGeometryProc,
-        },
-        {
-            "process": ProjectileModelProc,
-        },
-    ]
-
-    # ------------------ #
-    # Define application #
-    # ------------------ #
-    app = Application(
-        app_name=APP_NAME,
-        working_dir=working_dir,
-        workflow=workflow,
-        studies=studies,
-    )
-    # Run it!
-    app()
-
-if __name__ == "__main__":
-
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
-```
-
-When running the **App**, **NUREMICS** first provides the following terminal feedback:
+When launching the **App**, **NUREMICS** first provides the following terminal feedback:
 
 - A visual banner indicating the launch of a **NUREMICS App**.
-
-- A structured overview of the assembled workflow, showing each registered **Proc**, its associated **Ops** (functions), and their order of execution within the **App** workflow.
+- A structured overview of the assembled workflow, with its constitutive **Procs** and **Ops**, and their order of execution within the **App** workflow.
 
 👤🔄🖥️
 ```shell
@@ -464,359 +43,64 @@ DEMO_APP_____
              |                             |_____plot_polygon_shape
              |
              |_____ProjectileModelProc_____
-                                           |_____simulate_projectile_motion
-                                           |_____calculate_analytical_trajectory
-                                           |_____compare_model_vs_analytical_trajectories
-```
-
-At this stage, **NUREMICS** also performs a structural check of each **Proc** by inspecting its `__call__` method. Specifically, it ensures that only functions defined within the **Proc** class itself are invoked during execution. This design choice enforces a clean and self-contained structure for each **Proc**, where all internal logic remains encapsulated.
-
-Let’s consider a case where the developer does not adhere to this enforced structural rule, for instance, by injecting additional logic directly into the `__call__` method of a **Proc** (in this example, in the `ProjectileModelProc` class).
-
-```python
-    def __call__(self):
-        super().__call__()
-
-        some_parameter = 2 # <-- External logic added here
-
-        self.simulate_projectile_motion()
-        self.calculate_analytical_trajectory()
-        self.compare_model_vs_analytical_trajectories()
-```
-
-In this situation, **NUREMICS** will immediately raise a structural validation error and halt execution.
-
-👤🔄🖥️
-```shell
-| Workflow |
-DEMO_APP_____
-             |_____PolygonGeometryProc_____
-             |                             |_____generate_polygon_shape
-             |                             |_____plot_polygon_shape
+             |                             |_____simulate_projectile_motion
+             |                             |_____calculate_analytical_trajectory
+             |                             |_____compare_model_vs_analytical_trajectories
              |
-             |_____ProjectileModelProc_____(X)
-
-(X) Each process must only call its internal function(s):
-
-    def __call__(self):
-        super().__call__()
-
-        self.operation1()
-        self.operation2()
-        self.operation3()
-        ...
+             |_____TrajectoryAnalysisProc_____
+                                              |_____plot_overall_model_vs_theory
 ```
 
-**NUREMICS** is then expected to display a summary of all required input/output data for each **Proc**, along with their current mapping status within the **App**.
+### Specify Working Directory
 
-At this stage, the system automatically verifies whether every required input/output data has been properly mapped within the **App** configuration.
-
-If any **input parameters** are missing, they are explicitly listed, and the developer is prompted to define them using either the `"user_params"` or `"hard_params"` key.
+If this is your first time launching a **NUREMICS App**, **NUREMICS** will prompt you to specify the working directory (`"working_dir"`) for the **App**. This directory serves as the root location where all input/output data, logs, and results will be stored.
 
 👤🔄🖥️
 ```shell
-| PolygonGeometryProc |
-> Input Parameter(s) :
-(float) radius  -----||----- Not defined (X)
-(int)   n_sides -----||----- Not defined (X)
-
-(X) Please define all input parameters either in "user_params" or "hard_params".
+(X) Please define DEMO_APP "working_dir" in file :
+> .../nuremics-labs/.nuremics/settings.json
 ```
 
-The **input parameters** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"user_params"` and/or `"hard_params"` keys in its corresponding dictionary entry inside the `workflow` list.
+As indicated in the terminal message, you must define this path in the `settings.json` file located in the `.nuremics` folder. This folder should reside at the root of your `nuremics-labs` repository.
 
-```python
-from pathlib import Path
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+=== "📄`nuremics-labs/.nuremics/settings.json`"
+    ```json hl_lines="5"
+    {
+        "default_working_dir": null,
+        "apps": {
+            "DEMO_APP": {
+                "working_dir": "path/to/your/app/working_dir",
+                "studies": []
+            }
+        }
+    }
+    ```
 
-APP_NAME = "DEMO_APP"
+---
 
-def main(
-    working_dir: Path = None,
-    studies: list = ["Default"],
-):
-    # --------------- #
-    # Define workflow #
-    # --------------- #
-    workflow = [
-        {
-            "process": PolygonGeometryProc,
-            "user_params": {
-                "n_sides": "nb_sides",
-            },
-            "hard_params": {
-                "radius": 0.5,
-            },
-        },
-        {
-            "process": ProjectileModelProc,
-        },
-    ]
-
-    # ------------------ #
-    # Define application #
-    # ------------------ #
-    app = Application(
-        app_name=APP_NAME,
-        working_dir=working_dir,
-        workflow=workflow,
-        studies=studies,
-    )
-    # Run it!
-    app()
-
-if __name__ == "__main__":
-
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
-```
-
-When running the **App** again, **NUREMICS** detects that all required **input parameters** for `PolygonGeometryProc` have been successfully mapped.
-
-However, it now reports that one or more **input paths** are missing. These are explicitly listed, and the developer is prompted to define them using either the `"user_paths"` or `"required_paths"` key.
+If you've already launched a **NUREMICS App** before, but this is your first time launching this specific **App**, **NUREMICS** may have already registered a `default_working_dir` in the `settings.json` file based on a previous **App**. In that case, it will suggest using this same directory as the `"working_dir"` for the current **App**.
 
 👤🔄🖥️
 ```shell
-| PolygonGeometryProc |
-> Input Parameter(s) :
-(float) radius  -----||----- 0.5      (hard_params)
-(int)   n_sides -----||----- nb_sides (user_params)
-> Input Path(s) :
-title_file -----||----- Not defined (X)
-
-(X) Please define all input paths either in "user_paths" or "required_paths".
+(!) Found "default_working_dir": path/to/your/previous/app/working_dir
+Accept it as "working_dir" for DEMO_APP: [Y/n]
 ```
 
-The **input paths** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"user_paths"` and/or `"required_paths"` keys in its corresponding dictionary entry inside the workflow list.
+You can either accept the proposed path by pressing `Y`, or reject it with `n` and manually define a new one by editing the `settings.json` file.
 
-```python
-from pathlib import Path
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+---
 
-APP_NAME = "DEMO_APP"
+A new folder named after the **App** is then automatically generated under the specified `"working_dir"`. This folder acts as the root container for all the execution-related content generated by the **App**.
 
-def main(
-    working_dir: Path = None,
-    studies: list = ["Default"],
-):
-    # --------------- #
-    # Define workflow #
-    # --------------- #
-    workflow = [
-        {
-            "process": PolygonGeometryProc,
-            "user_params": {
-                "n_sides": "nb_sides",
-            },
-            "hard_params": {
-                "radius": 0.5,
-            },
-            "user_paths": {
-                "title_file": "plot_title.txt",
-            },
-        },
-        {
-            "process": ProjectileModelProc,
-        },
-    ]
-
-    # ------------------ #
-    # Define application #
-    # ------------------ #
-    app = Application(
-        app_name=APP_NAME,
-        working_dir=working_dir,
-        workflow=workflow,
-        studies=studies,
-    )
-    # Run it!
-    app()
-
-if __name__ == "__main__":
-
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
+👤👁️💾
+```bash
+<working_dir>/
+└── DEMO_APP/ ➕ #generated
 ```
 
-When running the **App** again, **NUREMICS** detects that all required **input paths** for `PolygonGeometryProc` have been successfully mapped.
+---
 
-However, it now reports that one or more **output paths** are missing. These are explicitly listed, and the developer is prompted to define them using the `"output_paths"` key.
-
-👤🔄🖥️
-```shell
-| PolygonGeometryProc |
-> Input Parameter(s) :
-(float) radius  -----||----- 0.5      (hard_params)
-(int)   n_sides -----||----- nb_sides (user_params)
-> Input Path(s) :
-title_file -----||----- plot_title.txt (user_paths)
-> Output Path(s) :
-coords_file -----||----- Not defined (X)
-fig_file    -----||----- Not defined (X)
-
-(X) Please define all output paths in "output_paths".
-```
-
-The **output paths** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"output_paths"` key in its corresponding dictionary entry inside the workflow list.
-
-In the same way, we also complete the mapping for the **Proc** `ProjectileModelProc` by providing all required entries: `"user_params"` and/or `"hard_params"`, `"user_paths"` and/or `"required_paths"`, `"output_paths"`.
-
-```python
-from pathlib import Path
-from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
-
-APP_NAME = "DEMO_APP"
-
-def main(
-    working_dir: Path = None,
-    studies: list = ["Default"],
-):
-    # --------------- #
-    # Define workflow #
-    # --------------- #
-    workflow = [
-        {
-            "process": PolygonGeometryProc,
-            "user_params": {
-                "n_sides": "nb_sides",
-            },
-            "hard_params": {
-                "radius": 0.5,
-            },
-            "user_paths": {
-                "title_file": "plot_title.txt",
-            },
-            "output_paths": {
-                "coords_file": "points_coordinates.csv",
-                "fig_file": "polygon_shape.png",
-            },
-        },
-        {
-            "process": ProjectileModelProc,
-            "user_params": {
-                "gravity": "gravity",
-                "mass": "mass",
-            },
-            "user_paths": {
-                "velocity_file": "velocity.json",
-                "configs_folder": "configs",
-            },
-            "required_paths": {
-                "coords_file": "points_coordinates.csv",
-            },
-            "output_paths": {
-                "comp_folder": "comparison",
-            },
-        },
-    ]
-
-    # ------------------ #
-    # Define application #
-    # ------------------ #
-    app = Application(
-        app_name=APP_NAME,
-        working_dir=working_dir,
-        workflow=workflow,
-        studies=studies,
-    )
-    # Run it!
-    app()
-
-if __name__ == "__main__":
-
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
-```
-
-With all required mappings now properly defined for each **Proc**, the **App** can be executed without raising any errors. **NUREMICS** confirms that the full mapping is complete by prompting a summary for each **Proc**, indicating that all **input parameters**, **input paths**, and **output paths** have been successfully resolved.
-
-👤🔄🖥️
-```shell
-| PolygonGeometryProc |
-> Input Parameter(s) :
-(float) radius  -----||----- 0.5      (hard_params)
-(int)   n_sides -----||----- nb_sides (user_params)
-> Input Path(s) :
-title_file -----||----- plot_title.txt (user_paths)
-> Output Path(s) :
-coords_file -----||----- points_coordinates.csv (output_paths)
-fig_file    -----||----- polygon_shape.png      (output_paths)
-
-| ProjectileModelProc |
-> Input Parameter(s) :
-(float) gravity -----||----- gravity (user_params)
-(float) mass    -----||----- mass    (user_params)
-> Input Path(s) :
-velocity_file  -----||----- velocity.json          (user_paths)
-configs_folder -----||----- configs                (user_paths)
-coords_file    -----||----- points_coordinates.csv (required_paths)
-> Output Path(s) :
-comp_folder -----||----- comparison (output_paths)
-```
-
-As the **App** has now been fully assembled, **NUREMICS** displays a clean summary of its I/O interface, as it will appear to the end-user.
-
-This summary includes all declared user parameters and user paths required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing end-users to clearly understand what data they need to provide and what results to expect.
+At this stage, the **NUREMICS** terminal finally displays a clear summary of the **App**'s I/O interface. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing you to understand what data you need to provide and what results to expect.
 
 👤🔄🖥️
 ```shell
@@ -837,76 +121,53 @@ This summary includes all declared user parameters and user paths required as in
 > points_coordinates.csv
 > polygon_shape.png
 > comparison
+> overall_comparisons.png
 ```
 
-With all **Procs** implemented and properly assembled within the **App**, the development work is now complete. The developer’s responsibility ends here (excluding, of course, the implementation of unit tests to ensure long-term maintainability, which falls outside the scope of this tutorial).
+### Declare Studies
 
-The **App** is now fully functional and ready to be operated by end-users. From this point, users can interact with the **App** through its declared I/O interface, without needing to modify or understand the underlying code structure.
+**NUREMICS** then prompts you to declare the different studies you want to carry out with the **App**.
 
-## Use App
+👤🔄🖥️
+```shell
+> STUDIES <
 
-Now that the **App** has been fully implemented and assembled, this new section focuses on its usage from the end-user's perspective.
-
-We will demonstrate how to interact with a ready-to-use **NUREMICS App**, including how to provide inputs, run the **App**, and retrieve the expected outputs, all without needing to understand its internal structure.
-
-This section assumes the job of the developer is done, and shifts the focus to the operational phase of the **App**.
-
-### Define Working Environment
-
-Before running a **NUREMICS App**, the operator must first define the working environment in the `if __name__ == "__main__":` section of the **App**.
-
-This setup step specifies two key elements:
-- **Working directory (`working_dir`):** The root path where all input/output data, logs, and results will be stored.
-- **Study names (`studies`):** A list of identifiers corresponding to the different studies the operator wants to run. Each study will be managed in its own dedicated folder under the working directory.
-
-```python
-if __name__ == "__main__":
-    
-    # ------------------------ #
-    # Define working directory #
-    # ------------------------ #
-    working_dir = Path(os.environ["WORKING_DIR"])
-
-    # -------------- #
-    # Define studies #
-    # -------------- #
-    studies = [
-        "Study_Shape",
-        "Study_Velocity",
-    ]
-
-    # --------------- #
-    # Run application #
-    # --------------- #
-    main(
-        working_dir=working_dir,
-        studies=studies,
-    )
+(X) Please define at least one study in file :
+> .../nuremics-labs/.nuremics/settings.json
 ```
 
-In this example:
+This must be declared in the same `settings.json` file located at the root of your `nuremics-labs` repository, as a list of identifiers corresponding to the different studies you want to carry out. You can declare as many studies as needed, each representing a self-contained parametric study.
 
-- The `working_dir` is read from the environment variable `WORKING_DIR` previously introduced.
-- The `studies` list contains the names of the studies you want to run. You can define as many studies as needed, each representing a self-contained parametric study.
+=== "📄`nuremics-labs/.nuremics/settings.json`"
+    ```json hl_lines="6 7 8 9"
+    {
+        "default_working_dir": null,
+        "apps": {
+            "DEMO_APP": {
+                "working_dir": "path/to/your/app/working_dir",
+                "studies": [
+                    "Study_Shape",
+                    "Study_Velocity"
+                ]
+            }
+        }
+    }
+    ```
 
-As the **App** is executed, a new folder named after the **App** is automatically created under the specified `working_dir`. This folder acts as the root container for all the execution-related content generated by the **App**.
+---
+
+A `studies.json` file is then generated inside the **App**'s `"working_dir"`. This file serves as a centralized configuration hub for all declared studies.
 
 👤👁️💾
 ```bash
 <working_dir>/
 └── DEMO_APP/
-    └── studies.json
+    └── studies.json ➕ #generated
 ```
-
-📁 **App folder** (`DEMO_APP/`)<br>
-The name of this folder is derived from the name of the application (`APP_NAME`) as defined during its construction.
-
-📄 **Studies configuration file** (`studies.json`)<br>
-This file serves as a centralized configuration hub for each study, allowing the operator to specify which input data remain fixed and which can vary across various experiments.
 
 ### Configure Studies
 
-The **NUREMICS** terminal now provides feedback on the defined studies and halts execution, indicating that the first study `Study_Shape` requires configuration.
+**NUREMICS** then prompts you to configure the first study that you previously declared.
 
 👤🔄🖥️
 ```shell
@@ -924,41 +185,43 @@ The **NUREMICS** terminal now provides feedback on the defined studies and halts
 > .../DEMO_APP/studies.json
 ```
 
-Let's configure `Study_Shape` by allowing only `nb_sides` to vary (by assigning a `true` value in the `studies.json` file), and keeping all other input data fixed (by assigning `false` values in the `studies.json` file) across the study.
+You must now complete the `studies.json` file by specifying, for each input, whether it should remain **fixed** (`false`) or be allowed to **vary** (`true`) across the experiments that will later be defined within the study.
 
-📄 `studies.json`
-```json
-{
-    "Study_Shape": {
-        "execute": true,
-        "user_params": {
-            "nb_sides": true,
-            "gravity": false,
-            "mass": false
+=== "📄`<working_dir>/DEMO_APP/studies.json`"
+    ```json hl_lines="5 6 7 10 11 12"
+    {
+        "Study_Shape": {
+            "execute": true,
+            "user_params": {
+                "nb_sides": true,
+                "gravity": false,
+                "mass": false
+            },
+            "user_paths": {
+                "plot_title.txt": false,
+                "velocity.json": false,
+                "configs": false
+            }
         },
-        "user_paths": {
-            "plot_title.txt": false,
-            "velocity.json": false,
-            "configs": false
-        }
-    },
-    "Study_Velocity": {
-        "execute": true,
-        "user_params": {
-            "nb_sides": null,
-            "gravity": null,
-            "mass": null
-        },
-        "user_paths": {
-            "plot_title.txt": null,
-            "velocity.json": null,
-            "configs": null
+        "Study_Velocity": {
+            "execute": true,
+            "user_params": {
+                "nb_sides": null,
+                "gravity": null,
+                "mass": null
+            },
+            "user_paths": {
+                "plot_title.txt": null,
+                "velocity.json": null,
+                "configs": null
+            }
         }
     }
-}
-```
+    ```
 
-At the next execution of the **App**, the **NUREMICS** terminal now prompts that `Study_Shape` is properly configured, but halts indicating that the second study `Study_Velocity` still requires configuration.
+---
+
+**NUREMICS** then prompts that the first study is properly configured, but indicates that the second declared study still requires configuration.
 
 👤🔄🖥️
 ```shell
@@ -984,41 +247,43 @@ At the next execution of the **App**, the **NUREMICS** terminal now prompts that
 > .../DEMO_APP/studies.json
 ```
 
-Let's this time configure `Study_Velocity` by allowing only `velocity.json` to vary, and keeping all other input data fixed across the study.
+The same work must therefore be done in the `studies.json` file to properly configure the study.
 
-📄 `studies.json`
-```json
-{
-    "Study_Shape": {
-        "execute": true,
-        "user_params": {
-            "nb_sides": true,
-            "gravity": false,
-            "mass": false
+=== "📄`<working_dir>/DEMO_APP/studies.json`"
+    ```json hl_lines="18 19 20 23 24 25"
+    {
+        "Study_Shape": {
+            "execute": true,
+            "user_params": {
+                "nb_sides": true,
+                "gravity": false,
+                "mass": false
+            },
+            "user_paths": {
+                "plot_title.txt": false,
+                "velocity.json": false,
+                "configs": false
+            }
         },
-        "user_paths": {
-            "plot_title.txt": false,
-            "velocity.json": false,
-            "configs": false
-        }
-    },
-    "Study_Velocity": {
-        "execute": true,
-        "user_params": {
-            "nb_sides": false,
-            "gravity": false,
-            "mass": false
-        },
-        "user_paths": {
-            "plot_title.txt": false,
-            "velocity.json": true,
-            "configs": false
+        "Study_Velocity": {
+            "execute": true,
+            "user_params": {
+                "nb_sides": false,
+                "gravity": false,
+                "mass": false
+            },
+            "user_paths": {
+                "plot_title.txt": false,
+                "velocity.json": true,
+                "configs": false
+            }
         }
     }
-}
-```
+    ```
 
-At the next execution of the **App**, the **NUREMICS** terminal now prompts that both `Study_Shape` and `Study_Velocity` are properly configured.
+---
+
+**NUREMICS** finally prompts that all declared studies are properly configured.
 
 👤🔄🖥️
 ```shell
@@ -1041,20 +306,22 @@ At the next execution of the **App**, the **NUREMICS** terminal now prompts that
 (V) configs is fixed.
 ```
 
-Going back to the data tree generated within the defined `working_dir`, we can see that a specific folder for each study has been created.
+---
+
+A dedicated folder for each study is then generated inside the **App**'s `"working_dir"`.
 
 👤👁️💾
 ```bash
 <working_dir>/
 └── DEMO_APP/
     ├── studies.json
-    ├── Study_Shape/
-    └── Study_Velocity/
+    ├── Study_Shape/    ➕ #generated
+    └── Study_Velocity/ ➕ #generated
 ```
 
 ### Set Input Data
 
-Each study directory within the data tree now contains an initialized input database that must be completed by the operator.
+Each study folder inside the **App**'s `"working_dir"` now contains an initialized input database that you must complete to run your first experiments.
 
 👤👁️💾
 ```bash
@@ -1062,22 +329,24 @@ Each study directory within the data tree now contains an initialized input data
 └── DEMO_APP/
     ├── studies.json
     ├── Study_Shape/
-    │   ├── 0_inputs/
-    │   ├── inputs.json
-    │   └── inputs.csv
+    │   ├── inputs.csv  ➕ #generated
+    │   ├── inputs.json ➕ #generated
+    │   └── 0_inputs/   ➕ #generated
     └── Study_Velocity/
-        ├── 0_inputs/
-        ├── inputs.json
-        └── inputs.csv
+        ├── inputs.csv  ➕ #generated
+        ├── inputs.json ➕ #generated
+        └── 0_inputs/   ➕ #generated
 ```
 
 This input database contains:
 
-- **`0_inputs`:** This folder must contain the input files and/or folders defined as `"user_paths"`.
-- **`inputs.json`:** This file must contain the input parameters defined as _fixed_ `"user_params"`.
-- **`inputs.csv`:** This file must contain the input parameters defined as _variable_ `"user_params"`.
+- **`inputs.csv`:** This is the main file for declaring the experiments you want to run in the study. This is also where you must set the input parameters defined as _variable_ `"user_params"`.
+- **`inputs.json`:** In this file, you must set the input parameters defined as _fixed_ `"user_params"`.
+- **`0_inputs/`:** This folder must contain the input files and/or folders defined as `"user_paths"` (either _fixed_ or _variable_).
 
-At this stage of the **App** execution, the **NUREMICS** terminal halts by indicating that the _fixed_ input data must be set.
+---
+
+**NUREMICS** first prompts you to set the _fixed_ input data for the first declared study.
 
 👤🔄🖥️
 ```shell
@@ -1093,55 +362,45 @@ At this stage of the **App** execution, the **NUREMICS** terminal halts by indic
 > .../DEMO_APP/Study_Shape/0_inputs/configs
 ```
 
-For the `Study_Shape`, we are speaking about:
+=== "📄`<working_dir>/DEMO_APP/Study_Shape/inputs.json`"
+    ```json
+    {
+        "gravity": -9.81,
+        "mass": 0.1
+    }
+    ```
+<!-- -->
 
-- `gravity` and `mass` within the `inputs.json` file.
-- `plot_title.txt`, `velocity.json` and `configs` within the `0_inputs` folder.
+=== "📄`<working_dir>/DEMO_APP/Study_Shape/0_inputs/plot_title.txt`"
+    ```
+    2D polygon shape
+    ```
+<!-- -->
 
-<br>
+=== "📄`<working_dir>/DEMO_APP/Study_Shape/0_inputs/velocity.json`"
+    ```json
+    {
+        "v0": 15.0,
+        "angle": 45.0
+    }
+    ```
+<!-- -->
 
-📄 `inputs.json`
-```json
-{
-    "gravity": -9.81,
-    "mass": 0.1
-}
-```
-<br>
+=== "📁`<working_dir>/DEMO_APP/Study_Shape/0_inputs/configs/`📄`solver_config.json`"
+    ```json
+    {
+        "timestep": 0.01
+    }
+    ```
+=== "📄`display_config.json`"
+    ```json
+    {
+        "fps": 60,
+        "size": 700
+    }
+    ```
 
-📄 `0_inputs/plot_title.txt`
-```
-2D polygon shape
-```
-<br>
-
-📄 `0_inputs/velocity.json`
-```json
-{
-    "v0": 15.0,
-    "angle": 45.0
-}
-```
-<br>
-
-📄 `0_inputs/configs/solver_config.json`
-```json
-{
-    "timestep": 0.01
-}
-```
-<br>
-
-📄 `0_inputs/configs/display_config.json`
-```json
-{
-    "fps": 60,
-    "size": 700
-}
-```
-<br>
-
-All _fixed_ input data have now been completed within the `Study_Shape` input database.
+All _fixed_ input data have now been completed within the input database of the study.
 
 👤👁️💾
 ```bash
@@ -1149,21 +408,23 @@ All _fixed_ input data have now been completed within the `Study_Shape` input da
 └── DEMO_APP/
     ├── studies.json
     ├── Study_Shape/
-    │   ├── 0_inputs/
-    │   │   ├── plot_title.txt
-    │   │   ├── velocity.json
-    │   │   └── configs/
-    │   │       ├── solver_config.json
-    │   │       └── display_config.json
+    │   ├── inputs.csv
     │   ├── inputs.json
-    │   └── inputs.csv
+    │   └── 0_inputs/
+    │       ├── plot_title.txt          ⬇️ #uploaded
+    │       ├── velocity.json           ⬇️ #uploaded
+    │       └── configs/                ⬇️ #uploaded
+    │           ├── solver_config.json  ⬇️ #uploaded
+    │           └── display_config.json ⬇️ #uploaded
     └── Study_Velocity/
-        ├── 0_inputs/
+        ├── inputs.csv
         ├── inputs.json
-        └── inputs.csv
+        └── 0_inputs/
 ```
 
-At this stage of the **App** execution, the **NUREMICS** terminal prompts that all _fixed_ input data are now properly set, but halts by indicating that datasets of _variable_ input data must be defined (to conduct various experiments).
+---
+
+**NUREMICS** then prompts that all _fixed_ input data have been properly set, but indicates that datasets of _variable_ input data still need to be declared in order to define the experiments to run.
 
 👤🔄🖥️
 ```shell
@@ -1176,17 +437,17 @@ At this stage of the **App** execution, the **NUREMICS** terminal prompts that a
 > .../DEMO_APP/Study_Shape/inputs.csv
 ```
 
-Let's define three datasets identified as `Test1`, `Test2` and `Test3` within the `input.csv` file.
+Let's first declare three experiments in the `inputs.csv` file.
 
-📄 `inputs.csv`
+=== "📄 `<working_dir>/DEMO_APP/Study_Shape/inputs.csv`"
+    ```csv hl_lines="2 3 4"
+    ID,nb_sides,EXECUTE
+    Test1,,
+    Test2,,
+    Test3,,
+    ```
 
-|  ID   | nb_sides |
-|-------|----------|
-| Test1 |          |
-| Test2 |          |
-| Test3 |          |
-
-We can now see that **NUREMICS** has properly identified the three defined datasets, but is waiting for the _variable_ input data `nb_sides` to be set for each of them.
+**NUREMICS** now prompts that the three experiments have been declared, but is waiting for the _variable_ input data to be set for each of them.
 
 👤🔄🖥️
 ```shell
@@ -1202,17 +463,17 @@ We can now see that **NUREMICS** has properly identified the three defined datas
 > .../DEMO_APP/Study_Shape/inputs.csv
 ```
 
-Let's thus set some values of `nb_sides` for each defined dataset within the `input.csv` file.
+Let’s thus set input values for each experiment in the `inputs.csv` file.
 
-📄 `inputs.csv`
+=== "📄 `<working_dir>/DEMO_APP/Study_Shape/inputs.csv`"
+    ```csv hl_lines="2 3 4"
+    ID,nb_sides,EXECUTE
+    Test1,3,
+    Test2,4,
+    Test3,5,
+    ```
 
-|  ID   | nb_sides |
-|-------|----------|
-| Test1 |    3     |
-| Test2 |    4     |
-| Test3 |    5     |
-
-**NUREMICS** finally prompts that all input data are properly set for `Study_Shape`.
+**NUREMICS** finally prompts that all input data are properly set for the study.
 
 👤🔄🖥️
 ```shell
@@ -1225,7 +486,50 @@ Let's thus set some values of `nb_sides` for each defined dataset within the `in
 > Test3 : (V) nb_sides
 ```
 
-The same job must be done to set the input data for `Study_Velocity`.
+---
+
+The same work must be done to set the input data for the second declared study.
+
+👤🔄🖥️
+```shell
+| Study_Velocity |
+> Common : (X) nb_sides (X) gravity (X) mass (X) plot_title.txt (X) configs
+
+(X) Please set inputs :
+> .../DEMO_APP/Study_Velocity/inputs.json
+> .../DEMO_APP/Study_Velocity/0_inputs/plot_title.txt
+> .../DEMO_APP/Study_Velocity/0_inputs/configs
+```
+
+=== "📄`<working_dir>/DEMO_APP/Study_Velocity/inputs.json`"
+    ```json
+    {
+        "nb_sides": 5,
+        "gravity": -9.81,
+        "mass": 0.1
+    }
+    ```
+<!-- -->
+
+=== "📄`<working_dir>/DEMO_APP/Study_Velocity/0_inputs/plot_title.txt`"
+    ```
+    2D polygon shape
+    ```
+<!-- -->
+
+=== "📁`<working_dir>/DEMO_APP/Study_Velocity/0_inputs/configs/`📄`solver_config.json`"
+    ```json
+    {
+        "timestep": 0.01
+    }
+    ```
+=== "📄`display_config.json`"
+    ```json
+    {
+        "fps": 60,
+        "size": 700
+    }
+    ```
 
 👤👁️💾
 ```bash
@@ -1233,83 +537,111 @@ The same job must be done to set the input data for `Study_Velocity`.
 └── DEMO_APP/
     ├── studies.json
     ├── Study_Shape/
-    │   ├── 0_inputs/
-    │   │   ├── plot_title.txt
-    │   │   ├── velocity.json
-    │   │   └── configs/
-    │   │       ├── solver_config.json
-    │   │       └── display_config.json
+    │   ├── inputs.csv
     │   ├── inputs.json
-    │   └── inputs.csv
+    │   └── 0_inputs/
+    │       ├── plot_title.txt
+    │       ├── velocity.json
+    │       └── configs/
+    │           ├── solver_config.json
+    │           └── display_config.json
     └── Study_Velocity/
-        ├── 0_inputs/
-        │   ├── 0_datasets/
-        │   │   ├── Test1/
-        │   │   │   └── velocity.json
-        │   │   ├── Test2/
-        │   │   │   └── velocity.json
-        │   │   └── Test3/
-        │   │       └── velocity.json
-        │   ├── plot_title.txt
-        │   └── configs/
-        │       ├── solver_config.json
-        │       └── display_config.json
+        ├── inputs.csv
         ├── inputs.json
-        └── inputs.csv
+        └── 0_inputs/
+            ├── plot_title.txt          ⬇️ #uploaded
+            └── configs/                ⬇️ #uploaded
+                ├── solver_config.json  ⬇️ #uploaded
+                └── display_config.json ⬇️ #uploaded
 ```
-<br>
 
-Let's here consider the same _fixed_ input data `plot_title.txt` and `configs` as for the previous study `Study_Shape`.
+👤🔄🖥️
+```shell
+| Study_Velocity |
+> Common : (V) nb_sides (V) gravity (V) mass (V) plot_title.txt (V) configs
 
-<br>
-
-📄 `inputs.json`
-```json
-{
-    "nb_sides": 5,
-    "gravity": -9.81
-}
+(X) Please define at least one dataset in file :
+> .../DEMO_APP/Study_Velocity/inputs.csv
 ```
-<br>
 
-📄 `inputs.csv`
+=== "📄 `<working_dir>/DEMO_APP/Study_Velocity/inputs.csv`"
+    ```csv hl_lines="2 3 4"
+    ID,EXECUTE
+    Test1,
+    Test2,
+    Test3,
+    ```
 
-|  ID   |
-|-------|
-| Test1 |
-| Test2 |
-| Test3 |
+👤🔄🖥️
+```shell
+| Study_Velocity |
+> Common : (V) nb_sides (V) gravity (V) mass (V) plot_title.txt (V) configs
+> Test1 : (X) velocity.json
+> Test2 : (X) velocity.json
+> Test3 : (X) velocity.json
 
-<br>
-
-📄 `0_inputs/0_datasets/Test1/velocity.json`
-```json
-{
-    "v0": 15.0,
-    "angle": 45.0
-}
+(X) Please set inputs :
+> .../DEMO_APP/Study_Velocity/0_inputs/0_datasets/Test1/velocity.json
+> .../DEMO_APP/Study_Velocity/0_inputs/0_datasets/Test2/velocity.json
+> .../DEMO_APP/Study_Velocity/0_inputs/0_datasets/Test3/velocity.json
 ```
-<br>
 
-📄 `0_inputs/0_datasets/Test2/velocity.json`
-```json
-{
-    "v0": 20.0,
-    "angle": 45.0
-}
+=== "📁`<working_dir>/DEMO_APP/Study_Velocity/0_inputs/0_datasets/Test1`📄`velocity.json`"
+    ```json
+    {
+        "v0": 15.0,
+        "angle": 45.0
+    }
+    ```
+=== "📁`Test2`📄`velocity.json`"
+    ```json
+    {
+        "v0": 20.0,
+        "angle": 45.0
+    }
+    ```
+=== "📁`Test3`📄`velocity.json`"
+    ```json
+    {
+        "v0": 20.0,
+        "angle": 60.0
+    }
+    ```
+
+👤👁️💾
+```bash
+<working_dir>/
+└── DEMO_APP/
+    ├── studies.json
+    ├── Study_Shape/
+    │   ├── inputs.csv
+    │   ├── inputs.json
+    │   └── 0_inputs/
+    │       ├── plot_title.txt
+    │       ├── velocity.json
+    │       └── configs/
+    │           ├── solver_config.json
+    │           └── display_config.json
+    └── Study_Velocity/
+        ├── inputs.csv
+        ├── inputs.json
+        └── 0_inputs/
+            ├── plot_title.txt
+            ├── configs/
+            │   ├── solver_config.json
+            │   └── display_config.json
+            └── 0_datasets/           ➕ #generated
+                ├── Test1/            ➕ #generated
+                │   └── velocity.json ⬇️ #uploaded
+                ├── Test2/            ➕ #generated
+                │   └── velocity.json ⬇️ #uploaded
+                └── Test3/            ➕ #generated
+                    └── velocity.json ⬇️ #uploaded
 ```
-<br>
 
-📄 `0_inputs/0_datasets/Test3/velocity.json`
-```json
-{
-    "v0": 20.0,
-    "angle": 60.0
-}
-```
-<br>
+---
 
-**NUREMICS** is now prompting that all input data are properly set for both `Study_Shape` and `Study_Velocity`.
+**NUREMICS** finally prompts that all input data are properly set for all declared studies.
 
 👤🔄🖥️
 ```shell
@@ -1322,10 +654,10 @@ Let's here consider the same _fixed_ input data `plot_title.txt` and `configs` a
 > Test3 : (V) nb_sides
 
 | Study_Velocity |
-> Common : (V) nb_sides (V) gravity (V) plot_title.txt (V) configs
-> Test1 : (V) mass (V) velocity.json
-> Test2 : (V) mass (V) velocity.json
-> Test3 : (V) mass (V) velocity.json
+> Common : (V) nb_sides (V) gravity (V) mass (V) plot_title.txt (V) configs
+> Test1 : (V) velocity.json
+> Test2 : (V) velocity.json
+> Test3 : (V) velocity.json
 ```
 
 ### Get Results
@@ -1384,6 +716,11 @@ COMPLETED <<<
 >>> START
 COMPLETED <<<
 
+| Study_Shape | TrajectoryAnalysisProc |
+> comp_folder = comparison
+>>> START
+COMPLETED <<<
+
 | Study_Velocity | PolygonGeometryProc |
 > n_sides = 5
 > radius = 0.5
@@ -1417,9 +754,14 @@ COMPLETED <<<
 > coords_file = .../DEMO_APP/Study_Velocity/1_PolygonGeometryProc/points_coordinates.csv
 >>> START
 COMPLETED <<<
+
+| Study_Velocity | TrajectoryAnalysisProc |
+> comp_folder = comparison
+>>> START
+COMPLETED <<<
 ```
 
-The operator can then access the results in the output database generated by **NUREMICS** within the data tree. 
+You can then access the results in the output database generated by **NUREMICS** within the **App**'s `"working_dir"`. 
 
 👤👁️💾
 ```bash
@@ -1427,47 +769,780 @@ The operator can then access the results in the output database generated by **N
 └── DEMO_APP/
     ├── studies.json
     ├── Study_Shape/
-    │   ├── 1_PolygonGeometryProc/
-    │   │   ├── Test1/
-    │   │   │   ├── points_coordinates.csv
-    │   │   │   └── polygon_shape.png
-    │   │   ├── Test2/
-    │   │   │   ├── points_coordinates.csv
-    │   │   │   └── polygon_shape.png
-    │   │   └── Test3/
-    │   │       ├── points_coordinates.csv
-    │   │       └── polygon_shape.png
-    │   └── 2_ProjectileModelProc/
-    │       ├── Test1/
-    │       │   └── comparison/
-    │       │       ├── results.xlsx
-    │       │       └── model_vs_theory.png
-    │       ├── Test2/
-    │       │   └── comparison/
-    │       │       ├── results.xlsx
-    │       │       └── model_vs_theory.png
-    │       └── Test3/
-    │           └── comparison/
-    │               ├── results.xlsx
-    │               └── model_vs_theory.png
+    │   ├── inputs.csv
+    │   ├── inputs.json
+    │   ├── 0_inputs/
+    │   │   ├── plot_title.txt
+    │   │   ├── velocity.json
+    │   │   └── configs/
+    │   │       ├── solver_config.json
+    │   │       └── display_config.json
+    │   ├── 1_PolygonGeometryProc/          ➕ #generated
+    │   │   ├── Test1/                      ➕ #generated
+    │   │   │   ├── points_coordinates.csv  ➕ #generated
+    │   │   │   └── polygon_shape.png       ➕ #generated
+    │   │   ├── Test2/                      ➕ #generated
+    │   │   │   ├── points_coordinates.csv  ➕ #generated
+    │   │   │   └── polygon_shape.png       ➕ #generated
+    │   │   └── Test3/                      ➕ #generated
+    │   │       ├── points_coordinates.csv  ➕ #generated
+    │   │       └── polygon_shape.png       ➕ #generated
+    │   ├── 2_ProjectileModelProc/          ➕ #generated
+    │   │   ├── Test1/                      ➕ #generated
+    │   │   │   └── comparison/             ➕ #generated
+    │   │   │       ├── results.xlsx        ➕ #generated
+    │   │   │       └── model_vs_theory.png ➕ #generated
+    │   │   ├── Test2/                      ➕ #generated
+    │   │   │   └── comparison/             ➕ #generated
+    │   │   │       ├── results.xlsx        ➕ #generated
+    │   │   │       └── model_vs_theory.png ➕ #generated
+    │   │   └── Test3/                      ➕ #generated
+    │   │       └── comparison/             ➕ #generated
+    │   │           ├── results.xlsx        ➕ #generated
+    │   │           └── model_vs_theory.png ➕ #generated
+    │   └── 3_TrajectoryAnalysisProc        ➕ #generated
+    │       └── overall_comparisons.png     ➕ #generated
     └── Study_Velocity/
-        ├── 1_PolygonGeometryProc/
-        │   ├── points_coordinates.csv
-        │   └── polygon_shape.png
-        └── 2_ProjectileModelProc/
-            ├── Test1/
-            │   └── comparison/
-            │       ├── results.xlsx
-            │       └── model_vs_theory.png
-            ├── Test2/
-            │   └── comparison/
-            │       ├── results.xlsx
-            │       └── model_vs_theory.png
-            └── Test3/
-                └── comparison/
-                    ├── results.xlsx
-                    └── model_vs_theory.png
+        ├── inputs.csv
+        ├── inputs.json
+        ├── 0_inputs/
+        │   ├── plot_title.txt
+        │   ├── configs/
+        │   │   ├── solver_config.json
+        │   │   └── display_config.json
+        │   └── 0_datasets/
+        │       ├── Test1/
+        │       │   └── velocity.json
+        │       ├── Test2/
+        │       │   └── velocity.json
+        │       └── Test3/
+        │           └── velocity.json
+        ├── 1_PolygonGeometryProc/          ➕ #generated
+        │   ├── points_coordinates.csv      ➕ #generated
+        │   └── polygon_shape.png           ➕ #generated
+        ├── 2_ProjectileModelProc/          ➕ #generated
+        │   ├── Test1/                      ➕ #generated
+        │   │   └── comparison/             ➕ #generated
+        │   │       ├── results.xlsx        ➕ #generated
+        │   │       └── model_vs_theory.png ➕ #generated
+        │   ├── Test2/                      ➕ #generated
+        │   │   └── comparison/             ➕ #generated
+        │   │       ├── results.xlsx        ➕ #generated
+        │   │       └── model_vs_theory.png ➕ #generated
+        │   └── Test3/                      ➕ #generated
+        │       └── comparison/             ➕ #generated
+        │           ├── results.xlsx        ➕ #generated
+        │           └── model_vs_theory.png ➕ #generated
+        └── 3_TrajectoryAnalysisProc        ➕ #generated
+            └── overall_comparisons.png     ➕ #generated
 ```
+
+## Create App
+
+Now that we've saw how to use a **NUREMICS App** as an end-user, it's now time to look under the hood and explore how the **App** is actually built. This section dives into the developer's side of **NUREMICS**, exposing how to define, organize, and structure a fully functional **App**.
+
+You'll start by implementing your own [**Procs**](theory.md#proc){:target="_blank"}, which encapsulate domain-specific logic and computational tasks. Then, you’ll learn how to assemble these building blocks into a fully operational [**App**](theory.md#app){:target="_blank"}.
+
+### Implement Procs
+
+We start by defining the core building blocks of the **App** to be created: the **Procs**. Each **Proc** is a reusable item that encapsulates a specific piece of logic executed within the overall workflow. Internally, this logic can be further decomposed into elementary operations (**Ops**), implemented as individual functions (units) within the **Proc** itself.
+
+---
+
+To implement our first **Proc**, we begin by importing the `Process` base class from `nuremics`, which all custom **Procs** must inherit from. To make this inheritance simple and structured, we also import the `attrs` library, which helps define clean, data-driven Python classes.
+
+```python
+import attrs
+from nuremics import Process
+```
+
+---
+
+We then declare our first **Proc** as a Python class named `PolygonGeometryProc`, inheriting from the `Process` base class. This marks it as a modular item of computation which can be executed within a **NUREMICS** workflow.
+
+```python
+import attrs
+from nuremics import Process
+
+@attrs.define
+class PolygonGeometryProc(Process):
+```
+
+---
+
+We now declare the input data required by our `PolygonGeometryProc`, grouped into two categories: **Parameters** and **Paths**. Each input is defined using `attrs.field()` and marked with `metadata={"input": True}`.
+
+This metadata is essential: it tells the **NUREMICS** framework that these attributes are expected as input data, ensuring they are properly tracked and managed throughout the workflow.
+
+```python
+import attrs
+from pathlib import Path
+from nuremics import Process
+
+@attrs.define
+class PolygonGeometryProc(Process):
+
+    # Parameters
+    radius: float = attrs.field(init=False, metadata={"input": True})
+    n_sides: int = attrs.field(init=False, metadata={"input": True})
+  
+    # Paths
+    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
+```
+
+---
+
+In addition to the previously declared input data, a **Proc** can also define internal variables: attributes used during the execution of its internal logic but not provided as input data.
+
+These internal variables, like `df_points` in our example below, are declared without the `metadata={"input": True}` tag, signaling to the **NUREMICS** framework that they are not exposed to the workflow and will be set or computed within the **Proc** itself.
+
+```python
+import attrs
+import pandas as pd
+from pathlib import Path
+from nuremics import Process
+
+@attrs.define
+class PolygonGeometryProc(Process):
+
+    # Parameters
+    radius: float = attrs.field(init=False, metadata={"input": True})
+    n_sides: int = attrs.field(init=False, metadata={"input": True})
+  
+    # Paths
+    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
+
+    # Internal
+    df_points: pd.DataFrame = attrs.field(init=False)
+```
+
+---
+
+The operations executed by the **Proc** are finally implemented as elementary functions (**Ops**), which are then sequentially called within the `__call__()` method to define the overall logic of the **Proc**.
+
+```python
+import attrs
+import pandas as pd
+from pathlib import Path
+from nuremics import Process
+
+@attrs.define
+class PolygonGeometryProc(Process):
+
+    # Parameters
+    radius: float = attrs.field(init=False, metadata={"input": True})
+    n_sides: int = attrs.field(init=False, metadata={"input": True})
+  
+    # Paths
+    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
+
+    # Internal
+    df_points: pd.DataFrame = attrs.field(init=False)
+
+    def __call__(self):
+        super().__call__()
+
+        self.generate_polygon_shape()
+        self.plot_polygon_shape()
+    
+    def generate_polygon_shape(self):
+        # </> your code </>
+
+    def plot_polygon_shape(self):
+        # </> your code </>
+```
+
+---
+
+Note that the **Proc** should at some point produce output data, typically in the form of files or folders generated during the execution of its **Ops**. To make these output data trackable by the **NUREMICS** framework, each must be registered in the `self.output_paths` dictionary using a label that is unique to the **Proc** (e.g., `"coords_file"`, `"fig_file"`).
+
+Using the dictionary syntax `self.output_paths["coords_file"]` effectively declares an output variable named `coords_file`, which will later be instantiated by assigning it a specific file or folder name when integrating the **Proc** into a broader application workflow.
+
+```python
+import attrs
+import pandas as pd
+from pathlib import Path
+from nuremics import Process
+
+@attrs.define
+class PolygonGeometryProc(Process):
+
+    # Parameters
+    radius: float = attrs.field(init=False, metadata={"input": True})
+    n_sides: int = attrs.field(init=False, metadata={"input": True})
+  
+    # Paths
+    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
+
+    # Internal
+    df_points: pd.DataFrame = attrs.field(init=False)
+
+    def __call__(self):
+        super().__call__()
+
+        self.generate_polygon_shape()
+        self.plot_polygon_shape()
+    
+    def generate_polygon_shape(self):
+        # </> your code </>
+        file = self.output_paths["coords_file"]
+        # </> Write file </>
+
+    def plot_polygon_shape(self):
+        # </> your code </>
+        file = self.output_paths["fig_file"]
+        # </> Write file </>
+```
+
+---
+
+Even though **Procs** are not intended to be executed independently by end-users, they are still designed with the possibility to run _out of the box_. This allows developers to easily execute them during the development phase or when implementing dedicated unit tests for a specific **Proc**.
+
+In such cases, it is important to set `set_inputs=True` when instantiating the **Proc**, to explicitly inform the **NUREMICS** framework that the input data are being provided manually, outside of any workflow context.
+
+```python
+import attrs
+import pandas as pd
+from pathlib import Path
+from nuremics import Process
+
+@attrs.define
+class PolygonGeometryProc(Process):
+
+    # Parameters
+    radius: float = attrs.field(init=False, metadata={"input": True})
+    n_sides: int = attrs.field(init=False, metadata={"input": True})
+  
+    # Paths
+    title_file: Path = attrs.field(init=False, metadata={"input": True}, converter=Path)
+
+    # Internal
+    df_points: pd.DataFrame = attrs.field(init=False)
+
+    def __call__(self):
+        super().__call__()
+
+        self.generate_polygon_shape()
+        self.plot_polygon_shape()
+    
+    def generate_polygon_shape(self):
+        # </> your code </>
+        file = self.output_paths["coords_file"]
+        # </> Write file </>
+
+    def plot_polygon_shape(self):
+        # </> your code </>
+        file = self.output_paths["fig_file"]
+        # </> Write file </>
+
+if __name__ == "__main__":
+    
+    # ================================================================== #
+    #                      USER-DEFINED PARAMETERS                       #
+    #              >>>>> TO BE EDITED BY THE OPERATOR <<<<<              #
+    # ================================================================== #
+
+    # Working directory
+    working_dir = Path(r"...")
+    
+    # Input parameters
+    radius = 0.5
+    n_sides = 3
+    
+    # Input paths
+    title_file = Path(r"...") / "plot_title.txt"
+
+    # Output paths
+    coords_file = "points_coordinates.csv"
+    fig_file = "polygon_shape.png"
+
+    # ================================================================== #
+
+    # Go to working directory
+    os.chdir(working_dir)
+
+    # Create dictionary containing input data
+    dict_inputs = {
+        "radius": radius,
+        "n_sides": n_sides,
+        "title_file": title_file,
+    }
+    
+    # Create process
+    process = PolygonGeometryProc(
+        dict_inputs=dict_inputs,
+        set_inputs=True,
+    )
+
+    # Define output paths
+    process.output_paths["coords_file"] = coords_file
+    process.output_paths["fig_file"] = fig_file
+
+    # Run process
+    process()
+    process.finalize()
+```
+
+### Assemble Procs into App
+
+Most of the development effort has already been carried out when implementing the individual **Procs**. The next step consists in assembling them into a coherent **App**, where each **Proc** is instantiated, connected, and orchestrated to form a complete, executable workflow.
+
+---
+
+We start by defining the name of our **App**.
+
+```python
+APP_NAME = "DEMO_APP"
+```
+
+---
+
+We then import the `Application` class from `nuremics`, which serves as the container and manager to define a workflow composed of multiple **Procs**.
+
+```python
+from nuremics import Application
+
+APP_NAME = "DEMO_APP"
+```
+
+---
+
+We now import two **Procs**, `PolygonGeometryProc` and `ProjectileModelProc`, previously implemented. These will be the building blocks to assemble into our final **App**.
+
+```python
+from nuremics import Application
+from labs.procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+```
+
+---
+
+The source code of the **App** then adopts the structure of a standard Python script, which can both be executed directly or imported as a module. This is achieved by defining a `main()` function and guarding it with the typical `if __name__ == "__main__":` statement.
+
+```python
+from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+
+def main():
+    # Application logic here
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+Inside the `main()` function, we define a list called `workflow` which contains the sequence of **Procs** to be executed, in the order specified. This list is made up of dictionaries, where each dictionary describes the assembly characteristics of each individual **Proc** into the **App**. This dictionary-based structure offers flexibility to easily add more parameters or options later by simply adding new keys to each dictionary in the workflow.
+
+Let's first define the key `"process"` of each dictionary, which specifies the **Proc** class (previously imported, e.g., `PolygonGeometryProc` and `ProjectileModelProc`) to instantiate and execute within the **App** workflow.
+
+```python
+from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+
+def main():
+
+    # --------------- #
+    # Define workflow #
+    # --------------- #
+    workflow = [
+        {
+            "process": PolygonGeometryProc,
+        },
+        {
+            "process": ProjectileModelProc,
+        },
+    ]
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+We now create an `Application` object `app`, which acts as the core engine of our **App**. This object is instantiated using the previously defined inputs:
+
+- `app_name`: the name of the **App**.
+
+- `nuremics_dir`: the root directory of your `nuremics-labs` repository.
+
+- `workflow`: the ordered list of **Procs** to run.
+
+Once the `Application` object is created, calling `app()` launches the workflow execution of all the defined **Procs**.
+
+```python
+import git
+from pathlib import Path
+from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
+
+def main():
+
+    # --------------- #
+    # Define workflow #
+    # --------------- #
+    workflow = [
+        {
+            "process": PolygonGeometryProc,
+        },
+        {
+            "process": ProjectileModelProc,
+        },
+    ]
+
+    # ------------------ #
+    # Define application #
+    # ------------------ #
+    app = Application(
+        app_name=APP_NAME,
+        nuremics_dir=repo.working_tree_dir,
+        workflow=workflow,
+    )
+    # Run it!
+    app()
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+At this stage, we can start executing the **App** and see what's happen.
+
+Note that **NUREMICS** performs a structural check of each **Proc** by inspecting its `__call__` method. Specifically, it ensures that only functions (**Ops**) defined within the **Proc** class itself are called during execution. This design choice enforces a clean and self-contained structure for each **Proc**, where all internal logic remains encapsulated.
+
+Let's consider a case where the developer does not adhere to this enforced structural rule, for instance, by injecting additional logic directly into the `__call__` method of a **Proc** (in this example, in the `ProjectileModelProc` class).
+
+```python
+    def __call__(self):
+        super().__call__()
+
+        some_variable = 2 # <-- External logic added here
+
+        self.simulate_projectile_motion()
+        self.calculate_analytical_trajectory()
+        self.compare_model_vs_analytical_trajectories()
+```
+
+In this situation, **NUREMICS** will immediately raise a structural validation error and halt execution.
+
+👤🔄🖥️
+```shell
+| Workflow |
+DEMO_APP_____
+             |_____PolygonGeometryProc_____
+             |                             |_____generate_polygon_shape
+             |                             |_____plot_polygon_shape
+             |
+             |_____ProjectileModelProc_____(X)
+
+(X) Each process must only call its internal function(s):
+
+    def __call__(self):
+        super().__call__()
+
+        self.operation1()
+        self.operation2()
+        self.operation3()
+        ...
+```
+
+---
+
+**NUREMICS** is then expected to display a summary of all required input/output data for each **Proc**, along with their current mapping status within the **App**.
+
+At this stage, the system automatically verifies whether every required input/output data has been properly mapped within the **App** configuration.
+
+If any **input parameters** are missing, they are explicitly listed, and the developer is prompted to define them using either the `"user_params"` or `"hard_params"` key.
+
+👤🔄🖥️
+```shell
+| PolygonGeometryProc |
+> Input Parameter(s) :
+(float) radius  -----||----- Not defined (X)
+(int)   n_sides -----||----- Not defined (X)
+
+(X) Please define all input parameters either in "user_params" or "hard_params".
+```
+
+The **input parameters** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"user_params"` and/or `"hard_params"` keys in its corresponding dictionary entry inside the `workflow` list.
+
+```python
+import git
+from pathlib import Path
+from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
+
+def main():
+
+    # --------------- #
+    # Define workflow #
+    # --------------- #
+    workflow = [
+        {
+            "process": PolygonGeometryProc,
+            "user_params": {
+                "n_sides": "nb_sides",
+            },
+            "hard_params": {
+                "radius": 0.5,
+            },
+        },
+        {
+            "process": ProjectileModelProc,
+        },
+    ]
+
+    # ------------------ #
+    # Define application #
+    # ------------------ #
+    app = Application(
+        app_name=APP_NAME,
+        nuremics_dir=repo.working_tree_dir,
+        workflow=workflow,
+    )
+    # Run it!
+    app()
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+When running the **App** again, **NUREMICS** detects that all required **input parameters** for `PolygonGeometryProc` have been successfully mapped. However, it now reports that one or more **input paths** are missing. These are explicitly listed, and the developer is prompted to define them using either the `"user_paths"` or `"required_paths"` key.
+
+👤🔄🖥️
+```shell
+| PolygonGeometryProc |
+> Input Parameter(s) :
+(float) radius  -----||----- 0.5      (hard_params)
+(int)   n_sides -----||----- nb_sides (user_params)
+> Input Path(s) :
+title_file -----||----- Not defined (X)
+
+(X) Please define all input paths either in "user_paths" or "required_paths".
+```
+
+The **input paths** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"user_paths"` and/or `"required_paths"` keys in its corresponding dictionary entry inside the workflow list.
+
+```python
+import git
+from pathlib import Path
+from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
+
+def main():
+
+    # --------------- #
+    # Define workflow #
+    # --------------- #
+    workflow = [
+        {
+            "process": PolygonGeometryProc,
+            "user_params": {
+                "n_sides": "nb_sides",
+            },
+            "hard_params": {
+                "radius": 0.5,
+            },
+            "user_paths": {
+                "title_file": "plot_title.txt",
+            },
+        },
+        {
+            "process": ProjectileModelProc,
+        },
+    ]
+
+    # ------------------ #
+    # Define application #
+    # ------------------ #
+    app = Application(
+        app_name=APP_NAME,
+        nuremics_dir=repo.working_tree_dir,
+        workflow=workflow,
+    )
+    # Run it!
+    app()
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+When running the **App** again, **NUREMICS** detects that all required **input paths** for `PolygonGeometryProc` have been successfully mapped. However, it now reports that one or more **output paths** are missing. These are explicitly listed, and the developer is prompted to define them using the `"output_paths"` key.
+
+👤🔄🖥️
+```shell
+| PolygonGeometryProc |
+> Input Parameter(s) :
+(float) radius  -----||----- 0.5      (hard_params)
+(int)   n_sides -----||----- nb_sides (user_params)
+> Input Path(s) :
+title_file -----||----- plot_title.txt (user_paths)
+> Input Analysis :
+None.
+> Output Path(s) :
+coords_file -----||----- Not defined (X)
+fig_file    -----||----- Not defined (X)
+
+(X) Please define all output paths in "output_paths".
+```
+
+The **output paths** of the **Proc** `PolygonGeometryProc` can be properly mapped within the **App** by defining the `"output_paths"` key in its corresponding dictionary entry inside the workflow list.
+
+In the same way, we also complete the mapping for the **Proc** `ProjectileModelProc` by providing all required entries: `"user_params"` and/or `"hard_params"`, `"user_paths"` and/or `"required_paths"`, `"output_paths"`.
+
+```python
+import git
+from pathlib import Path
+from nuremics import Application
+from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
+from procs.general.ProjectileModelProc.item import ProjectileModelProc
+
+APP_NAME = "DEMO_APP"
+repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
+
+def main():
+
+    # --------------- #
+    # Define workflow #
+    # --------------- #
+    workflow = [
+        {
+            "process": PolygonGeometryProc,
+            "user_params": {
+                "n_sides": "nb_sides",
+            },
+            "hard_params": {
+                "radius": 0.5,
+            },
+            "user_paths": {
+                "title_file": "plot_title.txt",
+            },
+            "output_paths": {
+                "coords_file": "points_coordinates.csv",
+                "fig_file": "polygon_shape.png",
+            },
+        },
+        {
+            "process": ProjectileModelProc,
+            "user_params": {
+                "gravity": "gravity",
+                "mass": "mass",
+            },
+            "user_paths": {
+                "velocity_file": "velocity.json",
+                "configs_folder": "configs",
+            },
+            "required_paths": {
+                "coords_file": "points_coordinates.csv",
+            },
+            "output_paths": {
+                "comp_folder": "comparison",
+            },
+        },
+    ]
+
+    # ------------------ #
+    # Define application #
+    # ------------------ #
+    app = Application(
+        app_name=APP_NAME,
+        nuremics_dir=repo.working_tree_dir,
+        workflow=workflow,
+    )
+    # Run it!
+    app()
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+With all required mappings now properly defined for each **Proc**, the **App** can be executed without raising any errors. **NUREMICS** confirms that the full mapping is complete by prompting a summary for each **Proc**, indicating that all **input parameters**, **input paths**, and **output paths** have been successfully resolved.
+
+👤🔄🖥️
+```shell
+| PolygonGeometryProc |
+> Input Parameter(s) :
+(float) radius  -----||----- 0.5      (hard_params)
+(int)   n_sides -----||----- nb_sides (user_params)
+> Input Path(s) :
+title_file -----||----- plot_title.txt (user_paths)
+> Input Analysis :
+None.
+> Output Path(s) :
+coords_file -----||----- points_coordinates.csv (output_paths)
+fig_file    -----||----- polygon_shape.png      (output_paths)
+
+| ProjectileModelProc |
+> Input Parameter(s) :
+(float) gravity -----||----- gravity (user_params)
+(float) mass    -----||----- mass    (user_params)
+> Input Path(s) :
+velocity_file  -----||----- velocity.json          (user_paths)
+configs_folder -----||----- configs                (user_paths)
+coords_file    -----||----- points_coordinates.csv (required_paths)
+> Input Analysis :
+None.
+> Output Path(s) :
+comp_folder -----||----- comparison (output_paths)
+```
+
+---
+
+As the **App** has now been fully assembled, **NUREMICS** displays a clean summary of its I/O interface, as it will appear to the end-user. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing end-users to clearly understand what data they need to provide and what results to expect.
+
+👤🔄🖥️
+```shell
+> INPUTS <
+
+| User Parameters |
+> nb_sides (int)
+> gravity (float)
+> mass (float)
+
+| User Paths |
+> plot_title.txt
+> velocity.json
+> configs
+
+> OUTPUTS <
+
+> points_coordinates.csv
+> polygon_shape.png
+> comparison
+```
+
+---
+
+With all **Procs** implemented and properly assembled within the **App**, the development work is now complete. The developer’s responsibility ends here (excluding, of course, the implementation of unit tests to ensure long-term maintainability, which falls outside the scope of this tutorial).
+
+The **App** is now fully functional and ready to be operated by end-users. From this point, users can interact with the **App** through its declared I/O interface, without needing to modify or understand the underlying code structure.
 
 ---
 
