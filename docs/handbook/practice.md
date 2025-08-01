@@ -10,6 +10,7 @@ When launching the **App**, **NUREMICS** first provides the following terminal f
 
 - A visual banner indicating the launch of a **NUREMICS App**.
 - A structured overview of the assembled workflow, with its constitutive **Procs** and **Ops**, and their order of execution within the **App** workflow.
+- A summary of the **App**'s I/O interface. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing you to understand what data you need to provide and what results to expect.
 
 👤🔄🖥️
 ```shell
@@ -49,6 +50,25 @@ DEMO_APP_____
              |
              |_____TrajectoryAnalysisProc_____
                                               |_____plot_overall_model_vs_theory
+
+> INPUTS <
+
+| User Parameters |
+> nb_sides (int)
+> gravity (float)
+> mass (float)
+
+| User Paths |
+> plot_title.txt
+> velocity.json
+> configs
+
+> OUTPUTS <
+
+> points_coordinates.csv
+> polygon_shape.png
+> comparison
+> overall_comparisons.png
 ```
 
 ### Specify Working Directory
@@ -98,32 +118,6 @@ A new folder named after the **App** is then automatically generated under the s
 └── DEMO_APP/ ➕ #generated
 ```
 
----
-
-At this stage, the **NUREMICS** terminal finally displays a clear summary of the **App**'s I/O interface. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing you to understand what data you need to provide and what results to expect.
-
-👤🔄🖥️
-```shell
-> INPUTS <
-
-| User Parameters |
-> nb_sides (int)
-> gravity (float)
-> mass (float)
-
-| User Paths |
-> plot_title.txt
-> velocity.json
-> configs
-
-> OUTPUTS <
-
-> points_coordinates.csv
-> polygon_shape.png
-> comparison
-> overall_comparisons.png
-```
-
 ### Declare Studies
 
 **NUREMICS** then prompts you to declare the different studies you want to carry out with the **App**.
@@ -132,7 +126,7 @@ At this stage, the **NUREMICS** terminal finally displays a clear summary of the
 ```shell
 > STUDIES <
 
-(X) Please define at least one study in file :
+(X) Please declare at least one study in file :
 > .../nuremics-labs/.nuremics/settings.json
 ```
 
@@ -433,7 +427,7 @@ All _fixed_ input data have now been completed within the input database of the 
 | Study_Shape |
 > Common : (V) gravity (V) mass (V) plot_title.txt (V) velocity.json (V) configs
 
-(X) Please define at least one dataset in file :
+(X) Please declare at least one experiment in file :
 > .../DEMO_APP/Study_Shape/inputs.csv
 ```
 
@@ -560,7 +554,7 @@ The same work must be done to set the input data for the second declared study.
 | Study_Velocity |
 > Common : (V) nb_sides (V) gravity (V) mass (V) plot_title.txt (V) configs
 
-(X) Please define at least one dataset in file :
+(X) Please declare at least one experiment in file :
 > .../DEMO_APP/Study_Velocity/inputs.csv
 ```
 
