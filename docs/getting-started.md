@@ -108,7 +108,7 @@ Follow these steps:
     python src/labs/apps/general/DEMO_APP/system.py
     ```
 
-    This will launch both studies and store results in `<nrs_working_dir>/DEMO_APP`.
+    This will launch both studies and store results in `nrs_working_dir/DEMO_APP`.
 
 ## Play with it
 
@@ -118,7 +118,7 @@ Now that you've successfully run the `DEMO_APP` and reproduced the scientific re
 
 Want to skip the execution of a specific study when running your **App**? Set its `"execute"` field to `false` in the `studies.json` file.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/studies.json`"
+=== "📄 `nrs_working_dir/DEMO_APP/studies.json`"
     ```json hl_lines="3"
     {
         "Study_Shape": {
@@ -136,7 +136,7 @@ Want to skip the execution of a specific study when running your **App**? Set it
 
 Want to skip the execution of a specific process (**Proc**) within a study? Set its `"execute"` field to `false` in the `process.json` file.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/Study_Velocity/process.json`"
+=== "📄 `nrs_working_dir/DEMO_APP/Study_Velocity/process.json`"
     ```json hl_lines="3"
     {
         "PolygonGeometryProc": {
@@ -158,7 +158,7 @@ Want to skip the execution of a specific process (**Proc**) within a study? Set 
 
 Want a specific process (**Proc**) to be executed in silent mode within a study? Set its `"silent"` field to `true` in the `process.json` file.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/Study_Velocity/process.json`"
+=== "📄 `nrs_working_dir/DEMO_APP/Study_Velocity/process.json`"
     ```json hl_lines="8"
     {
         "PolygonGeometryProc": {
@@ -180,7 +180,7 @@ Want a specific process (**Proc**) to be executed in silent mode within a study?
 
 Want to skip the execution of a specific experiment in a study? Set the value of the `EXECUTE` flag to `0` in the `inputs.csv` file for the experiment you want to skip.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/Study_Velocity/inputs.csv`"
+=== "📄 `nrs_working_dir/DEMO_APP/Study_Velocity/inputs.csv`"
 ```csv hl_lines="3"
 ID,EXECUTE
 Test1,1
@@ -192,7 +192,7 @@ Test3,1
 
 Want to run a new experiment in a study? Add a new line with a unique `ID` to the `inputs.csv` file.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/Study_Velocity/inputs.csv`"
+=== "📄 `nrs_working_dir/DEMO_APP/Study_Velocity/inputs.csv`"
 ```csv hl_lines="5"
 ID,EXECUTE
 Test1,1
@@ -203,7 +203,7 @@ MyExp,1
 
 Then run the **App**, which will automatically generate the corresponding input folder where you must upload the required `velocity.json` file.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/Study_Velocity/0_inputs/0_datasets/MyExp/velocity.json`"
+=== "📄 `nrs_working_dir/DEMO_APP/Study_Velocity/0_inputs/0_datasets/MyExp/velocity.json`"
     ```json
     {
         "v0": 15.0,
@@ -215,7 +215,7 @@ Then run the **App**, which will automatically generate the corresponding input 
 
 Want to customize the overall analysis of experiment results for a given study? Use the `analysis.json` file to control how each one is handled.
 
-=== "📄 `<nrs_working_dir>/DEMO_APP/Study_Velocity/analysis.json`"
+=== "📄 `nrs_working_dir/DEMO_APP/Study_Velocity/analysis.json`"
     ```json hl_lines="37"
     {
         "points_coordinates.csv": {},
