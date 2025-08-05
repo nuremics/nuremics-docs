@@ -29,4 +29,10 @@ Take part of the discussions on the Discord channel <code>#modeling-and-simulati
 
 ## Use Cases
 
-- [Cantilever subjected to end shear force](cantilever-shear.md)
+<div class="card fullwidth">
+  <a href="cantilever-shear/">Cantilever subjected to end shear force</a>
+  <div class="card-description">Computational Structural Mechanics (CSM) benchmark focusing on the non-linear response of a shear-loaded beam structure.</div>
+  <a href="cantilever-shear/">
+    <img src="../../images/cantilever_shear_figure.png" style="width: 70%; margin-top: 15px; margin-bottom: 5px;">
+  </a>
+</div>
