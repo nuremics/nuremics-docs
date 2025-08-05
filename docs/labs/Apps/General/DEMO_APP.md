@@ -10,14 +10,14 @@
 
 ## Workflow
 
-1. **[`PolygonGeometryProc`](../../Procs/General/PolygonGeometryProc.md):** Generate and plot a regular 2D polygon shape.<br>
+1. **[`PolygonGeometryProc`](../../procs/general/PolygonGeometryProc.md):** Generate and plot a regular 2D polygon shape.<br>
   A/ **`generate_polygon_shape`:** Generate the 2D coordinates of a regular polygon.<br>
   B/ **`plot_polygon_shape`:** Plot a closed 2D polygon from a set of points.
-2. **[`ProjectileModelProc`](../../Procs/General/ProjectileModelProc.md):** Simulate the motion of a projectile and compare its trajectory with the analytical solution.<br>
+2. **[`ProjectileModelProc`](../../procs/general/ProjectileModelProc.md):** Simulate the motion of a projectile and compare its trajectory with the analytical solution.<br>
   A/ **`simulate_projectile_motion`:** Simulate the motion of a 2D rigid body under gravity projected with an initial velocity.<br>
   B/ **`calculate_analytical_trajectory`:** Calculate the theoretical trajectory of a projectile using analytical equations.<br>
   C/ **`compare_model_vs_analytical_trajectories`:** Plot and save the comparison between simulated (model) and theoretical projectile trajectories.
-3. **[`TrajectoryAnalysisProc`](../../Procs/General/TrajectoryAnalysisProc.md):** Perform overall comparisons between simulated (model) and theoretical trajectories.<br>
+3. **[`TrajectoryAnalysisProc`](../../procs/general/TrajectoryAnalysisProc.md):** Perform overall comparisons between simulated (model) and theoretical trajectories.<br>
   A/ **`plot_overall_model_vs_theory`:** Generate overall comparative plots of simulated (model) and theoritical trajectories.
 
 ```mermaid

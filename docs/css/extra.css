@@ -20,6 +20,16 @@ a.md-button.md-button--primary:hover {
   font-weight: normal;
 }
 
+.md-content a:not(.md-button) {
+  color: #6eb7ff;
+  text-decoration: none;  /* Enlève le soulignement */
+}
+
+.md-content a:not(.md-button):hover {
+  color: #ffaa00;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 76.2344em) {
     .md-nav--primary .md-nav__title[for=__drawer] {
         background-color: #6eb7ff !important;  /* ta couleur de fond */
@@ -50,4 +60,17 @@ a.md-button.md-button--primary:hover {
 .md-header .md-header__title,
 .md-header .md-header__button {
     color: #ffffff !important;
+}
+
+figure.wide-caption {
+  width: 100%;
+  text-align: left;
+}
+
+figure.wide-caption figcaption {
+  display: block;
+  max-width: 100%;
+  margin-top: 0.5em;
+  font-style: italic;
+  color: #5a5a5a;
 }

@@ -51,7 +51,7 @@ Installation proceeds as follows:
         micromamba activate nrs-env
         ```
 
-3. **Install NUREMICS with the demo application.** Each application in `nuremics-labs` can be installed independently. You can start by installing the [`DEMO_APP`](Labs/Apps/General/DEMO_APP.md){:target="_blank"}.
+3. **Install NUREMICS with the demo application.** Each application in `nuremics-labs` can be installed independently. You can start by installing the [`DEMO_APP`](labs/apps/general/DEMO_APP.md){:target="_blank"}.
 
     ```bash
     pip install .[DEMO_APP]

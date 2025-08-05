@@ -10,12 +10,22 @@ nav:
   - Labs:
     - Apps:
       - General:
-        - DEMO_APP: Labs/Apps/General/DEMO_APP.md
+        - DEMO_APP: labs/apps/general/DEMO_APP.md
     - Procs:
       - General:
-        - PolygonGeometryProc: Labs/Procs/General/PolygonGeometryProc.md
-        - ProjectileModelProc: Labs/Procs/General/ProjectileModelProc.md
-        - TrajectoryAnalysisProc: Labs/Procs/General/TrajectoryAnalysisProc.md
+        - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
+        - ProjectileModelProc: labs/procs/general/ProjectileModelProc.md
+        - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
+  - Build In Public:
+    - Overview : build-in-public/index.md
+    - CM&S:
+      - Overview: build-in-public/cms/index.md
+      - Cantilever subjected to end shear force: build-in-public/cms/cantilever-shear.md
+
+    # - Computational Modeling & Simlation
+    #   - Overview
+    #   - Computational Structural Mechanics
+    #     - Cantilever subjected to end shear force
 
 theme:
   name: material
