@@ -1105,8 +1105,8 @@ We now import two **Procs**, `PolygonGeometryProc` and `ProjectileModelProc`, pr
 
 ```python
 from nuremics import Application
-from labs.procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from labs.procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 ```
@@ -1117,8 +1117,8 @@ The source code of the **App** then adopts the structure of a standard Python sc
 
 ```python
 from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 
@@ -1137,8 +1137,8 @@ Let's first define the key `"process"` of each dictionary, which specifies the *
 
 ```python
 from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 
@@ -1176,8 +1176,8 @@ Once the `Application` object is created, calling `app()` launches the workflow 
 import git
 from pathlib import Path
 from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
@@ -1277,8 +1277,8 @@ The **input parameters** of the **Proc** `PolygonGeometryProc` can be properly m
 import git
 from pathlib import Path
 from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
@@ -1340,8 +1340,8 @@ The **input paths** of the **Proc** `PolygonGeometryProc` can be properly mapped
 import git
 from pathlib import Path
 from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)
@@ -1413,8 +1413,8 @@ In the same way, we also complete the mapping for the **Proc** `ProjectileModelP
 import git
 from pathlib import Path
 from nuremics import Application
-from procs.general.PolygonGeometryProc.item import PolygonGeometryProc
-from procs.general.ProjectileModelProc.item import ProjectileModelProc
+from labs.procs.general.PolygonGeometryProc import PolygonGeometryProc
+from labs.procs.general.ProjectileModelProc import ProjectileModelProc
 
 APP_NAME = "DEMO_APP"
 repo = git.Repo(Path(__file__).resolve().parent, search_parent_directories=True)

@@ -18,9 +18,11 @@ nav:
         - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
   - Build In Public:
     - Overview : build-in-public/index.md
-    - CM&S:
+    - Modeling & Simulation:
       - Overview: build-in-public/cms/index.md
       - Cantilever subjected to end shear force: build-in-public/cms/cantilever-shear.md
+    - AI & Data Science:
+      - Overview: build-in-public/aids/index.md
 
     # - Computational Modeling & Simlation
     #   - Overview

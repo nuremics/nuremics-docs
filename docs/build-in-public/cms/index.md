@@ -13,7 +13,7 @@ This topic focuses on the design and implementation of **NUREMICS** components d
 ---
 
 <div align="center" style="font-weight: bold; font-size: 1.0rem;">
-Take part of the discussions on the Discord channel <code>#modeling-and-simulation</code>
+Take part of the discussions on the Discord category <code>🛠️ Modeling & Simulation</code>
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
