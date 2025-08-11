@@ -16,7 +16,7 @@ nav:
         - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
         - ProjectileModelProc: labs/procs/general/ProjectileModelProc.md
         - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
-  - Build In Public:
+  - BUILD IN PUBLIC:
     - Overview : build-in-public/index.md
     - Modeling & Simulation:
       - Overview: build-in-public/cms/index.md
