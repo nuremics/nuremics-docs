@@ -65,7 +65,7 @@ To get hands-on experience with the **NUREMICS** framework, you'll start by runn
 
 <div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/nqGbva-uvTc?autoplay=1&loop=1&playlist=nqGbva-uvTc&mute=1"
+          src="https://www.youtube.com/embed/pMGaISwi61w?autoplay=1&loop=1&playlist=pMGaISwi61w&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
