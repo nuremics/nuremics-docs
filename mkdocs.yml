@@ -11,6 +11,11 @@ nav:
     - Apps:
       - General:
         - DEMO_APP: labs/apps/general/DEMO_APP.md
+      - Modeling & Simulation:
+        - CANTILEVER_SHEAR_APP:
+          - App: labs/apps/cms/CANTILEVER_SHEAR_APP/app.md
+          - Procs:
+            - GeometryProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md
     - Procs:
       - General:
         - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md

@@ -1,6 +1,26 @@
 # Cantilever subjected to end shear force
 
-## Use Case
+- Branch: [`cantilever-shear`](https://github.com/nuremics/nuremics-labs/tree/cantilever-shear){:target="_blank"}
+- App: [`CANTILEVER_SHEAR_APP`](../../labs/apps/cms/CANTILEVER_SHEAR_APP/app.md){:target="_blank"}
+
+---
+
+<div align="center" style="font-weight: bold; font-size: 1.0rem;">
+Take part of the discussions on the Discord channel <code>#cantilever-shear</code>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <a href="https://www.suffisciens.com/nuremics/discord"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="md-button md-button--primary">
+    Join the Community
+  </a>
+</div>
+
+---
+
+## Introduction
 
 This is a classical benchmark in **Computational Structural Mechanics (CSM)**, focusing on the simulation of a beam structure fixed at one end and loaded by a shear force at the other end.
 
@@ -22,9 +42,8 @@ This test case is extracted from the scientific article by [Sze *et al.* 2004](h
   </figcaption>
 </figure>
 
-The purpose of the present use case is thus to implement a custom **NUREMICS App** specifically tailored to reproduce this benchmark simulation and to compare the obtained results with the published reference solution.
+## Materials & Methods
 
-<!-- ## NUREMICS App
+This benchmark simulation is thus reproduced using a custom computational model, and the obtained results are compared with the published reference solution.
 
-- **Branch name:** [`cantilever-shear`](https://github.com/nuremics/nuremics-labs/tree/cantilever-shear){:target="_blank"}
-- **App name:** `CANTILEVER_SHEAR_APP` -->
+_To be continued..._
