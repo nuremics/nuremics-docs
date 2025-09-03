@@ -2,13 +2,13 @@
 
 ## Use App
 
-This section walks you through the usage of a **NUREMICS App** from the end-user's perspective. We will demonstrate how to interact with a ready-to-use **App**, including how to design studies, define experiments, provide inputs, run the **App**, and retrieve the expected outputs.
+This section walks you through the usage of a **nuRemics App** from the end-user's perspective. We will demonstrate how to interact with a ready-to-use **App**, including how to design studies, define experiments, provide inputs, run the **App**, and retrieve the expected outputs.
 
 ---
 
-When launching the **App**, **NUREMICS** first provides the following terminal feedback:
+When launching the **App**, **nuRemics** first provides the following terminal feedback:
 
-- A visual banner indicating the launch of a **NUREMICS App**.
+- A visual banner indicating the launch of a **nuRemics App**.
 - A structured overview of the assembled workflow, with its constitutive **Procs** and **Ops**, and their order of execution within the **App** workflow.
 - A summary of the **App**'s I/O interface. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing you to understand what data you need to provide and what results to expect.
 
@@ -73,7 +73,7 @@ DEMO_APP_____
 
 ### Specify Working Directory
 
-If this is your first time launching a **NUREMICS App**, **NUREMICS** will prompt you to specify the working directory (`"working_dir"`) for the **App**. This directory serves as the root location where all input/output data, logs, and results will be stored.
+If this is your first time launching a **nuRemics App**, **nuRemics** will prompt you to specify the working directory (`"working_dir"`) for the **App**. This directory serves as the root location where all input/output data, logs, and results will be stored.
 
 👤🔄🖥️
 ```shell
@@ -98,7 +98,7 @@ As indicated in the terminal message, you must define this path in the `settings
 
 ---
 
-If you've already launched a **NUREMICS App** before, but this is your first time launching this specific **App**, **NUREMICS** may have already registered a `default_working_dir` in the `settings.json` file based on a previous **App**. In that case, it will suggest using this same directory as the `"working_dir"` for the current **App**.
+If you've already launched a **nuRemics App** before, but this is your first time launching this specific **App**, **nuRemics** may have already registered a `default_working_dir` in the `settings.json` file based on a previous **App**. In that case, it will suggest using this same directory as the `"working_dir"` for the current **App**.
 
 👤🔄🖥️
 ```shell
@@ -120,7 +120,7 @@ A new folder named after the **App** is then automatically generated under the s
 
 ### Declare Studies
 
-**NUREMICS** then prompts you to declare the different studies you want to carry out with the **App**.
+**nuRemics** then prompts you to declare the different studies you want to carry out with the **App**.
 
 👤🔄🖥️
 ```shell
@@ -161,7 +161,7 @@ A `studies.json` file is then generated inside the **App**'s `"working_dir"`. Th
 
 ### Configure Studies
 
-**NUREMICS** then prompts you to configure the first study that you previously declared.
+**nuRemics** then prompts you to configure the first study that you previously declared.
 
 👤🔄🖥️
 ```shell
@@ -215,7 +215,7 @@ You must now complete the `studies.json` file by specifying, for each input, whe
 
 ---
 
-**NUREMICS** then prompts that the first study is properly configured, but indicates that the second declared study still requires configuration.
+**nuRemics** then prompts that the first study is properly configured, but indicates that the second declared study still requires configuration.
 
 👤🔄🖥️
 ```shell
@@ -277,7 +277,7 @@ The same work must therefore be done in the `studies.json` file to properly conf
 
 ---
 
-**NUREMICS** finally prompts that all declared studies are properly configured.
+**nuRemics** finally prompts that all declared studies are properly configured.
 
 👤🔄🖥️
 ```shell
@@ -340,7 +340,7 @@ This input database contains:
 
 ---
 
-**NUREMICS** first prompts you to set the _fixed_ input data for the first declared study.
+**nuRemics** first prompts you to set the _fixed_ input data for the first declared study.
 
 👤🔄🖥️
 ```shell
@@ -418,7 +418,7 @@ All _fixed_ input data have now been completed within the input database of the 
 
 ---
 
-**NUREMICS** then prompts that all _fixed_ input data have been properly set, but indicates that datasets of _variable_ input data still need to be declared in order to define the experiments to run.
+**nuRemics** then prompts that all _fixed_ input data have been properly set, but indicates that datasets of _variable_ input data still need to be declared in order to define the experiments to run.
 
 👤🔄🖥️
 ```shell
@@ -441,7 +441,7 @@ Let's first declare three experiments in the `inputs.csv` file.
     Test3,,
     ```
 
-**NUREMICS** now prompts that the three experiments have been declared, but is waiting for the _variable_ input data to be set for each of them.
+**nuRemics** now prompts that the three experiments have been declared, but is waiting for the _variable_ input data to be set for each of them.
 
 👤🔄🖥️
 ```shell
@@ -467,7 +467,7 @@ Let’s thus set input values for each experiment in the `inputs.csv` file.
     Test3,5,
     ```
 
-**NUREMICS** finally prompts that all input data are properly set for the study.
+**nuRemics** finally prompts that all input data are properly set for the study.
 
 👤🔄🖥️
 ```shell
@@ -635,7 +635,7 @@ The same work must be done to set the input data for the second declared study.
 
 ---
 
-**NUREMICS** finally prompts that all input data are properly set for all declared studies.
+**nuRemics** finally prompts that all input data are properly set for all declared studies.
 
 👤🔄🖥️
 ```shell
@@ -656,7 +656,7 @@ The same work must be done to set the input data for the second declared study.
 
 ### Get Results
 
-At this stage, **NUREMICS** is ready to run all the defined studies and generate the corresponding results.
+At this stage, **nuRemics** is ready to run all the defined studies and generate the corresponding results.
 
 👤🔄🖥️
 ```shell
@@ -755,7 +755,7 @@ COMPLETED <<<
 COMPLETED <<<
 ```
 
-You can then access the results in the output database generated by **NUREMICS** within the **App**'s `"working_dir"`. 
+You can then access the results in the output database generated by **nuRemics** within the **App**'s `"working_dir"`. 
 
 👤👁️💾
 ```bash
@@ -833,7 +833,7 @@ You can then access the results in the output database generated by **NUREMICS**
 
 ## Create App
 
-Now that we've saw how to use a **NUREMICS App** as an end-user, it's now time to look under the hood and explore how the **App** is actually built. This section dives into the developer's side of **NUREMICS**, exposing how to define, organize, and structure a fully functional **App**.
+Now that we've saw how to use a **nuRemics App** as an end-user, it's now time to look under the hood and explore how the **App** is actually built. This section dives into the developer's side of **nuRemics**, exposing how to define, organize, and structure a fully functional **App**.
 
 You'll start by implementing your own [**Procs**](theory.md#proc){:target="_blank"}, which encapsulate domain-specific logic and computational tasks. Then, you’ll learn how to assemble these building blocks into a fully operational [**App**](theory.md#app){:target="_blank"}.
 
@@ -852,7 +852,7 @@ from nuremics import Process
 
 ---
 
-We then declare our first **Proc** as a Python class named `PolygonGeometryProc`, inheriting from the `Process` base class. This marks it as a modular item of computation which can be executed within a **NUREMICS** workflow.
+We then declare our first **Proc** as a Python class named `PolygonGeometryProc`, inheriting from the `Process` base class. This marks it as a modular item of computation which can be executed within a **nuRemics** workflow.
 
 ```python
 import attrs
@@ -866,7 +866,7 @@ class PolygonGeometryProc(Process):
 
 We now declare the input data required by our `PolygonGeometryProc`, grouped into two categories: **Parameters** and **Paths**. Each input is defined using `attrs.field()` and marked with `metadata={"input": True}`.
 
-This metadata is essential: it tells the **NUREMICS** framework that these attributes are expected as input data, ensuring they are properly tracked and managed throughout the workflow.
+This metadata is essential: it tells the **nuRemics** framework that these attributes are expected as input data, ensuring they are properly tracked and managed throughout the workflow.
 
 ```python
 import attrs
@@ -888,7 +888,7 @@ class PolygonGeometryProc(Process):
 
 In addition to the previously declared input data, a **Proc** can also define internal variables: attributes used during the execution of its internal logic but not provided as input data.
 
-These internal variables, like `df_points` in our example below, are declared without the `metadata={"input": True}` tag, signaling to the **NUREMICS** framework that they are not exposed to the workflow and will be set or computed within the **Proc** itself.
+These internal variables, like `df_points` in our example below, are declared without the `metadata={"input": True}` tag, signaling to the **nuRemics** framework that they are not exposed to the workflow and will be set or computed within the **Proc** itself.
 
 ```python
 import attrs
@@ -948,7 +948,7 @@ class PolygonGeometryProc(Process):
 
 ---
 
-Note that the **Proc** should at some point produce output data, typically in the form of files or folders generated during the execution of its **Ops**. To make these output data trackable by the **NUREMICS** framework, each must be registered in the `self.output_paths` dictionary using a label that is unique to the **Proc** (e.g., `"coords_file"`, `"fig_file"`).
+Note that the **Proc** should at some point produce output data, typically in the form of files or folders generated during the execution of its **Ops**. To make these output data trackable by the **nuRemics** framework, each must be registered in the `self.output_paths` dictionary using a label that is unique to the **Proc** (e.g., `"coords_file"`, `"fig_file"`).
 
 Using the dictionary syntax `self.output_paths["coords_file"]` effectively declares an output variable named `coords_file`, which will later be instantiated by assigning it a specific file or folder name when integrating the **Proc** into a broader application workflow.
 
@@ -992,7 +992,7 @@ class PolygonGeometryProc(Process):
 
 Even though **Procs** are not intended to be executed independently by end-users, they are still designed with the possibility to run _out of the box_. This allows developers to easily execute them during the development phase or when implementing dedicated unit tests for a specific **Proc**.
 
-In such cases, it is important to set `set_inputs=True` when instantiating the **Proc**, to explicitly inform the **NUREMICS** framework that the input data are being provided manually, outside of any workflow context.
+In such cases, it is important to set `set_inputs=True` when instantiating the **Proc**, to explicitly inform the **nuRemics** framework that the input data are being provided manually, outside of any workflow context.
 
 ```python
 import attrs
@@ -1215,7 +1215,7 @@ if __name__ == "__main__":
 
 At this stage, we can start executing the **App** and see what's happen.
 
-Note that **NUREMICS** performs a structural check of each **Proc** by inspecting its `__call__` method. Specifically, it ensures that only functions (**Ops**) defined within the **Proc** class itself are called during execution. This design choice enforces a clean and self-contained structure for each **Proc**, where all internal logic remains encapsulated.
+Note that **nuRemics** performs a structural check of each **Proc** by inspecting its `__call__` method. Specifically, it ensures that only functions (**Ops**) defined within the **Proc** class itself are called during execution. This design choice enforces a clean and self-contained structure for each **Proc**, where all internal logic remains encapsulated.
 
 Let's consider a case where the developer does not adhere to this enforced structural rule, for instance, by injecting additional logic directly into the `__call__` method of a **Proc** (in this example, in the `ProjectileModelProc` class).
 
@@ -1230,7 +1230,7 @@ Let's consider a case where the developer does not adhere to this enforced struc
         self.compare_model_vs_analytical_trajectories()
 ```
 
-In this situation, **NUREMICS** will immediately raise a structural validation error and halt execution.
+In this situation, **nuRemics** will immediately raise a structural validation error and halt execution.
 
 👤🔄🖥️
 ```shell
@@ -1255,7 +1255,7 @@ DEMO_APP_____
 
 ---
 
-**NUREMICS** is then expected to display a summary of all required input/output data for each **Proc**, along with their current mapping status within the **App**.
+**nuRemics** is then expected to display a summary of all required input/output data for each **Proc**, along with their current mapping status within the **App**.
 
 At this stage, the system automatically verifies whether every required input/output data has been properly mapped within the **App** configuration.
 
@@ -1320,7 +1320,7 @@ if __name__ == "__main__":
 
 ---
 
-When running the **App** again, **NUREMICS** detects that all required **input parameters** for `PolygonGeometryProc` have been successfully mapped. However, it now reports that one or more **input paths** are missing. These are explicitly listed, and the developer is prompted to define them using either the `"user_paths"` or `"required_paths"` key.
+When running the **App** again, **nuRemics** detects that all required **input parameters** for `PolygonGeometryProc` have been successfully mapped. However, it now reports that one or more **input paths** are missing. These are explicitly listed, and the developer is prompted to define them using either the `"user_paths"` or `"required_paths"` key.
 
 👤🔄🖥️
 ```shell
@@ -1386,7 +1386,7 @@ if __name__ == "__main__":
 
 ---
 
-When running the **App** again, **NUREMICS** detects that all required **input paths** for `PolygonGeometryProc` have been successfully mapped. However, it now reports that one or more **output paths** are missing. These are explicitly listed, and the developer is prompted to define them using the `"output_paths"` key.
+When running the **App** again, **nuRemics** detects that all required **input paths** for `PolygonGeometryProc` have been successfully mapped. However, it now reports that one or more **output paths** are missing. These are explicitly listed, and the developer is prompted to define them using the `"output_paths"` key.
 
 👤🔄🖥️
 ```shell
@@ -1477,7 +1477,7 @@ if __name__ == "__main__":
 
 ---
 
-With all required mappings now properly defined for each **Proc**, the **App** can be executed without raising any errors. **NUREMICS** confirms that the full mapping is complete by prompting a summary for each **Proc**, indicating that all **input parameters**, **input paths**, and **output paths** have been successfully resolved.
+With all required mappings now properly defined for each **Proc**, the **App** can be executed without raising any errors. **nuRemics** confirms that the full mapping is complete by prompting a summary for each **Proc**, indicating that all **input parameters**, **input paths**, and **output paths** have been successfully resolved.
 
 👤🔄🖥️
 ```shell
@@ -1509,7 +1509,7 @@ comp_folder -----||----- comparison (output_paths)
 
 ---
 
-As the **App** has now been fully assembled, **NUREMICS** displays a clean summary of its I/O interface, as it will appear to the end-user. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing end-users to clearly understand what data they need to provide and what results to expect.
+As the **App** has now been fully assembled, **nuRemics** displays a clean summary of its I/O interface, as it will appear to the end-user. This summary includes all declared user parameters (`"user_params"`) and user paths (`"user_paths"`) required as inputs, along with the corresponding output files and folders that the **App** will generate. It serves as an explicit interface contract, allowing end-users to clearly understand what data they need to provide and what results to expect.
 
 👤🔄🖥️
 ```shell
@@ -1541,7 +1541,7 @@ The **App** is now fully functional and ready to be operated by end-users. From 
 ---
 
 <div align="center" style="font-weight: bold; font-size: 1.0rem;">
-Explore NUREMICS in:
+Explore nuRemics in:
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">

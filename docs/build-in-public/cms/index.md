@@ -1,6 +1,6 @@
 # Computational Modeling & Simulation (CM&S)
 
-This topic focuses on the design and implementation of **NUREMICS** components dedicated to Computational Modeling & Simulation (CM&S) workflows:
+This topic focuses on the design and implementation of **nuRemics** components dedicated to Computational Modeling & Simulation (CM&S) workflows:
 
 - **Geometry creation:** Build, import, or manipulate a geometric model — from basic primitive shapes to complex CAD (Computer-Aided Design) assemblies.
 - **Physical labeling:** Translate a geometric model into physical model — label volumes, surfaces, edges, and vertices of interest, then assign physical entities, material properties, and boundary conditions.

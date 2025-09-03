@@ -25,7 +25,7 @@ Installation proceeds as follows:
             git clone git@github.com:nuremics/nuremics-labs.git
             ```
 
-2. **_(Optional, but recommended)_ Create the NUREMICS virtual environment.** From the root directory of your cloned repo, use either conda or micromamba to create and install the environment using the provided `environment.yml` file.
+2. **_(Optional, but recommended)_ Create the nuRemics virtual environment.** From the root directory of your cloned repo, use either conda or micromamba to create and install the environment using the provided `environment.yml` file.
 
     _- Creation -_
     === "Conda"
@@ -51,7 +51,7 @@ Installation proceeds as follows:
         micromamba activate nrs-env
         ```
 
-3. **Install NUREMICS with the demo application.** Each application in `nuremics-labs` can be installed independently. You can start by installing the [`DEMO_APP`](labs/apps/general/DEMO_APP.md){:target="_blank"}.
+3. **Install nuRemics with the demo application.** Each application in `nuremics-labs` can be installed independently. You can start by installing the [`DEMO_APP`](labs/apps/general/DEMO_APP.md){:target="_blank"}.
 
     ```bash
     pip install .[DEMO_APP]
@@ -61,7 +61,7 @@ Installation proceeds as follows:
 
 ## Run the demo
 
-To get hands-on experience with the **NUREMICS** framework, you'll start by running the `DEMO_APP` and reproducing the scientific results of the `Study_Shape` and `Study_Velocity` studies, as demonstrated in the video below.
+To get hands-on experience with the **nuRemics** framework, you'll start by running the `DEMO_APP` and reproducing the scientific results of the `Study_Shape` and `Study_Velocity` studies, as demonstrated in the video below.
 
 <div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
@@ -72,15 +72,15 @@ To get hands-on experience with the **NUREMICS** framework, you'll start by runn
   </iframe>
 </div>
 
-When first run, a **NUREMICS App** creates a local workspace on your system, where you configure studies, set input data, and collect results. In this tutorial, instead of setting up from scratch, you'll start with a preconfigured workspace to reproduce the `Study_Shape` and `Study_Velocity` studies.
+When first run, a **nuRemics App** creates a local workspace on your system, where you configure studies, set input data, and collect results. In this tutorial, instead of setting up from scratch, you'll start with a preconfigured workspace to reproduce the `Study_Shape` and `Study_Velocity` studies.
 
 Follow these steps:
 
-1. **Download the `NUREMICS_Starter` archive**. Retrieve the preconfigured `NUREMICS_Starter` archive and unzip it anywhere on your system.
+1. **Download the `nuRemics_Starter` archive**. Retrieve the preconfigured `nuRemics_Starter` archive and unzip it anywhere on your system.
 
-    📦 [Download NUREMICS_Starter archive](assets/NUREMICS_Starter.zip)
+    📦 [Download nuRemics_Starter archive](assets/NUREMICS_Starter.zip)
 
-2. **Prepare the NUREMICS working directory.** Locate the `nrs_working_dir` folder inside the unzipped archive and move it to any location on your system that is most convenient for you.
+2. **Prepare the nuRemics working directory.** Locate the `nrs_working_dir` folder inside the unzipped archive and move it to any location on your system that is most convenient for you.
 
 3. **Prepare the `.nuremics` directory.** Locate the `.nuremics` folder in the same unzipped archive and place it at the root of your forked/cloned `nuremics-labs` repo.
 
@@ -269,7 +269,7 @@ Want to customize the overall analysis of experiment results for a given study? 
 ---
 
 <div align="center" style="font-weight: bold; font-size: 1.0rem;">
-You're now ready to dive into NUREMICS🧬
+You're now ready to dive into nuRemics🧬
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">

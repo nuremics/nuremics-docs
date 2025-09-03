@@ -2,7 +2,7 @@
 
 ## Design Patterns
 
-Let’s introduce the core design patterns behind **Procs** and **Apps** in **NUREMICS**.
+Let’s introduce the core design patterns behind **Procs** and **Apps** in **nuRemics**.
 
 ### Proc
 
@@ -394,7 +394,7 @@ flowchart LR
 
 ## Usability
 
-The **Apps** built with **NUREMICS** come with a lean and pragmatic user interface by design. No flashy GUI, but instead, the focus is on simplicity and efficiency:
+The **Apps** built with **nuRemics** come with a lean and pragmatic user interface by design. No flashy GUI, but instead, the focus is on simplicity and efficiency:
 
 - An input database that the operator completes by editing configuration files and uploading the required input files and folders.
 
@@ -416,7 +416,7 @@ sequenceDiagram
     Operator->>OUTPUTS: Access results
 ```
 
-This streamlined approach prioritizes clarity, control, and reproducibility, making each **App** built with **NUREMICS** well-suited for both direct interaction by end-users and seamless integration into larger software ecosystems. In such environments, **NUREMICS** can operate as a backend computational engine, interacting programmatically with other tools (such as web applications) that provide their own user interfaces.
+This streamlined approach prioritizes clarity, control, and reproducibility, making each **App** built with **nuRemics** well-suited for both direct interaction by end-users and seamless integration into larger software ecosystems. In such environments, **nuRemics** can operate as a backend computational engine, interacting programmatically with other tools (such as web applications) that provide their own user interfaces.
 
 ### Configuration
 
@@ -543,7 +543,7 @@ flowchart LR
 
 At the end of the execution, results are stored in a structured output tree, ready for review or further processing. The outputs are first organized by **Proc**, each of them writing its own result data. Within each **Proc**, the results are further subdivided by experiment _(Test1, Test2, ...)_, ensuring a clear separation and traceability of outcomes across the entire study.
 
-This organization is automatically determined based on how the study is configured by the operator. **NUREMICS** analyzes which input data are marked as _fixed_ or _variable_, and how they connect to the internal workflow of the **App**. If a **Proc** directly depends on _variable_ inputs, or indirectly through upstream dependencies, it will generate distinct outputs for each experiment. Otherwise, it will produce shared outputs only once.
+This organization is automatically determined based on how the study is configured by the operator. **nuRemics** analyzes which input data are marked as _fixed_ or _variable_, and how they connect to the internal workflow of the **App**. If a **Proc** directly depends on _variable_ inputs, or indirectly through upstream dependencies, it will generate distinct outputs for each experiment. Otherwise, it will produce shared outputs only once.
 
 This logic ensures that only the necessary parts of the workflow are repeated through experimentations, and that the output structure faithfully reflects the configuration of the study along with the internal dependencies within the workflow.
 
@@ -589,7 +589,7 @@ flowchart LR
 ---
 
 <div align="center" style="font-weight: bold; font-size: 1.0rem;">
-Explore NUREMICS in:
+Explore nuRemics in:
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">

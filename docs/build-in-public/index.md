@@ -1,8 +1,8 @@
 # BUILD IN PUBLIC
 
-Behind the **NUREMICS** framework lies a growing ecosystem dedicated to empowering the full spectrum of _Numerical Sciences_.
+Behind the **nuRemics** framework lies a growing ecosystem dedicated to empowering the full spectrum of _Numerical Sciences_.
 
-This section describes a _build-in-public_ approach which brings that mission to life: we develop, in full transparency, a suite of open, modular **NUREMICS** components designed for diverse fields of _Numerical Sciences_.
+This section describes a _build-in-public_ approach which brings that mission to life: we develop, in full transparency, a suite of open, modular **nuRemics** components designed for diverse fields of _Numerical Sciences_.
 
 Each topic reflects a focused deep-dive into a specific branch of the _Numerical Sciences_, shaped by curiosity, community feedback, and a commitment to share every step of the journey.
 

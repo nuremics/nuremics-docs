@@ -1,4 +1,4 @@
-The chart below outlines the key phases in the scientific development of **NUREMICS Apps**, along with the roles involved in each phase. Each role is associated with specific responsibilities and expertise. This structure ensures a reproducible and high-quality development process.
+The chart below outlines the key phases in the scientific development of **nuRemics Apps**, along with the roles involved in each phase. Each role is associated with specific responsibilities and expertise. This structure ensures a reproducible and high-quality development process.
 
 | Phase | Role | Python Expertise | Science / Domain Expertise | Main Responsabilities |
 |-------|------|------------------|--------------------------|-----------------------|
