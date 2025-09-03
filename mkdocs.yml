@@ -28,6 +28,7 @@ nav:
       - Cantilever subjected to end shear force: build-in-public/cms/cantilever-shear.md
     - AI & Data Science:
       - Overview: build-in-public/aids/index.md
+  - Development Chart: development-chart.md
 
     # - Computational Modeling & Simlation
     #   - Overview
