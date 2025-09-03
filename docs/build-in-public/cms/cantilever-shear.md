@@ -241,7 +241,7 @@ This test case is particularly interesting because it exhibits non-linear elasti
 The main objective of this use case is therefore to simulate the benchmark problem using three different modeling strategies [3D solid elements | 2D shell elements | 1D beam elements] within the **nuRemics** framework, and to compare their respective capabilities in capturing the non-linear response of the structure.
 
 <figure class="wide-caption">
-  <img src="../../../images/ASME_VV40.png" width="70%"/>
+  <img src="../../../images/ASME_VV40.png" width="80%"/>
   <figcaption>Figure 2:
     The ASME V&V40 Standard provides structured guidance for assessing credibility and applicability of Computational Modeling & Simulation in the context of Medical Devices. For more information, see the <a href="https://www.asme.org/codes-standards/find-codes-standards/assessing-credibility-of-computational-modeling-through-verification-and-validation-application-to-medical-devices" target="_blank">official ASME V&V40 page</a>.
   </figcaption>
