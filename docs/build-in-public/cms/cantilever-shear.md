@@ -218,7 +218,7 @@ Take part of the discussions on the Discord channel <code>#cantilever-shear</cod
 
 The present use case addresses a classical benchmark problem in **Computational Structural Mechanics (CSM)**, namely the simulation of a beam structure fixed at one end and loaded by a shear force at the other end. This type of problem is widely used in the literature as a reference for evaluating the accuracy and robustness of numerical methods in **CSM**.
 
-The benchmark considered here was originally reported by [Sze *et al.* 2004](https://doi.org/10.1016/j.finel.2003.11.001){:target="_blank"}, who compiled a comprehensive set of non-linear test cases for shell finite element analysis. In their work, the reference solution for this specific problem was obtained using the commercial finite element solver [*Abaqus*](https://www.3ds.com/products/simulia/abaqus){:target="_blank"}, relying on the S4R four-node shell elements with reduced integration and hourglass control.
+The benchmark considered here was originally reported by [Sze *et al.* 2004](https://doi.org/10.1016/j.finel.2003.11.001){:target="_blank"}, who compiled a comprehensive set of non-linear test cases for shell **Finite-Element (FE)** analysis. In their work, the reference solution for this specific problem was obtained using the commercial **FE** solver [*Abaqus*](https://www.3ds.com/products/simulia/abaqus){:target="_blank"}, relying on the S4R four-node shell elements with reduced integration and hourglass control.
 
 <figure class="wide-caption">
   <img src="../../../images/cantilever_shear_figure.png" width="70%"/>
@@ -236,7 +236,7 @@ The benchmark considered here was originally reported by [Sze *et al.* 2004](htt
   </figcaption>
 </figure>
 
-This test case is particularly interesting because it exhibits non-linear elastic behavior, which provides a meaningful challenge for numerical methods. Additionally, the simple geometric shape of the structure allows for different modeling approaches: fully resolved 3D solid **Finite-Elements (FE)**, 2D shell elements, or simplified 1D beam elements. Each approach introduces different levels of approximation and computational cost, offering a clear perspective on the trade-offs inherent in structural modeling.
+This test case is particularly interesting because it exhibits non-linear elastic behavior, which provides a meaningful challenge for numerical methods. Additionally, the simple geometric shape of the structure allows for different modeling approaches: fully resolved 3D solid elements, 2D shell elements, or simplified 1D beam elements. Each approach introduces different levels of approximation and computational cost, offering a clear perspective on the trade-offs inherent in structural modeling.
 
 The main objective of this use case is therefore to simulate the benchmark problem using three different modeling strategies [3D solid elements | 2D shell elements | 1D beam elements] within the **nuRemics** framework, and to compare their respective capabilities in capturing the non-linear response of the structure.
 
