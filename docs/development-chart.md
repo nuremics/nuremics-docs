@@ -1,12 +1,13 @@
 The chart below outlines the key phases in the scientific development of **nuRemics Apps**, along with the roles involved in each phase. Each role is associated with specific responsibilities and expertise. This structure ensures a reproducible and high-quality development process.
 
-| Phase | Role | Python Expertise | Science / Domain Expertise | Main Responsabilities |
-|-------|------|------------------|--------------------------|-----------------------|
-| Use Case | Requirements Scientist | ❌ | ✅ | Defines the scientific/business need into a clear use case, constituting the Functional Requirement Specifications (FRS). |
-| Architecture | Workflow Architect | ✅ | ❌ | Translate the use case into a structured scientific workflow, formalizing the Software Requirement Specifications (SRS). |
-| Implementation | Scientific Developer | ✅ | ✅ | Implement the software items constituting the workflow in compliance with the defined SRS. |
-| Integration | Software Developer | ✅ | ❌ | Support the implementation, optimize the code, and develop tests for integration and Software Quality Assurance (SQA). |
-| Production | End-User Scientist | ❌ | ✅ | Execute workflow to produce, interpret, and report scientific results. |
+| Phase | Role | Scientific Expertise | Python Expertise| Software Expertise | Main Responsabilities |
+|-------|------|----------------------------|-----------------|--------------------|-----------------------|
+| Use Case | Requirements Scientist | ✅ | ❌ | ❌ | Defines the scientific/business need into a clear use case, constituting the Functional Requirement Specifications (FRS). |
+| Architecture | Workflow Architect | ❌ | ✅ | ❌ | Translate the use case into a structured scientific workflow, formalizing the Software Requirement Specifications (SRS). |
+| Implementation | Scientific Developer | ✅ | ✅ | ❌ | Implement the software items constituting the workflow in compliance with the defined SRS. |
+| Integration | Software Developer | ❌ | ✅ | ✅ | Support the implementation, optimize the code, and develop tests for integration and Software Quality Assurance (SQA). |
+| Deployment | DevOps | ❌ | ❌ | ✅ | Ensure reliable deployment and installation processes for end-users. |
+| Production | End-User Scientist | ✅ | ❌ | ❌ | Execute workflow to produce, interpret, and report scientific results. |
 
 ✅ Required <br>
 ❌ Not required

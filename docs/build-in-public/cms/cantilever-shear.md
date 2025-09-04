@@ -55,10 +55,24 @@
       </div>
     </div>
 
-    <div class="timeline-item">
+    <!-- <div class="timeline-item">
       <div class="phase">Integration</div>
       <div class="marker"></div>
       <div class="role">Software Developer</div>
+      <div class="contributors">
+        <div class="contributor">
+          <a href="https://github.com/julien-siguenza" target="_blank">
+            <img src="https://github.com/julien-siguenza.png" alt="Julien SIGUENZA" />
+            <p class="name">Julien SIGUENZA</p>
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="timeline-item">
+      <div class="phase">Deployment</div>
+      <div class="marker"></div>
+      <div class="role">DevOps</div>
       <div class="contributors">
         <div class="contributor">
           <a href="https://github.com/emmanuelHa" target="_blank">
@@ -159,6 +173,7 @@
 
 /* Role en dessous */
 .role {
+  font-size: 0.9em;
   font-style: normal;
   margin-top: 0px;
   margin-bottom: 0px;
