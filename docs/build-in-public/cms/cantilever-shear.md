@@ -347,7 +347,7 @@ This process takes the following input parameter(s):
 
 #### Process
 
-This process uses [CadQuery](https://cadquery.readthedocs.io/en/latest/) to create the geometry of the physical system in the desired `dimension` (see Fig. 3).
+This process uses [CadQuery](https://cadquery.readthedocs.io/en/latest/){:target="_blank"} to create the geometry of the physical system in the desired `dimension` (see Fig. 3).
 
 <figure style="text-align:center;">
 
