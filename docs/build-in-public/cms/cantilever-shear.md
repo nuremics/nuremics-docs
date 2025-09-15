@@ -269,3 +269,123 @@ It is nonetheless important to note that this methodology could be broadened to 
 In the present use case, the benchmark problem is employed to establish the credibility factor associated with **Numerical Code Verification (NCV)**. The objective of **NCV** is to demonstrate the correct implementation and functioning of the numerical algorithms within the **CM&S** framework. This involves a careful investigation of key numerical aspects, including spatial and temporal convergence rates, independence from coordinate transformations, and symmetry tests under various system conditions.
 
 **NCV** is typically conducted by comparing numerical solutions to exact benchmark solutions, which may be analytical or semi-analytical, or generated using techniques such as the methods of manufactured solutions. In this use case, the cantilever beam benchmark provides such a reference solution, enabling a rigorous assessment of the numerical fidelity of the **nuRemics CM&S software system** across multiple modeling strategies (3D solids, 2D shells, and 1D beams).
+
+## Materials & Methods
+
+This use case is organized into a sequential scientific workflow, implemented through a **nuRemics App** called **[`CANTILEVER_SHEAR_APP`](../../labs/apps/cms/CANTILEVER_SHEAR_APP/app.md){:target="_blank"}**, composed of the following software processes:
+
+1. **[`GeometryProc`](../../labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md){:target="_blank"}:** Create a geometric representation of a physical system.<br>
+  A/ **`create_geometry`:** Create and export a simple geometric entity (beam, plate, or block) in STEP or BREP format.
+
+```mermaid
+flowchart RL
+  **GeometryProc** e1@--1--o **CANTILEVER_SHEAR_APP**
+  **create_geometry** e2@--A--o **GeometryProc**
+  e1@{ animate: true }
+  e2@{ animate: true }
+```
+
+The workflow, and associated I/O Interface, is finally assembled as follows:
+
+```mermaid
+flowchart LR
+  subgraph **INPUTS**
+    direction TB
+
+    subgraph **Parameters**
+      direction LR
+      param1["dimension _(int)_"]
+    end
+  end
+
+  subgraph **CANTILEVER_SHEAR_APP**
+    direction RL
+    proc1["GeometryProc"]
+  end
+
+  subgraph **OUTPUTS**
+    direction RL
+    out1["geometry.(step/brep) _(file)_"]
+  end
+
+  **INPUTS** --> **CANTILEVER_SHEAR_APP**
+  **CANTILEVER_SHEAR_APP** --> **OUTPUTS**
+```
+
+```mermaid
+flowchart LR
+  subgraph **INPUTS**
+    direction TB
+
+    subgraph **Parameters**
+      direction LR
+      param1["dimension _(int)_"]
+    end
+  end
+
+  subgraph **CANTILEVER_SHEAR_APP**
+    direction RL
+    proc1["GeometryProc"]
+  end
+
+  subgraph **OUTPUTS**
+    direction RL
+    out1["geometry.(step/brep) _(file)_"]
+  end
+
+  **INPUTS** --> proc1
+  proc1 --> **OUTPUTS**
+```
+
+### 1. GeometryProc
+
+#### Inputs
+
+This process takes the following input parameter(s):
+
+- **`dimension`:** Dimension of the geometry: 1 for a line (beam), 2 for a rectangle (plate), 3 for a box (block).
+
+#### Process
+
+This process uses [CadQuery](https://cadquery.readthedocs.io/en/latest/) to create the geometry of the physical system in the desired `dimension` (see Fig. 3).
+
+<figure style="text-align:center;">
+
+  <!-- Ligne avec 3 sous-figures -->
+  <div style="display:inline-block; width:30%; margin:0 10px; text-align:center;">
+    <img src="../../../images/cantilever_shear_geometry_3D.png" style="width:100%;"/>
+    <figcaption>(a) <code>dimension</code> = 3 (3D block). </figcaption>
+  </div>
+  <div style="display:inline-block; width:30%; margin:0 10px; text-align:center;">
+    <img src="../../../images/cantilever_shear_geometry_2D.png" style="width:100%;"/>
+    <figcaption>(b) <code>dimension</code> = 2 (2D plate). </figcaption>
+  </div>
+  <div style="display:inline-block; width:30%; margin:0 10px; text-align:center;">
+    <img src="../../../images/cantilever_shear_geometry_1D.png" style="width:100%;"/>
+    <figcaption>(c) <code>dimension</code> = 1 (1D beam). </figcaption>
+  </div>
+
+  <!-- Légende globale -->
+  <figcaption style="margin-top:10px; font-style:italic;">
+    Figure 3: Created geometry of the physical system.
+  </figcaption>
+</figure>
+
+#### Outputs
+
+This process generates the following output file(s)/folder(s):
+
+- **`geometry.(step/brep)`:** File containing the created geometry (in .step if `dimension` = 3|2 or .brep if `dimension` = 1).
+
+---
+
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <a href="../../../labs/apps/cms/CANTILEVER_SHEAR_APP/app/"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="md-button md-button--primary">
+    View App
+  </a>
+</div>
+
+---
