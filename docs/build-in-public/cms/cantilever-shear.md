@@ -312,6 +312,8 @@ flowchart LR
   **CANTILEVER_SHEAR_APP** --> **OUTPUTS**
 ```
 
+### 1. GeometryProc
+
 ```mermaid
 flowchart LR
   subgraph **INPUTS**
@@ -336,8 +338,6 @@ flowchart LR
   **INPUTS** --> proc1
   proc1 --> **OUTPUTS**
 ```
-
-### 1. GeometryProc
 
 #### Inputs
 
