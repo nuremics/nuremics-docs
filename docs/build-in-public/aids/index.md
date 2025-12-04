@@ -23,7 +23,7 @@ Take part of the discussions on the Discord category <code>🛠️ AI & Data Sci
      target="_blank"
      rel="noopener noreferrer"
      class="md-button md-button--primary">
-    Get Onboarded
+    Start Your Onboarding
   </a>
 </div>
 

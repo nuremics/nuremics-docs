@@ -45,7 +45,7 @@
      target="_blank"
      rel="noopener noreferrer"
      class="md-button md-button--primary">
-    Get Onboarded
+    Start Your Onboarding
   </a>
   <a href="getting-started/"
      class="md-button md-button--primary">
