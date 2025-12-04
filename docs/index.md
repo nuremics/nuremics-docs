@@ -41,6 +41,12 @@
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <a href="https://www.suffisciens.com/labsvision"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="md-button md-button--primary">
+    Get Onboarded
+  </a>
   <a href="getting-started/"
      class="md-button md-button--primary">
     Getting Started
@@ -48,12 +54,6 @@
   <a href="handbook/"
      class="md-button md-button--primary">
     Handbook
-  </a>
-  <a href="https://www.suffisciens.com/nuremics/discord"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="md-button md-button--primary">
-    Join the community
   </a>
 </div>
 

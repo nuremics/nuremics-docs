@@ -24,11 +24,11 @@ Ready to shape the future of Numerical Sciences together?
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="https://www.suffisciens.com/nuremics/discord"
+  <a href="https://www.suffisciens.com/labsvision"
      target="_blank"
      rel="noopener noreferrer"
      class="md-button md-button--primary">
-    Join the Community
+    Get Onboarded
   </a>
 </div>
 
