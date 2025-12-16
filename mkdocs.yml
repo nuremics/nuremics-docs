@@ -7,6 +7,19 @@ nav:
     - Overview: handbook/index.md
     - Theory: handbook/theory.md
     - Practice: handbook/practice.md
+  - Use Cases:
+    - Overview : use-cases/index.md
+    - Modeling & Simulation:
+      - Overview: use-cases/cms/index.md
+      - Cantilever subjected to end shear force:
+        - Overview: use-cases/cms/cantilever-shear/index.md
+        - Introduction: use-cases/cms/cantilever-shear/introduction.md
+        - Material & Methods: use-cases/cms/cantilever-shear/materials-and-methods.md
+        - Results:
+          - Overview: use-cases/cms/cantilever-shear/results/index.md
+          - Study_Dim: use-cases/cms/cantilever-shear/results/study-dim.md
+    - AI & Data Science:
+      - Overview: use-cases/aids/index.md
   - Labs:
     - Apps:
       - General:
@@ -16,18 +29,14 @@ nav:
           - App: labs/apps/cms/CANTILEVER_SHEAR_APP/app.md
           - Procs:
             - GeometryProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md
+            - LabelingProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/LabelingProc.md
     - Procs:
       - General:
         - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
         - ProjectileModelProc: labs/procs/general/ProjectileModelProc.md
         - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
-  - BUILD IN PUBLIC:
-    - Overview : build-in-public/index.md
-    - Modeling & Simulation:
-      - Overview: build-in-public/cms/index.md
-      - Cantilever subjected to end shear force: build-in-public/cms/cantilever-shear.md
-    - AI & Data Science:
-      - Overview: build-in-public/aids/index.md
+  # - Meet Our Ambassadors:
+  #   - Irina RAKOTOARISEDY: ambassadors/Irina_RAKOTOARISEDY.md
   # - Development Chart: development-chart.md
 
     # - Computational Modeling & Simlation

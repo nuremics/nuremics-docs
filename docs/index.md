@@ -47,13 +47,13 @@
      class="md-button md-button--primary">
     Start Your Onboarding
   </a>
-  <a href="getting-started/"
+    <a href="getting-started/"
      class="md-button md-button--primary">
     Getting Started
   </a>
-  <a href="handbook/"
+  <a href="use-cases/"
      class="md-button md-button--primary">
-    Handbook
+    Explore Use Cases
   </a>
 </div>
 
@@ -81,3 +81,18 @@ In regulated industries where scientific results directly support product develo
 In this landscape, **nuRemics** emerges as a unifying framework designed to address these challenges: it provides a rigorous development structure that empowers scientists, engineers, and researchers to deliver high-quality scientific outcomes, and take their research to the next level. By enabling the safe integration of tools from the Python ecosystem, **nuRemics** supports the engineering of domain-specific software tailored for scientific exploration and reproducibility, while upholding the discipline and maintainability required in high-stakes industrial environments.
 
 Inspired by **IEC 62304**, a standard originally developed for the engineering of medical device software, **nuRemics** promotes structured, layered software development through clearly defined architectural components: systems, items, and units. This organization fosters clarity, modularity, and maintainability, while remaining well-suited to the iterative, exploratory nature of scientific development in Python. Although **nuRemics** does not aim for full compliance with **IEC 62304**, it selectively incorporates its most relevant principles, striking a pragmatic balance between engineering rigor and the agility required in fast-paced research environments.
+
+## Meet Our Ambassadors
+
+<div class="ambassadors-scroll">
+
+  <a href="ambassadors/Irina_RAKOTOARISEDY" class="ambassador-card"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="../images/Irina_RAKOTOARISEDY.png">
+    <div class="ambassador-name">Irina RAKOTOARISEDY</div>
+    <div class="ambassador-role">PhD student in Deep Learning</div>
+    <div class="ambassador-org">University Carlos III of Madrid</div>
+  </a>
+
+</div>

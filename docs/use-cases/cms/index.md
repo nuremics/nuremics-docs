@@ -1,6 +1,14 @@
 # Computational Modeling & Simulation (CM&S)
 
-This topic focuses on the design and implementation of **nuRemics** components dedicated to Computational Modeling & Simulation (CM&S) workflows:
+<div class="card fullwidth">
+  <a href="cantilever-shear/">Cantilever subjected to end shear force</a>
+  <div class="card-description">Computational Structural Mechanics (CSM) benchmark focusing on the non-linear response of a shear-loaded beam structure.</div>
+  <a href="cantilever-shear/">
+    <img src="../../images/cantilever_shear_figure.png" style="width: 70%; margin-top: 15px; margin-bottom: 5px;">
+  </a>
+</div>
+
+<!-- This topic focuses on the design and implementation of **nuRemics** components dedicated to Computational Modeling & Simulation (CM&S) workflows:
 
 - **Geometry creation:** Build, import, or manipulate a geometric model — from basic primitive shapes to complex CAD (Computer-Aided Design) assemblies.
 - **Physical labeling:** Translate a geometric model into physical model — label volumes, surfaces, edges, and vertices of interest, then assign physical entities, material properties, and boundary conditions.
@@ -27,12 +35,4 @@ Take part of the discussions on the Discord category <code>🛠️ Modeling & Si
 
 ---
 
-## Use Cases
-
-<div class="card fullwidth">
-  <a href="cantilever-shear/">Cantilever subjected to end shear force</a>
-  <div class="card-description">Computational Structural Mechanics (CSM) benchmark focusing on the non-linear response of a shear-loaded beam structure.</div>
-  <a href="cantilever-shear/">
-    <img src="../../images/cantilever_shear_figure.png" style="width: 70%; margin-top: 15px; margin-bottom: 5px;">
-  </a>
-</div>
+-->

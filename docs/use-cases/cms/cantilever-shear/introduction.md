@@ -1,33 +1,11 @@
-# Cantilever subjected to end shear force
-
-- Branch: [`cantilever-shear`](https://github.com/nuremics/nuremics-labs/tree/cantilever-shear){:target="_blank"}
-- App: [`CANTILEVER_SHEAR_APP`](../../labs/apps/cms/CANTILEVER_SHEAR_APP/app.md){:target="_blank"}
-
----
-
-<div align="center" style="font-weight: bold; font-size: 1.0rem;">
-Take part of the discussions on the Discord channel <code>#cantilever-shear</code>
-</div>
-
-<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="https://www.suffisciens.com/labsvision"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="md-button md-button--primary">
-    Start Your Onboarding
-  </a>
-</div>
-
----
-
-## Introduction
+# Introduction
 
 The present use case addresses a classical benchmark problem in **Computational Structural Mechanics (CSM)**, namely the simulation of a beam structure fixed at one end and loaded by a shear force at the other end (see Fig. 1). This type of problem is widely used in the literature as a reference for evaluating the accuracy and robustness of numerical methods in **CSM**.
 
 The benchmark considered here was originally reported by [Sze *et al.* 2004](https://doi.org/10.1016/j.finel.2003.11.001){:target="_blank"}, who compiled a comprehensive set of non-linear test cases for shell **Finite-Element (FE)** analysis. In their work, the reference solution (summarized in Tab. 1) for this specific problem was obtained using the commercial **FE** solver [*Abaqus*](https://www.3ds.com/products/simulia/abaqus){:target="_blank"}, relying on the S4R four-node shell elements with reduced integration and hourglass control.
 
 <figure class="wide-caption">
-  <img src="../../../images/cantilever_shear_figure.png" width="70%"/>
+  <img src="../../../../images/cantilever_shear_figure.png" width="70%"/>
   <figcaption>Figure 1 (extracted from 
     <a href="https://doi.org/10.1016/j.finel.2003.11.001" target="_blank">Sze et al. 2004</a>):
     (a) Cantilever subjected to end shear force. (b) Load–deflection curves for cantilever subjected to end shear force. (c) The deformed 16 × 1 mesh under the maximum force.
@@ -35,7 +13,7 @@ The benchmark considered here was originally reported by [Sze *et al.* 2004](htt
 </figure>
 
 <figure class="wide-caption">
-  <img src="../../../images/cantilever_shear_table.png" width="100%"/>
+  <img src="../../../../images/cantilever_shear_table.png" width="100%"/>
   <figcaption>Table 1 (extracted from 
     <a href="https://doi.org/10.1016/j.finel.2003.11.001" target="_blank">Sze et al. 2004</a>):
     Horizontal and vertical tip deflections for the cantilever loaded with end shear force.
@@ -47,7 +25,7 @@ This test case is particularly interesting because it exhibits non-linear elasti
 The main objective of this use case is therefore to simulate the benchmark problem using three different modeling strategies [3D solid elements | 2D shell elements | 1D beam elements] within the **nuRemics** framework, and to compare their respective capabilities in capturing the non-linear response of the structure.
 
 <figure class="wide-caption">
-  <img src="../../../images/ASME_VV40.png" width="80%"/>
+  <img src="../../../../images/ASME_VV40.png" width="80%"/>
   <figcaption>Figure 2:
     The ASME V&V40 Standard provides structured guidance for assessing credibility and applicability of Computational Modeling & Simulation in the context of Medical Devices. For more information, see the <a href="https://www.asme.org/codes-standards/find-codes-standards/assessing-credibility-of-computational-modeling-through-verification-and-validation-application-to-medical-devices" target="_blank">official ASME V&V40 page</a>.
   </figcaption>
@@ -61,121 +39,12 @@ In the present use case, the benchmark problem is employed to establish the cred
 
 **NCV** is typically conducted by comparing numerical solutions to exact benchmark solutions, which may be analytical or semi-analytical, or generated using techniques such as the methods of manufactured solutions. In this use case, the cantilever beam benchmark provides such a reference solution, enabling a rigorous assessment of the numerical fidelity of the **nuRemics CM&S software system** across multiple modeling strategies (3D solids, 2D shells, and 1D beams).
 
-## Materials & Methods
-
-This use case is organized into a sequential scientific workflow, implemented through a **nuRemics App** called **[`CANTILEVER_SHEAR_APP`](../../labs/apps/cms/CANTILEVER_SHEAR_APP/app.md){:target="_blank"}**, composed of the following software processes:
-
-1. **[`GeometryProc`](../../labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md){:target="_blank"}:** Create a geometric representation of a physical system.<br>
-  A/ **`create_geometry`:** Create and export a simple geometric entity (beam, plate, or block) in STEP or BREP format.
-
-```mermaid
-flowchart RL
-  **GeometryProc** e1@--1--o **CANTILEVER_SHEAR_APP**
-  **create_geometry** e2@--A--o **GeometryProc**
-  e1@{ animate: true }
-  e2@{ animate: true }
-```
-
-The workflow, and associated I/O Interface, is finally assembled as follows:
-
-```mermaid
-flowchart LR
-  subgraph **INPUTS**
-    direction TB
-
-    subgraph **Parameters**
-      direction LR
-      param1["dimension _(int)_"]
-    end
-  end
-
-  subgraph **CANTILEVER_SHEAR_APP**
-    direction RL
-    proc1["GeometryProc"]
-  end
-
-  subgraph **OUTPUTS**
-    direction RL
-    out1["geometry.(step/brep) _(file)_"]
-  end
-
-  **INPUTS** --> **CANTILEVER_SHEAR_APP**
-  **CANTILEVER_SHEAR_APP** --> **OUTPUTS**
-```
-
-### 1. GeometryProc
-
-```mermaid
-flowchart LR
-  subgraph **INPUTS**
-    direction TB
-
-    subgraph **Parameters**
-      direction LR
-      param1["dimension _(int)_"]
-    end
-  end
-
-  subgraph **CANTILEVER_SHEAR_APP**
-    direction RL
-    proc1["GeometryProc"]
-  end
-
-  subgraph **OUTPUTS**
-    direction RL
-    out1["geometry.(step/brep) _(file)_"]
-  end
-
-  **INPUTS** --> proc1
-  proc1 --> **OUTPUTS**
-```
-
-#### Inputs
-
-This process takes the following input parameter(s):
-
-- **`dimension`:** Dimension of the geometry: 1 for a line (beam), 2 for a rectangle (plate), 3 for a box (block).
-
-#### Process
-
-This process uses [CadQuery](https://cadquery.readthedocs.io/en/latest/){:target="_blank"} to create the geometry of the physical system in the desired `dimension` (see Fig. 3).
-
-<figure style="text-align:center;">
-
-  <!-- Ligne avec 3 sous-figures -->
-  <div style="display:inline-block; width:30%; margin:0 10px; text-align:center;">
-    <img src="../../../images/cantilever_shear_geometry_3D.png" style="width:100%;"/>
-    <figcaption>(a) <code>dimension</code> = 3 (3D block). </figcaption>
-  </div>
-  <div style="display:inline-block; width:30%; margin:0 10px; text-align:center;">
-    <img src="../../../images/cantilever_shear_geometry_2D.png" style="width:100%;"/>
-    <figcaption>(b) <code>dimension</code> = 2 (2D plate). </figcaption>
-  </div>
-  <div style="display:inline-block; width:30%; margin:0 10px; text-align:center;">
-    <img src="../../../images/cantilever_shear_geometry_1D.png" style="width:100%;"/>
-    <figcaption>(c) <code>dimension</code> = 1 (1D beam). </figcaption>
-  </div>
-
-  <!-- Légende globale -->
-  <figcaption style="margin-top:10px; font-style:italic;">
-    Figure 3: Created geometry of the physical system.
-  </figcaption>
-</figure>
-
-#### Outputs
-
-This process generates the following output file(s)/folder(s):
-
-- **`geometry.(step/brep)`:** File containing the created geometry (in .step if `dimension` = 3|2 or .brep if `dimension` = 1).
-
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../../../labs/apps/cms/CANTILEVER_SHEAR_APP/app/"
-     target="_blank"
-     rel="noopener noreferrer"
+  <a href="../materials-and-methods/"
      class="md-button md-button--primary">
-    View App
+    Materials & Methods
   </a>
 </div>
 

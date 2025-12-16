@@ -1,6 +1,8 @@
 # Artificial Intelligence (AI) & Data Science
 
-This topic focuses on the design and implementation of **nuRemics** components dedicated to Artificial Intelligence (AI) and Data Science workflows:
+Coming soon...
+
+<!-- This topic focuses on the design and implementation of **nuRemics** components dedicated to Artificial Intelligence (AI) and Data Science workflows:
 
 - **Data collection & Preprocessing:** Collect and preprocess raw data from various sources — applying cleaning, normalization, and transformation techniques to ensure high-quality data.
 - **Exploratory Data Analysis (EDA):** Analyze and visualize data to uncover patterns, detect anomalies, and test hypotheses — using statistical summaries and graphical representations to gain initial insights.
@@ -29,6 +31,4 @@ Take part of the discussions on the Discord category <code>🛠️ AI & Data Sci
 
 ---
 
-## Use Cases
-
-Coming soon...
+-->

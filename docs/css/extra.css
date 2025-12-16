@@ -123,3 +123,59 @@ figure.wide-caption figcaption {
   margin-left: auto;
   margin-right: auto;
 }
+
+.ambassadors-scroll {
+  display: flex;
+  overflow-x: auto;       /* scroll horizontal si nécessaire */
+  gap: 2rem;
+  /* padding: 1rem 0; */
+  padding: 1rem 0 1rem 1rem;
+  scroll-behavior: smooth;
+}
+
+.ambassadors-scroll::-webkit-scrollbar {
+  height: 8px;            /* hauteur de la scrollbar */
+}
+
+.ambassadors-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--md-primary-fg-color);
+  border-radius: 4px;
+}
+
+.ambassador-card {
+  flex: 0 0 auto;         /* empêcher la carte de rétrécir */
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ambassador-card img {
+  width:200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  /* border: 3px solid var(--md-primary-fg-color); */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ambassador-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.ambassador-name {
+  margin-top: 0.3rem;
+  font-weight: 600;
+}
+
+.ambassador-role {
+  color: var(--md-secondary-fg-color);
+  /* margin-top: 0.2rem; */
+}
+
+.ambassador-org {
+  font-size: 0.7rem;
+  color: var(--md-secondary-fg-color);
+  /* margin-top: 0.1rem; */
+  font-style: italic;
+}
