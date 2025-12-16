@@ -141,7 +141,7 @@ These are scalar values that must be defined to configure the workflow:
 
 These are either files or folders that must be provided to configure the workflow:
 
-**`N/A`**
+N/A
 
 ### Outputs
 
