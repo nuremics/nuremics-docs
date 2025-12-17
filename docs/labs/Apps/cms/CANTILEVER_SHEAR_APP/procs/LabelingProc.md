@@ -6,7 +6,7 @@
 ## Process
 
 Define and label the entities of a physical system from its geometric representation.<br>
-A/ **`label_boundaries`:** Assign labels to the boundaries of a geometric model.
+A/ **`label_entities`:** Assign labels to the entities of a geometric model.
 
 ```mermaid
 erDiagram
@@ -22,7 +22,7 @@ erDiagram
     file infile "step/brep"
   }
   **LabelingProc** {
-    op label_boundaries
+    op label_entities
   }
   **Outputs** {
     file outfile "json"

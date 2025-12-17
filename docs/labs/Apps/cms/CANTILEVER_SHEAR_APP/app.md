@@ -12,14 +12,14 @@
 1. **[`GeometryProc`](procs/GeometryProc.md):** Create a geometric representation of a physical system.<br>
   A/ **`create_geometry`:** Create and export a simple geometric entity (beam, plate, or block) in STEP or BREP format.
 2. **[`LabelingProc`](procs/LabelingProc.md):** Define and label the entities of a physical system from its geometric representation.<br>
-  A/ **`label_boundaries`:** Assign labels to the boundaries of a geometric model.
+  A/ **`label_entities`:** Assign labels to the entities of a geometric model.
 
 ```mermaid
 flowchart RL
   **GeometryProc** e1@--1--o **CANTILEVER_SHEAR_APP**
   **LabelingProc** e2@--2--o **CANTILEVER_SHEAR_APP**
   **create_geometry** e3@--A--o **GeometryProc**
-  **label_boundaries** e4@--A--o **LabelingProc**
+  **label_entities** e4@--A--o **LabelingProc**
   e1@{ animate: true }
   e2@{ animate: true }
   e3@{ animate: true }
@@ -66,7 +66,7 @@ erDiagram
     file infile "geometry.(step/brep)"
   }
   **output_paths** {
-    file outfile "boundaries.json"
+    file outfile "labels.json"
   }
 ```
 
@@ -97,7 +97,7 @@ flowchart LR
   subgraph **OUTPUTS**
     direction RL
     out1["geometry.(step/brep) _(file)_"]
-    out2["boundaries.json _(file)_"]
+    out2["labels.json _(file)_"]
   end
 
   **INPUTS** --> **CANTILEVER_SHEAR_APP**
@@ -158,7 +158,7 @@ flowchart LR
 
   subgraph **OUTPUTS**
     direction RL
-    out2["boundaries.json _(file)_"]
+    out2["labels.json _(file)_"]
   end
 
   **INPUTS** --> proc2
@@ -181,7 +181,7 @@ N/A
 ### OUTPUTS
 
 - **`geometry.(step/brep)`:** File containing the geometric model (in .step if `dim` = 3|2 or .brep if `dim` = 1).
-- **`boundaries.json`:** File containing the labeled geometric entities.
+- **`labels.json`:** File containing the labeled geometric entities.
 
 ---
 
