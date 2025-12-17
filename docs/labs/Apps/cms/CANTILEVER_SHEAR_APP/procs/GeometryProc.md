@@ -1,5 +1,6 @@
 <p align="left">
   <img src="https://img.shields.io/badge/CadQuery-2.5.2+-2980b9" />
+  <img src="https://img.shields.io/badge/Gmsh-4.14.0+-ffffff" />
 </p>
 
 ## Process

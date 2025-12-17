@@ -1,4 +1,5 @@
 <p align="left">
+  <img src="https://img.shields.io/badge/pythonocc--core-7.9.0-f7941e" />
   <img src="https://img.shields.io/badge/PyQt6-6.9.1-000000" />
 </p>
 
@@ -11,8 +12,8 @@ A/ **`label_boundaries`:** Assign labels to the boundaries of a geometric model.
 erDiagram
   **Parameters** ||--|| **Inputs** : provides
   **Paths** ||--|| **Inputs** : provides
-  **Inputs** ||--|| **GeometryProc** : feeds
-  **GeometryProc** ||--|| **Outputs** : generates
+  **Inputs** ||--|| **LabelingProc** : feeds
+  **LabelingProc** ||--|| **Outputs** : generates
 
   **Parameters** {
     int dim
@@ -20,8 +21,8 @@ erDiagram
   **Paths** {
     file infile "step/brep"
   }
-  **GeometryProc** {
-    op create_geometry
+  **LabelingProc** {
+    op label_boundaries
   }
   **Outputs** {
     file outfile "json"

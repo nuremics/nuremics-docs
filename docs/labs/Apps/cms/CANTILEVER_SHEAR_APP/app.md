@@ -2,6 +2,8 @@
 
 <p align="left">
   <img src="https://img.shields.io/badge/CadQuery-2.5.2+-2980b9" />
+  <img src="https://img.shields.io/badge/Gmsh-4.14.0+-ffffff" />
+  <img src="https://img.shields.io/badge/pythonocc--core-7.9.0-f7941e" />
   <img src="https://img.shields.io/badge/PyQt6-6.9.1-000000" />
 </p>
 
