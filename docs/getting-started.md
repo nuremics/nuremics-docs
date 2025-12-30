@@ -1,5 +1,16 @@
 # Getting Started
 
+## Foreword
+
+The **nuRemics** project is organized into two complementary repositories:
+
+- [**`nuremics`**](https://github.com/nuremics/nuremics){:target="_blank"}: This repository is the core Python library. It provides the foundational components to create modular and extensible software workflows.
+
+- [**`nuremics-labs`**](https://github.com/nuremics/nuremics-labs){:target="_blank"}:
+This repository contains examples of end-user applications built using the **nuRemics** framework. It is intended to be **forked** by developers to initiate their own `nuremics-labs` project and build custom scientific applications tailored to their specific use cases.
+
+Developers are thus encouraged to treat `nuremics` as the core engine, and to use `nuremics-labs` as a starting point for developing and maintaining their own scientific software applications built on top of the **nuRemics** framework.
+
 ## Installation
 
 Installation proceeds as follows:

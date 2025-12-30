@@ -23,11 +23,12 @@
 
 **nuRemics is an open-source Python framework for developing software-grade scientific workflows.**
 
-🧠 Code like a scientist — build like an engineer.<br>
-🧩 Modular workflows — no more tangled scripts.<br>
-🧪 Parametric exploration — configuration over code.<br>
-💾 Full traceability — everything written to disk.<br>
-🛠️ Industrial mindset — R&D speed, software rigor.
+🔬 Scientific agility — engineering rigor.<br>
+🧩 Modular by design — no more siloed tools.<br>
+📊 Parametric exploration — iterate without limits.<br>
+📋 Full traceability — every experiment accounted for.<br>
+📈 Built to scale — from lab to industry. <br>
+🌐 Community-driven — innovation thrives together.
 
 ---
 
@@ -59,28 +60,13 @@
 
 ---
 
-## Foreword
+## Why nuRemics?
 
-The **nuRemics** project is organized into two complementary repositories:
+Scientific R&D thrives on rapid iteration, collaboration, and the ability to turn complex ideas into actionable tools. Yet, most Python-based R&D initiatives hit the same walls: isolated efforts, brittle codebases, and tools that are hard to share, scale, or maintain. These challenges don't just slow down progress, they silo knowledge, waste resources, and limit the collective impact of your work.
 
-- [**`nuremics`**](https://github.com/nuremics/nuremics){:target="_blank"}: This repository is the core Python library. It provides the foundational components to create modular and extensible software workflows.
+**nuRemics** breaks this cycle. As an open-source Python framework, it provides a unified foundation to build, connect, and future-proof your R&D tools. Inspired by **IEC 62304**, the gold standard for the development of medical device software, **nuRemics** bridges the gap between agile exploration and rigorous engineering. It fosters modular development, separates code from data, automates repetitive workflows, and enforces reproducibility with comprehensive traceability. So your team can finally focus on discovery, delivering high-quality science with maximum efficiency.
 
-- [**`nuremics-labs`**](https://github.com/nuremics/nuremics-labs){:target="_blank"}:
-This repository contains examples of end-user applications built using the **nuRemics** framework. It is intended to be **forked** by developers to initiate their own `nuremics-labs` project and build custom scientific applications tailored to their specific use cases.
-
-Developers are thus encouraged to treat `nuremics` as the core engine, and to use `nuremics-labs` as a starting point for developing and maintaining their own scientific software applications built on top of the **nuRemics** framework.
-
-## Project Philosophy
-
-**nuRemics** is built with the ambition of bringing robust software engineering practices into Python-driven scientific research and development.
-
-While Python has become the de facto standard for scientific programming, its use in R&D environments is often limited to ad-hoc scripts or notebooks. This leads to critical limitations: unclear definition of inputs, algorithms, and outputs; hard-coded parameters that hinder reproducibility; and inefficient workflows for exploring parameter spaces. As a result, scientific studies are often conducted in a “one-shot” manner, making them difficult to reproduce or extend. Output data is rarely traceable in a structured way, and codebases suffer from poor modularity, limited reusability, and frequent duplication. These challenges are compounded when teams grow, as scripts and notebooks are difficult to scale and maintain collaboratively, slowing down innovation and increasing the risk of undetected errors.
-
-In regulated industries where scientific results directly support product development (e.g., MedTech, Biotech, Aerospace), such fragility can have severe consequences. This is also why many of these industries remain hesitant to adopt Python and its powerful open ecosystem, due to concerns about reliability and long-term maintainability.
-
-In this landscape, **nuRemics** emerges as a unifying framework designed to address these challenges: it provides a rigorous development structure that empowers scientists, engineers, and researchers to deliver high-quality scientific outcomes, and take their research to the next level. By enabling the safe integration of tools from the Python ecosystem, **nuRemics** supports the engineering of domain-specific software tailored for scientific exploration and reproducibility, while upholding the discipline and maintainability required in high-stakes industrial environments.
-
-Inspired by **IEC 62304**, a standard originally developed for the engineering of medical device software, **nuRemics** promotes structured, layered software development through clearly defined architectural components: systems, items, and units. This organization fosters clarity, modularity, and maintainability, while remaining well-suited to the iterative, exploratory nature of scientific development in Python. Although **nuRemics** does not aim for full compliance with **IEC 62304**, it selectively incorporates its most relevant principles, striking a pragmatic balance between engineering rigor and the agility required in fast-paced research environments.
+By adopting **nuRemics**, you're not just optimizing your workflows, you're becoming part of a movement. An uprising community of Deep Tech innovators who share knowledge, refine best practices, shape an emerging standard, and collectively push the boundaries of innovation. Whether you're in academia or industry, **nuRemics** helps you turn isolated scripts and notebooks into collaborative, scalable and maintainable assets, so your R&D investments deliver lasting value.
 
 ## Meet Our Ambassadors
 
