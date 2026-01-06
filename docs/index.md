@@ -62,11 +62,27 @@
 
 ## Why nuRemics?
 
-Scientific R&D thrives on rapid iteration, collaboration, and the ability to turn complex ideas into actionable tools. Yet, most Python-based R&D initiatives hit the same walls: isolated efforts, brittle codebases, and tools that are hard to share, scale, or maintain. These challenges don't just slow down progress, they silo knowledge, waste resources, and limit the collective impact of your work.
+**Build robust scientific R&D tools without being a software engineer.**
+
+Too often, groundbreaking research gets trapped in fragile scripts, forgotten notebooks, manual tweaks, and one-off analyses. The result? Wasted potential, lost time, and science that simply doesn't scale.
+
+Most scientists aren't trained in software engineering. Yet the quality of your code directly affects the quality of your science. Poorly managed code doesn't just slow you down; it limits the reach, reproducibility, and impact of your work.
+
+**nuRemics is here to break this cycle.**<br>
+We don't ask you to become a software engineer. We provide a framework that applies software-grade practices by design, so you can:
+
+- **Structure code** for clarity and maintainability.
+- **Separate logic from data** to avoid hardcoded chaos.
+- **Automate iterations** by running multiple experiments.
+- **Scale tools** from a single researcher's laptop to cross-team collaboration.
+
+Because great science shouldn't be held back by avoidable technical debt. Invest in clean code today, unlock faster discovery tomorrow. With **nuRemics**, your tools grow as robust as your ideas.
+
+<!-- Scientific R&D thrives on rapid iteration, collaboration, and the ability to turn complex ideas into actionable tools. Yet, most Python-based R&D initiatives hit the same walls: isolated efforts, brittle codebases, and tools that are hard to share, scale, or maintain. These challenges don't just slow down progress, they silo knowledge, waste resources, and limit the collective impact of your work.
 
 **nuRemics** breaks this cycle. As an open-source Python framework, it provides a unified foundation to build, connect, and future-proof your R&D tools. Inspired by **IEC 62304**, the gold standard for the development of medical device software, **nuRemics** bridges the gap between agile exploration and rigorous engineering. It fosters modular development, separates code from data, automates repetitive workflows, and enforces reproducibility with comprehensive traceability. So your team can finally focus on discovery, delivering high-quality science with maximum efficiency.
 
-By adopting **nuRemics**, you're not just optimizing your workflows, you're becoming part of a movement. An uprising community of Deep Tech innovators who share knowledge, refine best practices, shape an emerging standard, and collectively push the boundaries of innovation. Whether you're in academia or industry, **nuRemics** helps you turn isolated scripts and notebooks into collaborative, scalable and maintainable assets, so your R&D investments deliver lasting value.
+By adopting **nuRemics**, you're not just optimizing your workflows, you're becoming part of a movement. An uprising community of Deep Tech innovators who share knowledge, refine best practices, shape an emerging standard, and collectively push the boundaries of innovation. Whether you're in academia or industry, **nuRemics** helps you turn isolated scripts and notebooks into collaborative, scalable and maintainable assets, so your R&D investments deliver lasting value. -->
 
 ## Meet Our Ambassadors
 

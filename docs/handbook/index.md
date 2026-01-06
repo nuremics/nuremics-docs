@@ -21,7 +21,7 @@ In the context of **nuRemics**:
 
 <img src="https://raw.githubusercontent.com/julien-siguenza/nuremics-data/main/assets/architecture.svg" alt="NUREMICS Architecture" width="100%">
 
-In practice, the core framework `nuremics` is composed of three foundational _software items_:
+In practice, the core framework `nuremics` is composed of three foundational classes:
 
 - The `Process` class defines a generic process component. It provides a flexible base structure that can be extended to implement domain-specific processes within `nuremics-labs`.
 
