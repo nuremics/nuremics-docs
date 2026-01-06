@@ -64,7 +64,7 @@
 
 **Build robust scientific R&D tools without being a software engineer.**
 
-Too often, groundbreaking research gets trapped in fragile scripts, forgotten notebooks, manual tweaks, and one-off analyses. The result? Wasted potential, lost time, and science that simply doesn't scale.
+Too often, groundbreaking research gets trapped in fragile scripts and forgotten notebooks, with manual tweaks and one-off analyses. The result? Wasted potential, lost time, and science that simply doesn't scale.
 
 Most scientists aren't trained in software engineering. Yet the quality of your code directly affects the quality of your science. Poorly managed code doesn't just slow you down; it limits the reach, reproducibility, and impact of your work.
 
