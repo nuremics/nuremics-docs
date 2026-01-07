@@ -76,7 +76,7 @@ We don't ask you to become a software engineer. We provide a framework that appl
 - **Automate iterations** by running multiple experiments.
 - **Scale tools** from a single researcher's laptop to cross-team collaboration.
 
-Because great science shouldn't be held back by avoidable technical debt. Invest in clean code today, unlock faster discovery tomorrow. With **nuRemics**, your tools grow as robust as your ideas.
+Because great science shouldn't be held back by avoidable technical debt. Invest in clean code today, unlock faster discovery tomorrow.
 
 <!-- Scientific R&D thrives on rapid iteration, collaboration, and the ability to turn complex ideas into actionable tools. Yet, most Python-based R&D initiatives hit the same walls: isolated efforts, brittle codebases, and tools that are hard to share, scale, or maintain. These challenges don't just slow down progress, they silo knowledge, waste resources, and limit the collective impact of your work.
 
