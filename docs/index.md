@@ -62,7 +62,7 @@
 
 ## Why nuRemics?
 
-**Build robust scientific R&D tools without being a software engineer.**
+**Build robust scientific R&D tools that scale with your ideas, without being a software engineer.**
 
 Too often, groundbreaking research gets trapped in fragile scripts and forgotten notebooks, with manual tweaks and one-off analyses. The result? Wasted potential, lost time, and science that simply doesn't scale.
 
