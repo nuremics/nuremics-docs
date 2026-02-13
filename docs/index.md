@@ -16,7 +16,7 @@
   <a href="https://nuremics.github.io/coverage"
      target="_blank"
      rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Coverage-84%25-magenta?style=flat"/>
+    <img src="https://img.shields.io/badge/Coverage-83%25-magenta?style=flat"/>
   </a>
 </p>
 
@@ -43,7 +43,7 @@
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
   <a href="getting-started/"
     class="md-button md-button--primary">
-    Get Started
+    Getting Started
   </a>
   <a href="https://www.suffisciens.com/labsvision"
      target="_blank"
@@ -62,7 +62,7 @@
 ## Overview
 
 The **nuRemics** framework provides a dedicated environment to build custom software tools designed for the automated production of scientific results at scale, ensuring systematic reproducibility and full traceability across every execution. This is achieved through a clear separation of concerns, organized into the following layered structure:
-<br><br>
+<br>
 
 <div style="text-align: center;">
     <img src="./images/nuRemics_Overview.svg"
