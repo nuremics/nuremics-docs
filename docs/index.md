@@ -12,8 +12,7 @@
   <img src="https://img.shields.io/badge/Pandas-2.1.1+-0b0153?style=flat&logo=pandas&logoColor=white" />
   <img src="https://img.shields.io/badge/NumPy-1.26.0+-4dabcf?style=flat&logo=numpy&logoColor=white" />
   <img src="https://img.shields.io/badge/termcolor-1.1.0+-0dbc5a?style=flat" />
-  <img src="https://img.shields.io/badge/GitPython-3.1.0+-f05030?style=flat&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/pytest-8.1.1+-009fe3?style=flat&logo=pytest&logoColor=white" />
+  <img src="https://img.shields.io/badge/platformdirs-3.5+-364f87?style=flat" />
   <a href="https://nuremics.github.io/coverage"
      target="_blank"
      rel="noopener noreferrer">
@@ -21,7 +20,7 @@
   </a>
 </p>
 
-**nuRemics is an open-source Python framework for developing software-grade scientific workflows.**
+**nuRemics is an open-source Python framework for building software-grade scientific tools.**
 
 🔬 Scientific agility — engineering rigor.<br>
 🧩 Modular by design — no more siloed tools.<br>
@@ -42,47 +41,55 @@
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <a href="getting-started/"
+    class="md-button md-button--primary">
+    Get Started
+  </a>
   <a href="https://www.suffisciens.com/labsvision"
      target="_blank"
      rel="noopener noreferrer"
      class="md-button md-button--primary">
-    Start Your Onboarding
-  </a>
-    <a href="getting-started/"
-     class="md-button md-button--primary">
-    Getting Started
+    Onboarding
   </a>
   <a href="use-cases/"
-     class="md-button md-button--primary">
-    Explore Use Cases
+    class="md-button md-button--primary">
+    Use Cases
   </a>
 </div>
 
 ---
 
-## Why nuRemics?
+## Overview
 
-**Build robust scientific R&D tools that scale with your ideas, without being a software engineer.**
+The **nuRemics** framework provides a dedicated environment to build custom software tools designed for the automated production of scientific results at scale, ensuring systematic reproducibility and full traceability across every execution. This is achieved through a clear separation of concerns, organized into the following layered structure:
+<br><br>
 
-Too often, groundbreaking research gets trapped in fragile scripts and forgotten notebooks, with manual tweaks and one-off analyses. The result? Wasted potential, lost time, and science that simply doesn't scale.
+<div style="text-align: center;">
+    <img src="./images/nuRemics_Overview.svg"
+         width="80%">
+</div>
 
-Most scientists aren't trained in software engineering. Yet the quality of your code directly affects the quality of your science. Poorly managed code doesn't just slow you down; it limits the reach, reproducibility, and impact of your work.
+**APP**
 
-**nuRemics is here to break this cycle.**<br>
-We don't ask you to become a software engineer. We provide a framework that applies software-grade practices by design, so you can:
+It is the execution engine where the core scientific logic is formalized and implemented in a codebase. It operates as a structured workflow composed of autonomous software processes (e.g., Process1-3) executed in a sequential order. Each software process encapsulates a specific stage of the computation and acts as an independent functional item.
 
-- **Structure code** for clarity and maintainability.
-- **Separate logic from data** to avoid hardcoded chaos.
-- **Automate iterations** by running multiple experiments.
-- **Scale tools** from a single researcher's laptop to cross-team collaboration.
+**INPUTS**
 
-Because great science shouldn't be held back by avoidable technical debt. Invest in clean code today, unlock faster discovery tomorrow.
+It defines the entry points required by the application to function (e.g., Input1–6) and ensures that each input is routed to its respective software process, in order to satisfy the corresponding data requirements.
 
-<!-- Scientific R&D thrives on rapid iteration, collaboration, and the ability to turn complex ideas into actionable tools. Yet, most Python-based R&D initiatives hit the same walls: isolated efforts, brittle codebases, and tools that are hard to share, scale, or maintain. These challenges don't just slow down progress, they silo knowledge, waste resources, and limit the collective impact of your work.
+**OUTPUTS**
 
-**nuRemics** breaks this cycle. As an open-source Python framework, it provides a unified foundation to build, connect, and future-proof your R&D tools. Inspired by **IEC 62304**, the gold standard for the development of medical device software, **nuRemics** bridges the gap between agile exploration and rigorous engineering. It fosters modular development, separates code from data, automates repetitive workflows, and enforces reproducibility with comprehensive traceability. So your team can finally focus on discovery, delivering high-quality science with maximum efficiency.
+It defines the delivery points where results are produced during execution (e.g., Output1–4). Each software process generates its associated outputs, which are either stored as final results or re-routed as inputs of subsequent software processes within the workflow.
 
-By adopting **nuRemics**, you're not just optimizing your workflows, you're becoming part of a movement. An uprising community of Deep Tech innovators who share knowledge, refine best practices, shape an emerging standard, and collectively push the boundaries of innovation. Whether you're in academia or industry, **nuRemics** helps you turn isolated scripts and notebooks into collaborative, scalable and maintainable assets, so your R&D investments deliver lasting value. -->
+**CONFIGURATION**
+
+It orchestrates how the application is controlled by the operator across different study scenarios (e.g., Study1–2). For each study, the operator defines which inputs are _Fixed_ (stable throughout the study) and which are _Variable_ (changing between individual tests). This enables automated batch execution of multiple tests (e.g., Test1–3) by systematically updating the inputs.
+
+**TRACEABILITY**
+
+It automatically generates a structured directory tree (Study > Process > Test) where each output is stored within a hierarchy that directly links it back to the specific configuration that produced it. This provides a permanent, auditable record of every production run.
+
+---
 
 ## Meet Our Ambassadors
 
