@@ -62,7 +62,7 @@
 ## Overview
 
 The **nuRemics** framework provides a dedicated environment to build custom software tools designed for the automated production of scientific results at scale, ensuring systematic reproducibility and full traceability across every execution. This is achieved through a clear separation of concerns, organized into the following layered structure:
-<br>
+<br><br>
 
 <div style="text-align: center;">
     <img src="./images/nuRemics_Overview.svg"
