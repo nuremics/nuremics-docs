@@ -14,8 +14,8 @@ From the root directory of the repository, use Pixi to launch the application. O
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../experiment/" class="md-button md-button--primary">
-    Experiment
+  <a href="../explore/" class="md-button md-button--primary">
+    Explore
   </a>
 </div>
 
