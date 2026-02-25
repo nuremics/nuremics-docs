@@ -1,6 +1,25 @@
 # Getting Started
 
-## Foreword
+<div style="text-align: center; margin-top: 2em;">
+  <iframe width="640" height="360"
+          src="https://www.youtube.com/embed/13a4KUJ3wUE?autoplay=1&loop=1&playlist=13a4KUJ3wUE&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen>
+  </iframe>
+</div>
+
+---
+
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+  <a href="./installation/" class="md-button md-button--primary">
+    Installation
+  </a>
+</div>
+
+---
+
+<!-- ## Foreword
 
 The **nuRemics** project is organized into two complementary repositories:
 
@@ -275,9 +294,9 @@ Want to customize the overall analysis of experiment results for a given study? 
         },
         "overall_comparisons.png": {}
     }
-    ```
+    ``` -->
 
----
+<!-- ---
 
 <div align="center" style="font-weight: bold; font-size: 1.0rem;">
 You're now ready to dive into nuRemics🧬
@@ -289,4 +308,4 @@ You're now ready to dive into nuRemics🧬
   </a>
 </div>
 
----
+--- -->

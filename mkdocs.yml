@@ -2,7 +2,11 @@ site_name: nuRemics
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
+  - Getting Started:
+    - Overview: getting-started/index.md
+    - Installation: getting-started/installation.md
+    - Launch: getting-started/launch.md
+    - Experiment: getting-started/experiment.md
   - Handbook:
     - Overview: handbook/index.md
     - Theory: handbook/theory.md
