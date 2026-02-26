@@ -8,7 +8,7 @@ The present use case addresses a classical problem in **Solid Mechanics**, namel
   </figcaption>
 </figure>
 
-The projectile is modeled as a 2D polygonal shape defined by a set of vertices (see Fig. 2). This geometric representation explicitly defines the spatial boundaries of the object, moving beyond simplified point-mass model. The geometry is established by a sequence of $(x, y)$ coordinates where each vertex serves as a node for the boundary edges. By utilizing a discrete set of vertices, it provides a versatile polygonal model for defining arbitrary rigid body shapes.
+The projectile is modeled as a 2D polygonal shape defined by a set of vertices (see Fig. 2). This geometric representation explicitly defines the spatial boundaries of the object, moving beyond the simplified point-mass model. The geometry is established by a sequence of $(x, y)$ coordinates where each vertex serves as a node for the boundary edges. By utilizing a discrete set of vertices, it provides a versatile polygonal model for defining arbitrary rigid body shapes.
 
 <figure class="wide-caption">
   <img src="../../../../images/2D_polygon_shape.png" width="45%"/>
