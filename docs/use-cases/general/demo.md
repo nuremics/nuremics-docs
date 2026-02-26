@@ -1,4 +1,4 @@
-# Introduction
+# Projectile motion under gravity
 
 The present use case addresses a classical problem in **Solid Mechanics**, namely the simulation of projectile kinematics launched with an initial velocity and subjected to gravitational acceleration (see Fig. 1).
 
@@ -47,9 +47,9 @@ The comparison between the numerical simulation and this theoretical solution is
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../materials-and-methods/"
+  <a href="../../../labs/apps/general/DEMO_APP/"
      class="md-button md-button--primary">
-    Materials & Methods
+    View App
   </a>
 </div>
 
