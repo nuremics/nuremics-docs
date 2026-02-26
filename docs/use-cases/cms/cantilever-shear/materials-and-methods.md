@@ -1,6 +1,6 @@
 # Materials & Methods
 
-This use case is organized into a sequential scientific workflow, implemented through a **nuRemics App** called **[`CANTILEVER_SHEAR_APP`](../../../labs/apps/cms/CANTILEVER_SHEAR_APP/app.md){:target="_blank"}**.
+This use case is operationalized through a sequential scientific workflow, implemented as a **nuRemics App** called **[`CANTILEVER_SHEAR_APP`](../../../labs/apps/cms/CANTILEVER_SHEAR_APP/app.md){:target="_blank"}**.
 
 ## Workflow
 

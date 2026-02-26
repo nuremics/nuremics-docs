@@ -6,7 +6,7 @@ nav:
     - Overview: getting-started/index.md
     - Installation: getting-started/installation.md
     - Launch: getting-started/launch.md
-    - Explore: getting-started/explore.md
+    # - Explore: getting-started/explore.md
   - Handbook:
     - Overview: handbook/index.md
     - Theory: handbook/theory.md
@@ -24,16 +24,16 @@ nav:
           - Study_Dim: use-cases/cms/cantilever-shear/results/study-dim.md
     - AI & Data Science:
       - Overview: use-cases/aids/index.md
-  - Labs:
-    - Apps:
-      - General:
-        - DEMO_APP: labs/apps/general/DEMO_APP.md
-      - Modeling & Simulation:
-        - CANTILEVER_SHEAR_APP:
-          - App: labs/apps/cms/CANTILEVER_SHEAR_APP/app.md
-          - Procs:
-            - GeometryProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md
-            - LabelingProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/LabelingProc.md
+  # - Labs:
+  #   - Apps:
+  #     - General:
+  #       - DEMO_APP: labs/apps/general/DEMO_APP.md
+  #     - Modeling & Simulation:
+  #       - CANTILEVER_SHEAR_APP:
+  #         - App: labs/apps/cms/CANTILEVER_SHEAR_APP/app.md
+  #         - Procs:
+  #           - GeometryProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md
+  #           - LabelingProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/LabelingProc.md
     - Procs:
       - General:
         - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
@@ -63,7 +63,7 @@ theme:
     - content.code.copy
 
 extra_css:
-  - css/extra.css  # si tu veux encore plus personnaliser avec du CSS
+  - css/extra.css
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -75,3 +75,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

@@ -51,7 +51,7 @@ erDiagram
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="https://github.com/nuremics/nuremics-labs/tree/main/src/labs/procs/general/PolygonGeometryProc"
+  <a href="https://github.com/nuremics/nuremics-labs/tree/main/src/nuremics_labs/procs/general/PolygonGeometryProc"
      target="_blank"
      rel="noopener noreferrer"
      class="md-button md-button--primary">
