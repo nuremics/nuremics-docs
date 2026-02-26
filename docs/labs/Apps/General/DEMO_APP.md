@@ -1,3 +1,5 @@
+# DEMO_APP
+
 <p align="left">
   <img src="https://img.shields.io/badge/Pandas-2.1.1+-0b0153?style=flat&logo=pandas&logoColor=white" />
   <img src="https://img.shields.io/badge/NumPy-1.26.0+-4dabcf?style=flat&logo=numpy&logoColor=white" />
@@ -264,7 +266,7 @@ flowchart LR
 #### Paths
 
 - **`plot_title.txt`:** File containing the plot title of the 2D polygon shape.
-- **`velocity.json`:** File containing the velocity initial conditions {$v_0$ $(m/s)$; $\alpha$ $(°)$}.
+- **`velocity.json`:** File containing the velocity initial conditions $\{\, v_0\,(\mathrm{m/s}); \; \alpha\,(^\circ)\,\}$.
 - **`configs/`** <br>
   **`solver_config.json`:** File containing the parameters for solver configuration. <br>
   **`display_config.json`:** File containing the parameters for display configuration.
