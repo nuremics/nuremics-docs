@@ -3,7 +3,7 @@
 The present use case addresses a classical problem in **Solid Mechanics**, namely the simulation of projectile kinematics launched with an initial velocity and subjected to gravitational acceleration (see Fig. 1).
 
 <figure class="wide-caption">
-  <img src="../../../../images/projectile_motion.png" width="25%"/>
+  <img src="../../../../images/projectile_motion.png" width="27%"/>
   <figcaption>Figure 1: Schematic representation of a polygonal projectile launched from its center of mass with an initial velocity (green vector) at an angle &alpha; relative to the horizontal. The projectile is subjected to a constant downward gravitational acceleration (red vector).
   </figcaption>
 </figure>
