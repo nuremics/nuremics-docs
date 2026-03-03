@@ -1,13 +1,13 @@
 # Launch
 
-<!-- <div style="text-align: center; margin-top: 2em;">
+<div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/juAJPkfQPyA?autoplay=1&loop=1&playlist=juAJPkfQPyA&mute=1"
+          src="https://www.youtube.com/embed/Q0e_OXe1JpM?autoplay=1&loop=1&playlist=Q0e_OXe1JpM&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
   </iframe>
-</div> -->
+</div>
 
 Now that the environment is ready, let's launch our first **nuRemics** application:
 
