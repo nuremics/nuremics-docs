@@ -12,7 +12,7 @@ This repository serves as the central hub providing a graphical front-end for ma
 
 <div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/juAJPkfQPyA?autoplay=1&loop=1&playlist=juAJPkfQPyA&mute=1"
+          src="https://www.youtube.com/embed/1F0HBIPNypY?autoplay=1&loop=1&playlist=1F0HBIPNypY&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
@@ -22,7 +22,7 @@ This repository serves as the central hub providing a graphical front-end for ma
 Installation proceeds as follows:
 
 1. **Install Pixi** <br>
-Pixi is used to easily manage mixed pip / conda dependencies commonly encountered in scientific software projects. Follow the installation steps described at this [link](https://pixi.prefix.dev/dev/installation/){:target="_blank"}.
+Pixi is used to easily manage mixed [PyPI](https://pypi.org/){:target="_blank"} and [Conda](https://docs.conda.io/projects/conda/en/latest/index.html){:target="_blank"} dependencies commonly encountered in scientific software projects. Follow the installation steps described on the [Pixi website](https://pixi.prefix.dev/dev/installation/){:target="_blank"}.
 
 2. **Clone the [`nuremics-studio`](https://github.com/nuremics/nuremics-studio){:target="_blank"} repository** <br>
 This repository provides the central graphical front-end used to launch and manage **nuRemics** applications.

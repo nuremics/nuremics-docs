@@ -1,4 +1,13 @@
-# Explore
+# Exploration
+
+<div style="text-align: center; margin-top: 2em;">
+  <iframe width="640" height="360"
+          src="https://www.youtube.com/embed/7BXMfTy62DQ?autoplay=1&loop=1&playlist=7BXMfTy62DQ&mute=1"
+          frameborder="0"
+          allow="autoplay"
+          allowfullscreen>
+  </iframe>
+</div>
 
 Let's dive deeper by conducting our own scientific exploration. We now analyze how gravity affects the trajectory of the projectile by configuring a custom study that simulates the same projectile on different planets (the Earth, the Moon and Mars):
 
@@ -15,7 +24,7 @@ Create three distinct input datasets to test different gravity values:
     - `Mars`: Set the parameter to the gravity of Mars (`-3.72` m/s²).
 
 4. **Manage the execution flow** <br>
-To focus strictly on our new exploration, we can deactivate the execution of `Study_Shape` and `Study_Velocity`.
+To focus strictly on our new exploration, we can disable the execution of `Study_Shape` and `Study_Velocity`.
 
 5. **Enable silent mode** <br>
 Configure the software processes (`PolygonGeometryProc`, `ProjectileModelProc`, and `TrajectoryAnalysisProc`) to run in _silent mode_. This prevents interactive windows from popping up, allowing the application to execute all computations quietly in the background.
@@ -39,11 +48,12 @@ By default, all curves in the `overall_comparisons.png` output are plotted using
         - `markevery`: `50`
 
 8. **Restart the analysis** <br>
-To update the `overall_comparisons.png` plot without re-running the entire study, we can deactivate the execution of `PolygonGeometryProc` and `ProjectileModelProc` and relaunch the application to execute only the `TrajectoryAnalysisProc`. The results section will instantly refresh with our new visual styles.
+To update the `overall_comparisons.png` plot without re-running the entire study, we can disable the execution of `PolygonGeometryProc` and `ProjectileModelProc` and relaunch the application to execute only the `TrajectoryAnalysisProc`. The results section will instantly refresh with our new visual styles.
 
 9. **Run your own experiment** <br>
 It is now your turn to expand this exploration. Add a fourth input dataset to the `Study_Gravity` by choosing a planet of your choice (e.g., Jupiter, Venus, or even the Sun) and look up its gravity value:
-    - To optimize the execution, deactivate the previous datasets (`Earth`, `Moon`, `Mars`) within the study. This ensures the application will only process your new dataset.
+    - To avoid repeated computations, you can disable the execution of the previous datasets (`Earth`, `Moon`, `Mars`) within the study. This ensures the application will only process your new dataset.
+    - However, make sure to re-enable the execution of the `PolygonGeometryProc` and `ProjectileModelProc` so they can generate their output results for this new dataset.
     - Customize the appearance of your new curve in the `TrajectoryAnalysisProc` results settings. You can refer to the [Matplotlib](https://matplotlib.org/stable/){:target="_blank"} conventions for the [colors](https://matplotlib.org/stable/gallery/color/named_colors.html){:target="_blank"}, [markers](https://matplotlib.org/stable/api/markers_api.html){:target="_blank"} and [linestyles](https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html).
 
 ---

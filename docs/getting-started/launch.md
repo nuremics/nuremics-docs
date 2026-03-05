@@ -40,8 +40,8 @@ Click the _Run App_ button to start the computations. The application will autom
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../explore/" class="md-button md-button--primary">
-    Explore
+  <a href="../exploration/" class="md-button md-button--primary">
+    Exploration
   </a>
 </div>
 
