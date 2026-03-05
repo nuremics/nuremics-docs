@@ -7,7 +7,7 @@
        style="margin-bottom: 0.5rem; display: block;">
 </a>
 
-**nuRemics is an open-source Python framework for building software-grade scientific tools.**
+**nuRemics: An open-source Python framework for building software-grade scientific tools.**
 
 🔬 Scientific agility — engineering rigor.<br>
 🧩 Modular by design — no more siloed tools.<br>
@@ -20,7 +20,7 @@
 
 <div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/GbbZldfJHy0?autoplay=1&loop=1&playlist=GbbZldfJHy0&mute=1"
+          src="https://www.youtube.com/embed/1aHiaBxe9nA?autoplay=1&loop=1&playlist=1aHiaBxe9nA&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
