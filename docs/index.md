@@ -4,10 +4,10 @@
    target="_blank"
    rel="noopener noreferrer">
   <img src="images/banner.jpg"
-       style="margin-bottom: 0.5rem; display: block;">
+       style="margin-bottom: 0; display: block;">
 </a>
 
-**nuRemics: An open-source Python framework for building software-grade scientific tools.**
+_An open-source Python framework for building software-grade scientific tools._
 
 🔬 Scientific agility — engineering rigor.<br>
 🧩 Modular by design — no more siloed tools.<br>
