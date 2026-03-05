@@ -6,7 +6,7 @@ nav:
     - Overview: getting-started/index.md
     - Installation: getting-started/installation.md
     - Launch: getting-started/launch.md
-    # - Explore: getting-started/explore.md
+    - Explore: getting-started/explore.md
   - Handbook:
     - Overview: handbook/index.md
     - Theory: handbook/theory.md
@@ -34,11 +34,11 @@ nav:
   #         - Procs:
   #           - GeometryProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md
   #           - LabelingProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/LabelingProc.md
-    - Procs:
-      - General:
-        - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
-        - ProjectileModelProc: labs/procs/general/ProjectileModelProc.md
-        - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
+  #   - Procs:
+  #     - General:
+  #       - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
+  #       - ProjectileModelProc: labs/procs/general/ProjectileModelProc.md
+  #       - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
   # - Meet Our Ambassadors:
   #   - Irina RAKOTOARISEDY: ambassadors/Irina_RAKOTOARISEDY.md
   # - Development Chart: development-chart.md

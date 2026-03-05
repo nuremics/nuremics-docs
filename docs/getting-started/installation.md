@@ -21,10 +21,10 @@ This repository serves as the central hub providing a graphical front-end for ma
 
 Installation proceeds as follows:
 
-1. **Install Pixi.** <br>
+1. **Install Pixi** <br>
 Pixi is used to easily manage mixed pip / conda dependencies commonly encountered in scientific software projects. Follow the installation steps described at this [link](https://pixi.prefix.dev/dev/installation/){:target="_blank"}.
 
-2. **Clone the [`nuremics-studio`](https://github.com/nuremics/nuremics-studio){:target="_blank"} repository.** <br>
+2. **Clone the [`nuremics-studio`](https://github.com/nuremics/nuremics-studio){:target="_blank"} repository** <br>
 This repository provides the central graphical front-end used to launch and manage **nuRemics** applications.
 
     === "HTTPS"
@@ -38,7 +38,7 @@ This repository provides the central graphical front-end used to launch and mana
         git clone git@github.com:nuremics/nuremics-studio.git
         ```
 
-3. **Install the project using Pixi.** <br>
+3. **Install the project using Pixi** <br>
 From the root of the repository, Pixi will resolve and install all required dependencies, creating a fully configured and reproducible development environment.
 
     ```bash
