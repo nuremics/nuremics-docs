@@ -1,11 +1,9 @@
 # Usability
 
-The **Apps** built with **nuRemics** come with a lean and pragmatic user interface by design. No flashy GUI, but instead, the focus is on simplicity and efficiency:
+The **Apps** built with **nuRemics** come with a lean and pragmatic user interface by design:
 
 - An input database that the operator completes by editing configuration files and uploading the required input files and folders.
-
 - A terminal interface that provides informative feedback at each execution, clearly indicating what the **App** is doing and what actions are expected from the operator.
-
 - An output database that stores all results in a well-structured and traceable folder hierarchy.
 
 ```mermaid
