@@ -9,7 +9,7 @@
   </iframe>
 </div>
 
-The software architecture of **nuRemics** is illustrated in the diagram below. It follows the layered structure recommended by the **IEC 62304** standard, distinguishing between _software systems_, _software items_, and _software units_. This representation provides a clear, high-level view of how the different software components of the project are organized, and how they interact within a structured yet flexible development framework. It also highlights the relationship between the core framework (`nuremics`) and its domain-specific applications (`nuremics-labs`), emphasizing the modular and extensible nature of the overall architecture.
+The software architecture of **nuRemics** is illustrated in the diagram below. It follows the layered structure recommended by the **IEC 62304** standard, distinguishing between _software systems_, _software items_, and _software units_. This representation provides a clear, high-level view of how the different software components of the project are organized, and how they interact within a structured yet flexible development framework. It also highlights the relationship between the core framework ([**`nuremics`**](https://github.com/nuremics/nuremics){:target="_blank"}) and its domain-specific applications ([**`nuremics-labs`**](https://github.com/nuremics/nuremics-labs){:target="_blank"}), emphasizing the modular and extensible nature of the overall architecture.
 
 In the context of **nuRemics**:
 
@@ -37,16 +37,12 @@ In `nuremics-labs`, two main types of software components are developed to build
 
 ---
 
-<div align="center" style="font-weight: bold; font-size: 1.0rem;">
-Explore nuRemics in:
-</div>
-
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="theory/" class="md-button md-button--primary">
-    Theory
+  <a href="./design/" class="md-button md-button--primary">
+    Design
   </a>
-  <a href="practice/" class="md-button md-button--primary">
-    Practice
+  <a href="./usability/" class="md-button md-button--primary">
+    Usability
   </a>
 </div>
 

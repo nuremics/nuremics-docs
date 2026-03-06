@@ -9,8 +9,8 @@ nav:
     - Exploration: getting-started/exploration.md
   - Handbook:
     - Overview: handbook/index.md
-    - Theory: handbook/theory.md
-    - Practice: handbook/practice.md
+    - Design: handbook/design.md
+    - Usability: handbook/usability.md
   - Use Cases:
     - Overview : use-cases/index.md
     - Modeling & Simulation:
