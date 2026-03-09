@@ -2,7 +2,7 @@
 
 <div style="text-align: center; margin-bottom: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/HyUkWXGqEIM?autoplay=1&loop=1&playlist=HyUkWXGqEIM&mute=1"
+          src="https://www.youtube.com/embed/e53Ol2u_lHo?autoplay=1&loop=1&playlist=e53Ol2u_lHo&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
