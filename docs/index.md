@@ -28,19 +28,8 @@
 </div>
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="getting-started/"
-    class="md-button md-button--primary">
-    Getting Started
-  </a>
-  <a href="https://www.suffisciens.com/labsvision"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="md-button md-button--primary">
-    Onboarding
-  </a>
-  <a href="use-cases/"
-    class="md-button md-button--primary">
-    Use Cases
+  <a href="assets/nuRemics_Initiation.pdf" download class="md-button md-button--primary">
+    Download the Initiation Guide (PDF)
   </a>
 </div>
 
