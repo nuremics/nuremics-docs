@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile="Immersive" version="3.3" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
+<head>
+    <meta name="generator" content="pythonocc-7.8.1.1 X3D exporter (www.pythonocc.org)"/>
+    <meta name="creator" content="pythonocc-7.8.1.1 generator"/>
+    <meta name="identifier" content="http://www.pythonocc.org"/>
+    <meta name="description" content="pythonocc-7.8.1.1 x3dom based shape rendering"/>
+</head>
+<Scene>
+<Switch whichChoice='0' id='swBRP'>
+	<Group>
+		<Transform scale='1 1 1'><Shape DEF='edg0'>
+			<Appearance><Material emissiveColor='0 0 0'/></Appearance>
+			<LineSet vertexCount='2'><Coordinate point='0.0 0.0 0.0 10.0 0.0 0.0 '/></LineSet>
+		</Shape></Transform>
+	</Group>
+</Switch>
+</Scene>
+</X3D>

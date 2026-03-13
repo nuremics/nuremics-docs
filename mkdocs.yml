@@ -15,7 +15,7 @@ nav:
     - Overview : use-cases/index.md
     - Modeling & Simulation:
       - Overview: use-cases/simulation/index.md
-      - Cantilever subjected to end shear force: use-cases/simulation/cantilever-shear.md
+      - Cantilever subjected to end shear force: use-cases/simulation/cantilever-shear/index.md
     - AI & Data Science:
       - Overview: use-cases/aids/index.md
 
