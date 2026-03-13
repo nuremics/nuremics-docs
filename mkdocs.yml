@@ -14,39 +14,10 @@ nav:
   - Use Cases:
     - Overview : use-cases/index.md
     - Modeling & Simulation:
-      - Overview: use-cases/cms/index.md
-      - Cantilever subjected to end shear force:
-        - Overview: use-cases/cms/cantilever-shear/index.md
-        - Introduction: use-cases/cms/cantilever-shear/introduction.md
-        - Material & Methods: use-cases/cms/cantilever-shear/materials-and-methods.md
-        - Results:
-          - Overview: use-cases/cms/cantilever-shear/results/index.md
-          - Study_Dim: use-cases/cms/cantilever-shear/results/study-dim.md
+      - Overview: use-cases/simulation/index.md
+      - Cantilever subjected to end shear force: use-cases/simulation/cantilever-shear.md
     - AI & Data Science:
       - Overview: use-cases/aids/index.md
-  # - Labs:
-  #   - Apps:
-  #     - General:
-  #       - DEMO_APP: labs/apps/general/DEMO_APP.md
-  #     - Modeling & Simulation:
-  #       - CANTILEVER_SHEAR_APP:
-  #         - App: labs/apps/cms/CANTILEVER_SHEAR_APP/app.md
-  #         - Procs:
-  #           - GeometryProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/GeometryProc.md
-  #           - LabelingProc: labs/apps/cms/CANTILEVER_SHEAR_APP/procs/LabelingProc.md
-  #   - Procs:
-  #     - General:
-  #       - PolygonGeometryProc: labs/procs/general/PolygonGeometryProc.md
-  #       - ProjectileModelProc: labs/procs/general/ProjectileModelProc.md
-  #       - TrajectoryAnalysisProc: labs/procs/general/TrajectoryAnalysisProc.md
-  # - Meet Our Ambassadors:
-  #   - Irina RAKOTOARISEDY: ambassadors/Irina_RAKOTOARISEDY.md
-  # - Development Chart: development-chart.md
-
-    # - Computational Modeling & Simlation
-    #   - Overview
-    #   - Computational Structural Mechanics
-    #     - Cantilever subjected to end shear force
 
 theme:
   name: material
