@@ -1,9 +1,11 @@
 # Computational Modeling & Simulation (CM&S)
 
 <div class="card fullwidth">
-  <a href="cantilever-shear/">Cantilever subjected to end shear force</a>
+  <a href="cantilever-shear/app.html" target="_blank" rel="noopener noreferrer">
+  Cantilever subjected to end shear force
+  </a>
   <div class="card-description">Computational Structural Mechanics (CSM) benchmark focusing on the non-linear response of a shear-loaded beam structure.</div>
-  <a href="cantilever-shear/">
+  <a href="cantilever-shear/app.html" target="_blank" rel="noopener noreferrer">
     <img src="../../images/cantilever_shear_figure.png" style="width: 70%; margin-top: 15px; margin-bottom: 5px;">
   </a>
 </div>
