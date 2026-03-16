@@ -1,10 +1,8 @@
 # CANTILEVER_SHEAR_APP
 
 <p align="left">
-  <img src="https://img.shields.io/badge/CadQuery-2.5.2+-2980b9" />
+  <img src="https://img.shields.io/badge/pythonocc--core-7.4.0+-f7941e" />
   <img src="https://img.shields.io/badge/Gmsh-4.14.0+-ffffff" />
-  <img src="https://img.shields.io/badge/pythonocc--core-7.9.0-f7941e" />
-  <img src="https://img.shields.io/badge/PyQt6-6.9.1-000000" />
 </p>
 
 ## Workflow
@@ -16,10 +14,10 @@
 
 ```mermaid
 flowchart RL
-  **GeometryProc** e1@--1--o **CANTILEVER_SHEAR_APP**
-  **LabelingProc** e2@--2--o **CANTILEVER_SHEAR_APP**
-  **create_geometry** e3@--A--o **GeometryProc**
-  **label_entities** e4@--A--o **LabelingProc**
+  **GeometryProc** e1@--1--o CANTILEVER_SHEAR_APP
+  LabelingProc e2@--2--o CANTILEVER_SHEAR_APP
+  create_geometry e3@--A--o GeometryProc
+  label_entities e4@--A--o LabelingProc
   e1@{ animate: true }
   e2@{ animate: true }
   e3@{ animate: true }
@@ -46,7 +44,7 @@ erDiagram
     float height "0.1"
   }
   **output_paths** {
-    file outfile "geometry.(step/brep)"
+    file outfile "geometry.brep"
   }
 ```
 
@@ -63,7 +61,7 @@ erDiagram
     int dim "dimension"
   }
   **required_paths** {
-    file infile "geometry.(step/brep)"
+    file infile "geometry.brep"
   }
   **output_paths** {
     file outfile "labels.json"
@@ -96,7 +94,7 @@ flowchart LR
 
   subgraph **OUTPUTS**
     direction RL
-    out1["geometry.(step/brep) _(file)_"]
+    out1["geometry.brep _(file)_"]
     out2["labels.json _(file)_"]
   end
 
@@ -127,7 +125,7 @@ flowchart LR
 
   subgraph **OUTPUTS**
     direction RL
-    out1["geometry.(step/brep) _(file)_"]
+    out1["geometry.brep _(file)_"]
   end
 
   **INPUTS** --> proc1
@@ -141,7 +139,7 @@ flowchart LR
 
     subgraph **Paths**
       direction LR
-      out1["geometry.(step/brep) _(file)_"]
+      out1["geometry.brep _(file)_"]
     end
 
     subgraph **Parameters**
@@ -180,7 +178,7 @@ N/A
 
 ### OUTPUTS
 
-- **`geometry.(step/brep)`:** File containing the geometric model (in .step if `dim` = 3|2 or .brep if `dim` = 1).
+- **`geometry.brep`:** File containing the geometric model.
 - **`labels.json`:** File containing the labeled geometric entities.
 
 ---

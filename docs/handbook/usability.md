@@ -37,32 +37,32 @@ The operator then configures each study by selecting which inputs stay constant 
 ```mermaid
 flowchart LR
 
-  subgraph Fixed1["**Fixed**"]
+  subgraph Fixed1["<b>Fixed<b>"]
     direction TB
 
-    subgraph Paths_Fixed1["**Paths**"]
+    subgraph Paths_Fixed1["<b>Paths<b>"]
       direction LR
       path1_1["plot_title.txt"]
       path2_1["velocity.json"]
       path3_1["configs"]
     end
 
-    subgraph Parameter_Fixed1["**Parameters**"]
+    subgraph Parameter_Fixed1["<b>Parameters<b>"]
       direction LR
       param2_1["gravity"]
       param3_1["mass"]
     end
   end
 
-  subgraph Variable1["**Variable**"]
+  subgraph Variable1["<b>Variable<b>"]
     direction TB
 
-    subgraph Paths_Variable1["**Paths**"]
+    subgraph Paths_Variable1["<b>Paths<b>"]
       direction LR
       no_path["_"]
     end
 
-    subgraph Parameter_Variable1["**Parameters**"]
+    subgraph Parameter_Variable1["<b>Parameters<b>"]
       direction LR
       param1_1["nb_sides"]
     end
@@ -71,16 +71,16 @@ flowchart LR
   Study_Shape --> Fixed1
   Study_Shape --> Variable1
 
-  subgraph Fixed2["**Fixed**"]
+  subgraph Fixed2["<b>Fixed<b>"]
     direction TB
 
-    subgraph Paths_Fixed2["**Paths**"]
+    subgraph Paths_Fixed2["<b>Paths<b>"]
       direction LR
       path1_2["plot_title.txt"]
       path3_2["configs"]
     end
 
-    subgraph Parameter_Fixed2["**Parameters**"]
+    subgraph Parameter_Fixed2["<b>Parameters<b>"]
       direction LR
       param1_2["nb_sides"]
       param2_2["gravity"]
@@ -88,15 +88,15 @@ flowchart LR
     end
   end
 
-  subgraph Variable2["**Variable**"]
+  subgraph Variable2["<b>Variable<b>"]
     direction TB
 
-    subgraph Paths_Variable2["**Paths**"]
+    subgraph Paths_Variable2["<b>Paths<b>"]
       direction LR
       path2_2["velocity.json"]
     end
 
-    subgraph Parameter_Variable2["**Parameters**"]
+    subgraph Parameter_Variable2["<b>Parameters<b>"]
       direction LR
       no_param["_"]
     end

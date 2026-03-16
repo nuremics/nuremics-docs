@@ -47,8 +47,10 @@ The comparison between the numerical simulation and this theoretical solution is
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../../../labs/apps/general/DEMO_APP/"
-     class="md-button md-button--primary">
+  <a href="https://github.com/nuremics/nuremics-labs/tree/main/src/nuremics_labs/apps/general/DEMO_APP"
+     class="md-button md-button--primary"
+     target="_blank"
+     rel="noopener noreferrer">
     View App
   </a>
 </div>
