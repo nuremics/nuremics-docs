@@ -40,8 +40,10 @@ In the present use case, the benchmark problem is employed to establish the cred
 ---
 
 <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <a href="../../../labs/apps/simulation/CANTILEVER_SHEAR_APP/app"
-     class="md-button md-button--primary">
+  <a href="https://github.com/nuremics/sim-labs/tree/cantilever-shear/src/nuremics_labs/apps/simulation/CANTILEVER_SHEAR_APP"
+     class="md-button md-button--primary"
+     target="_blank"
+     rel="noopener noreferrer">
     View App
   </a>
 </div>
