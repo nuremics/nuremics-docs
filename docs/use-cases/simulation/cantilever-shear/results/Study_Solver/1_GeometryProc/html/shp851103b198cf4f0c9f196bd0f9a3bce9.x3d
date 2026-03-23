@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf8'?>
+<X3D xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profile="Immersive" version="3.3" xsi:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.3.xsd">
+<head>
+    <meta name="generator" content="pythonocc-7.9.0 X3D exporter (https://github.com/tpaviot/pythonocc-core)" />
+    <meta name="creator" content="pythonocc-7.9.0 generator" />
+    <meta name="identifier" content="https://github.com/tpaviot/pythonocc-core" />
+    <meta name="description" content="pythonocc-7.9.0 x3dom based shape rendering" />
+</head>
+<Scene>
+<Switch whichChoice="0" id="swBRP"><Transform scale="1 1 1">
+<Shape DEF="shape0" onclick="select(this);">
+<Appearance>
+<Material id="material_0" diffuseColor="0.65 0.65 0.7" shininess="0.9" specularColor="0.2 0.2 0.2" transparency="0.0" />
+</Appearance>
+<TriangleSet solid="false">
+<Coordinate point="0 -0.5 0.05 0 0.5 -0.05 0 -0.5 -0.05 0 -0.5 0.05 0 0.5 0.05 0 0.5 -0.05 10 -0.5 0.05 10 -0.5 -0.05 10 0.5 -0.05 10 -0.5 0.05 10 0.5 -0.05 10 0.5 0.05 10 -0.5 -0.05 0 -0.5 0.05 0 -0.5 -0.05 10 -0.5 0.05 0 -0.5 0.05 10 -0.5 -0.05 10 0.5 -0.05 0 0.5 -0.05 0 0.5 0.05 10 0.5 0.05 10 0.5 -0.05 0 0.5 0.05 10 0.5 -0.05 0 -0.5 -0.05 0 0.5 -0.05 10 0.5 -0.05 10 -0.5 -0.05 0 -0.5 -0.05 10 0.5 0.05 0 0.5 0.05 0 -0.5 0.05 10 0.5 0.05 0 -0.5 0.05 10 -0.5 0.05 " />
+<Normal vector="-1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 " />
+</TriangleSet>
+</Shape></Transform></Switch>
+<Switch whichChoice="0" id="swBRP">
+	<Group>
+		<Transform scale="1 1 1"><Shape DEF="edg0">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 -0.5 -0.05000000074505806 0.0 -0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg1">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 -0.5 0.05000000074505806 0.0 0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg2">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 0.5 -0.05000000074505806 0.0 0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg3">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 -0.5 -0.05000000074505806 0.0 0.5 -0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg4">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="10.0 -0.5 -0.05000000074505806 10.0 -0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg5">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="10.0 -0.5 0.05000000074505806 10.0 0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg6">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="10.0 0.5 -0.05000000074505806 10.0 0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg7">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="10.0 -0.5 -0.05000000074505806 10.0 0.5 -0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg8">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 -0.5 -0.05000000074505806 10.0 -0.5 -0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg9">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 -0.5 0.05000000074505806 10.0 -0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg10">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 0.5 -0.05000000074505806 10.0 0.5 -0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+		<Transform scale="1 1 1"><Shape DEF="edg11">
+			<Appearance><Material emissiveColor="0 0 0" /></Appearance>
+			<LineSet vertexCount="2"><Coordinate point="0.0 0.5 0.05000000074505806 10.0 0.5 0.05000000074505806 " /></LineSet>
+		</Shape></Transform>
+	</Group>
+</Switch>
+</Scene>
+</X3D>
