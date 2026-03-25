@@ -16,6 +16,7 @@ nav:
     - Overview : use-cases/index.md
     - Modeling & Simulation:
       - Overview: use-cases/simulation/index.md
+      - Projectile motion under gravity: use-cases/general/demo/app.html
       - Cantilever subjected to end shear force: use-cases/simulation/cantilever-shear/app.html
     - AI & Data Science:
       - Overview: use-cases/aids/index.md
@@ -34,10 +35,6 @@ theme:
   features:
     - content.code.copy
 
-# plugins:
-#     - search
-#     - mermaid2
-
 extra_css:
   - css/extra.css
 
@@ -47,7 +44,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-          # format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
