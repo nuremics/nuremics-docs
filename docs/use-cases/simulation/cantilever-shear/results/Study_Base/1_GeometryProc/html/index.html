@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>pythonOCC 7.8.1.1 x3dom renderer</title>
+    <title>pythonOCC 7.9.0 x3dom renderer</title>
     <meta name='Author' content='Thomas Paviot - tpaviot@gmail.com'>
     <meta name='Keywords' content='WebGl,pythonOCC'>
     <meta charset="utf-8">
@@ -60,13 +60,13 @@
 	<x3d id='pythonocc-x3d-scene' style='width:100%;height:100%;border:none' >
 		<Scene>
 <transform id="global_scene_rotation_Id" rotation="1 0 0 -1.57079632679">
-			<Inline onload="fitCamera() "mapDEFToID="true" url="shpbbd07710c29f46878e0e8c22d6d6bef7.x3d"></Inline>
+			<Inline onload="fitCamera() "mapDEFToID="true" url="shp0d7a4a691070401cab7e582fb4f8be22.x3d"></Inline>
 			</transform>
 		</Scene>
 	</x3d>
 
     <div id="pythonocc_rocks">
-        pythonocc-7.8.1.1 <a href="https://www.x3dom.org" target="_blank">x3dom</a> renderer
+        pythonocc-7.9.0 <a href="https://www.x3dom.org" target="_blank">x3dom</a> renderer
     </div>
     <div id="commands">
     <b>t</b> view/hide shape<br>
@@ -98,7 +98,7 @@
         current_mat = mat;
         console.log(mat);
         selected_target_color = mat.diffuseColor;
-        mat.diffuseColor = "1, 0.65, 0";
+        mat.diffuseColor = "1. 0.65 0.";
         //console.log(the_shape.getElementsByTagName("Appearance"));//.getAttribute('diffuseColor'));
     }
     function onDocumentKeyPress(event) {
@@ -107,9 +107,11 @@
          if (current_selected_shape) {
            if (current_selected_shape.render == "true") {
               current_selected_shape.render = "false";
+              console.log("hide ", current_selected_shape);
            }
            else {
               current_selected_shape.render = "true";
+              console.log("show ", current_selected_shape)
            }
          }
       }
