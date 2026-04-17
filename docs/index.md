@@ -27,7 +27,7 @@ The difference isn't about the quality of the underlying science. It's about whe
 
 <div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/Z7ZXKyQVask?autoplay=1&loop=1&playlist=Z7ZXKyQVask&mute=1"
+          src="https://www.youtube.com/embed/lZG7TWRrj1E?autoplay=1&loop=1&playlist=lZG7TWRrj1E&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
