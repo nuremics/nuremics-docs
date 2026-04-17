@@ -13,11 +13,11 @@ Most R&D teams never turn their research scripts into lasting tools. Not because
 
 A research tool is fundamentally different:
 
-- **Documented** — not just for you, but for a stranger.<br>
-- **Tested** — not just "it ran on my machine", but verified against known results.<br>
-- **Modular** — so others can extend it without breaking everything.<br>
-- **Versioned** — so every result can be traced back to the exact code that produced it.<br>
-- **Collaborative** — so the whole team builds on the same foundation.
+- 📚 **Documented** — not just for you, but for a stranger.<br>
+- ✅ **Tested** — not just "it ran on my machine", but verified against known results.<br>
+- 🧩 **Modular** — so others can extend it without breaking everything.<br>
+- 🔄 **Versioned** — so every result can be traced back to the exact code that produced it.<br>
+- 👥 **Collaborative** — so the whole team builds on the same foundation.
 
 The difference isn't about the quality of the underlying science. It's about whether the science can grow beyond the person who created it.
 
@@ -27,7 +27,7 @@ The difference isn't about the quality of the underlying science. It's about whe
 
 <div style="text-align: center; margin-top: 2em;">
   <iframe width="640" height="360"
-          src="https://www.youtube.com/embed/1aHiaBxe9nA?autoplay=1&loop=1&playlist=1aHiaBxe9nA&mute=1"
+          src="https://www.youtube.com/embed/Z7ZXKyQVask?autoplay=1&loop=1&playlist=Z7ZXKyQVask&mute=1"
           frameborder="0"
           allow="autoplay"
           allowfullscreen>
@@ -74,7 +74,7 @@ It automatically generates a structured directory tree (Study > Process > Test) 
 
 ---
 
-## Meet Our Ambassadors
+## Ambassadors
 
 <div class="ambassadors-scroll">
 
