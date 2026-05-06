@@ -11,6 +11,16 @@
 </div>
 
 <div class="card fullwidth">
+  <a href="flow-bend/app.html" target="_blank" rel="noopener noreferrer">
+  Laminar flow in a 90-degree bend
+  </a>
+  <div class="card-description">Computational Fluid Dynamics (CFD) benchmark focusing on the transient laminar flow within a cylindrical tube with a 90-degree bend.</div>
+  <a href="flow-bend/app.html" target="_blank" rel="noopener noreferrer">
+    <img src="../../images/FLOW_BEND_APP.png" style="width: 100%; margin-top: 15px; margin-bottom: 5px;">
+  </a>
+</div>
+
+<div class="card fullwidth">
   <a href="../general/demo/app.html" target="_blank" rel="noopener noreferrer">
   Projectile motion under gravity
   </a>
