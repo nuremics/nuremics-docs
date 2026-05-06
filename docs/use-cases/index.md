@@ -9,9 +9,9 @@
 </div>
 
 <div class="card fullwidth">
-  <a href="aids/">Artificial Intelligence (AI) & Data Science</a>
+  <a href="aiml/">Artificial Intelligence / Machine Learning</a>
   <div class="card-description">Extract knowledge and drive decisions from data using statistical, machine learning, and deep learning methods.</div>
-  <a href="aids/">
-    <img src="../../images/aids.png" style="width: 80%; margin-top: 15px; margin-bottom: 5px;">
+  <a href="aiml/">
+    <img src="../../images/AI_ML.png" style="width: 80%; margin-top: 15px; margin-bottom: 5px;">
   </a>
 </div>

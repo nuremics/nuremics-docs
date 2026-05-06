@@ -15,7 +15,7 @@ nav:
   - Use Cases:
     - Overview : use-cases/index.md
     - Modeling & Simulation: use-cases/simulation/index.md
-    - AI & Data Science: use-cases/aids/index.md
+    - AI/ML: use-cases/aiml/index.md
 
 theme:
   name: material

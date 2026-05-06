@@ -1,4 +1,4 @@
-# Artificial Intelligence (AI) & Data Science
+# Artificial Intelligence / Machine Learning (AI/ML)
 
 Coming soon...
 
