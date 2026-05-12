@@ -14,7 +14,7 @@ nav:
     - Usability: handbook/usability.md
   - Use Cases:
     - Overview : use-cases/index.md
-    - Modeling & Simulation: use-cases/simulation/index.md
+    - CM&S: use-cases/simulation/index.md
     - AI/ML: use-cases/aiml/index.md
 
 theme:
