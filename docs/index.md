@@ -9,7 +9,7 @@
 
 **nuRemics is an open-source Python framework for building software-grade scientific tools.**
 
-Most R&D teams never turn their research scripts into lasting tools. Not because they lack talent, but because nobody ever showed them how. A research script solves a problem once: it's written fast, in a notebook or a standalone script, by one person, for one purpose. It works brilliantly, sometimes. Then it gets used once, saved somewhere, and forgotten. Six months later, nobody can run it. Not even the person who wrote it.
+Most R&D teams never turn their research scripts into lasting tools. Not because they lack talent, but because nobody ever showed them how. A research script solves a problem once: it's written fast, in a notebook or a standalone `.py` file, by one person, for one purpose. It works brilliantly, sometimes. Then it gets used once, saved somewhere, and forgotten. Six months later, nobody can run it. Not even the person who wrote it.
 
 A research tool is fundamentally different:
 
@@ -77,6 +77,15 @@ It automatically generates a structured directory tree (Study > Process > Test) 
 ## Ambassadors
 
 <div class="ambassadors-scroll">
+
+  <a href="https://www.suffisciens.com/julien-siguenza" class="ambassador-card"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="../images/Julien_SIGUENZA.png">
+    <div class="ambassador-name">Julien SIGÜENZA</div>
+    <div class="ambassador-role">Creator of nuRemics</div>
+    <div class="ambassador-org">SUFFISCIENS</div>
+  </a>
 
   <a href="ambassadors/Irina_RAKOTOARISEDY" class="ambassador-card"
      target="_blank"
